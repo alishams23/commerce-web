@@ -1,9 +1,36 @@
 @import "tailwindcss";
 
+/*
+  font-normal default
+  font-semibold
+  font-bold
+  font-black
+*/
 @font-face {
   font-family: "Peyda";
-  src: url("/fonts/Peyda/Peyda.woff2") format("woff2");
-  font-weight: normal;
+  src: url("/fonts/Peyda/Peyda-ExtraBold.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("/fonts/Peyda/Peyda-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("/fonts/Peyda/Peyda-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Peyda";
+  src: url("/fonts/Peyda/Peyda-Regular.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -97,4 +124,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Peyda", Arial, Helvetica, sans-serif;
+
+  /* TODO: Remove unnecessary lines */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }
