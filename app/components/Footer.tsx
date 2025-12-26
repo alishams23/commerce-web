@@ -17,8 +17,8 @@ const BADGES = [
   { src: "/Footer/namad.png", alt: "نماد" },
   { src: "/Footer/meli-badge.png", alt: "ملی‌نماد" },
   { src: "/Footer/kasbokar.png", alt: "کسب‌و‌کار" },
-  { src: "/Footer/namad.png", alt: "نماد" },
-  { src: "/Footer/meli-badge.png", alt: "ملی‌نماد" },
+  { src: "/Footer/namad.png", alt: "نماد2" },
+  { src: "/Footer/meli-badge.png", alt: "2ملی‌نماد" },
 ] as const;
 
 function Footer() {
