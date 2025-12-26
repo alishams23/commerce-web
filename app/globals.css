@@ -173,3 +173,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.sideways-lr {
+  writing-mode: sideways-lr;
+}

@@ -5,6 +5,7 @@ import {
   ArrowLeft,
   ArrowRight,
   BagTick2,
+  Call,
   I24Support,
   Location,
   ShieldTick,
@@ -109,14 +110,14 @@ function Footer() {
         </div>
         <div className="flex flex-col gap-6">
           <div className="flex gap-6">
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
               <div className="text-lg font-black">دسترسی سریع</div>
               <div className="font-normals text-sm">دسته بندی</div>
               <div className="text-sm font-normal">محصولات تخفیف‌ دار</div>
               <div className="text-sm font-normal">تماس باما</div>
               <div className="text-sm font-normal">درباره ما</div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col gap-4">
               <div className="text-lg font-black">دسترسی سریع</div>
               <div className="font-normals text-sm">دسته بندی</div>
               <div className="text-sm font-normal">محصولات تخفیف‌ دار</div>
@@ -124,37 +125,60 @@ function Footer() {
               <div className="text-sm font-normal">درباره ما</div>
             </div>
           </div>
-          <div className="flex flex-col">
-            {/* TODO: Add icon */}
+          <div className="flex flex-col gap-2">
             <div className="flex gap-1">
               <Location variant="Bold" />
               <div className="font-semibold">آدرس</div>
             </div>
-            <div className="text-sm font-normal">
+            <div className="pr-7.5 text-sm font-normal">
               آدرس فروشگاه: یزد ، بلوار ۱۷ شهریور ، رو به روی سینما جام جم
             </div>
-            <div className="text-sm font-normal">
+            <div className="pr-7.5 text-sm font-normal">
               آدرس کارخانه: یزد ، شهرک صنعتی ، بلوک بهار
             </div>
           </div>
         </div>
         {/* Buttons */}
-        <div className="flex flex-wrap gap-4">
-          <div className="flex min-w-36 flex-col items-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
+        <div className="grid grid-cols-4 gap-4">
+          <div className="col-span-2 flex min-w-36 flex-col items-center justify-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
             <BagTick2 variant="Bold" size={24} />
-            <div>تحویل اکسپرس</div>
+            <div className="text-sm">تحویل اکسپرس</div>
           </div>
-          <div className="flex min-w-36 flex-col items-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
+          <div className="col-span-2 flex min-w-36 flex-col items-center justify-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
             <I24Support variant="Bold" size={24} />
-            <div>مشاوره و پشتیبانی</div>
+            <div className="text-sm">مشاوره و پشتیبانی</div>
           </div>
-          <div className="flex min-w-36 flex-col items-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
+          <div className="col-span-2 flex min-w-36 flex-col items-center justify-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
             <TruckFast variant="Bold" size={24} />
-            <div>ارسال رایگان</div>
+            <div className="text-sm">ارسال رایگان</div>
           </div>
-          <div className="flex min-w-36 flex-col items-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
+          <div className="col-span-2 flex min-w-36 flex-col items-center justify-center gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
             <ShieldTick variant="Bold" size={24} />
-            <div>گارانتی بازگشت وجه</div>
+            <div className="text-sm">گارانتی بازگشت وجه</div>
+          </div>
+          <div className="col-span-2 flex flex-col gap-2">
+            <Call variant="Bold" />
+            <div>شماره تماس پشتیبانی</div>
+            <div className="self-end text-sm">۰۳۵-۸۲۴۹۸۳۴</div>
+            <div className="self-end text-sm">۰۹۱۳۵۶۷۲۳۴۳</div>
+          </div>
+          <div className="flex h-28 flex-col items-center justify-between gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
+            <Image
+              alt="telegram"
+              src={"/Footer/telegram-icon.svg"}
+              width={24}
+              height={24}
+            />
+            <div className="sideways-lr text-sm">تلگرام</div>
+          </div>
+          <div className="flex h-28 flex-col items-center justify-between gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal">
+            <Image
+              alt="instagram"
+              src={"/Footer/instagram-icon.svg"}
+              width={24}
+              height={24}
+            />
+            <div className="sideways-lr text-sm">اینستاگرام</div>
           </div>
         </div>
       </div>
