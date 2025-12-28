@@ -18,9 +18,9 @@ import SocialButton from "./components/SocialButton";
 function Footer() {
   return (
     <div className="from-primary-dark to-primary flex flex-col rounded-t-2xl bg-linear-to-b text-white">
-      <div className="flex justify-between gap-16 px-8 pt-8 pb-6">
+      <div className="flex flex-col justify-between gap-6 px-12 pt-8 pb-6 md:flex-row md:gap-16 md:px-8">
         {/* About */}
-        <div className="flex max-w-[38%] flex-col gap-4 pr-8">
+        <div className="flex max-w-136.5 flex-col gap-4 md:pr-8">
           <div className="flex gap-2">
             <Image
               alt="کیف ابراشیم"
@@ -33,7 +33,7 @@ function Footer() {
             </div>
           </div>
 
-          <p className="text-sm font-normal">
+          <p className="text-justify text-sm font-normal">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
             ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه درصد گذشته
@@ -47,15 +47,19 @@ function Footer() {
 
         {/* Links and Address */}
         <div className="flex flex-col gap-6">
-          <div className="flex gap-6">
+          <div className="flex justify-between gap-6">
             <LinkColumn title="دسترسی سریع" links={QUICK_LINKS} />
             <LinkColumn title="دسترسی سریع" links={QUICK_LINKS} />
           </div>
           <AddressSection addresses={ADDRESSES} />
         </div>
 
+        <div className="lg:hidden">
+          <ContactInfo phoneNumbers={PHONE_NUMBERS} />
+        </div>
+
         {/* Features, Contact, and Social */}
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 px-4 md:px-0">
           {FEATURES.map((feature) => (
             <FeatureCard
               key={feature.label}
@@ -64,16 +68,20 @@ function Footer() {
             />
           ))}
 
-          <ContactInfo phoneNumbers={PHONE_NUMBERS} />
+          <div className="col-span-2 hidden lg:block">
+            <ContactInfo phoneNumbers={PHONE_NUMBERS} />
+          </div>
 
-          {SOCIAL_LINKS.map((social) => (
-            <SocialButton
-              key={`${social.label}`}
-              icon={social.icon}
-              label={social.label}
-              href={social.href}
-            />
-          ))}
+          <div className="col-span-2 col-start-3 flex gap-4">
+            {SOCIAL_LINKS.map((social) => (
+              <SocialButton
+                key={`${social.label}`}
+                icon={social.icon}
+                label={social.label}
+                href={social.href}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <hr className="text-[#B0B0B0]" />

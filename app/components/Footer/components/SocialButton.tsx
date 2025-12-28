@@ -10,7 +10,7 @@ function SocialButton({ icon, label, href }: SocialButtonProps) {
   return (
     <a
       href={href}
-      className="flex h-28 flex-col items-center justify-between gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal transition-opacity hover:opacity-80"
+      className="flex h-28 grow flex-col items-center justify-between gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal transition-opacity hover:opacity-80"
     >
       <Image alt={label} src={icon} width={24} height={24} />
       <div className="sideways-lr text-sm">{label}</div>
