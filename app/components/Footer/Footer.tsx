@@ -1,5 +1,9 @@
 import Image from "next/image";
 
+import { ArrowUp } from "iconsax-reactjs";
+
+import { Button } from "@/components/ui/button";
+
 import {
   ADDRESSES,
   FEATURES,
@@ -17,7 +21,7 @@ import SocialButton from "./components/SocialButton";
 
 function Footer() {
   return (
-    <div className="from-primary-dark to-primary flex flex-col rounded-t-2xl bg-linear-to-b text-white">
+    <div className="from-primary-dark to-primary relative flex flex-col rounded-t-2xl bg-linear-to-b text-white">
       <div className="flex flex-col justify-between gap-6 px-12 pt-8 pb-6 md:flex-row md:gap-16 md:px-8">
         {/* About */}
         <div className="flex max-w-136.5 flex-col gap-4 md:pr-8">
@@ -33,7 +37,7 @@ function Footer() {
             </div>
           </div>
 
-          <p className="text-justify text-sm font-normal">
+          <p className="text-justify text-sm leading-6 font-normal">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
             ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه درصد گذشته
@@ -85,6 +89,11 @@ function Footer() {
         </div>
       </div>
       <hr className="text-[#B0B0B0]" />
+      <Button className="absolute bottom-1.5 left-8 hidden gap-0.5 bg-white text-[#4A4A4A] hover:bg-gray-300 md:inline-flex">
+        {/* TODO: add function to go up */}
+        <div className="font-normal">بریم بالا</div>
+        <ArrowUp />
+      </Button>
       <p className="py-3 text-center font-medium text-[#B0B0B0]">
         تمامی حقوق این وبسایت متعلق به آقای ابریشم میباشد
       </p>
