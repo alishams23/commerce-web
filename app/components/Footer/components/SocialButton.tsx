@@ -1,7 +1,7 @@
-import Image from "next/image";
+import { ReactElement } from "react";
 
 type SocialButtonProps = {
-  icon: string;
+  icon: ReactElement;
   label: string;
   href: string;
 };
@@ -12,7 +12,7 @@ function SocialButton({ icon, label, href }: SocialButtonProps) {
       href={href}
       className="flex h-28 grow flex-col items-center justify-between gap-1 rounded-2xl bg-[#F7F7F733] py-3.5 font-normal transition-opacity hover:opacity-80"
     >
-      <Image alt={label} src={icon} width={24} height={24} />
+      {icon}
       <div className="sideways-lr text-sm">{label}</div>
     </a>
   );

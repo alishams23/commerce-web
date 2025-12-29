@@ -1,8 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "iconsax-reactjs";
 import Image from "next/image";
+
+import IconArrowRight from "@/components/icons/IconArrowRight";
+import IconArrowLeft from "@/components/icons/IconArrowLeft";
+import { Button } from "@/components/ui/button";
+
 import { BADGES } from "../constants";
 import useBadgeSlider from "../hooks/useBadgeSlider";
 
@@ -16,7 +19,7 @@ function BadgeSlider() {
   return (
     <div className="flex items-center gap-3">
       <Button onClick={handleNext} className="h-26 shrink-0 bg-[#F7F7F7] px-1">
-        <ArrowRight color="gray" variant="Bold" size={20} />
+        <IconArrowRight />
       </Button>
       <div
         ref={scrollContainerRef}
@@ -38,7 +41,7 @@ function BadgeSlider() {
         ))}
       </div>
       <Button onClick={handlePrev} className="h-26 shrink-0 bg-[#F7F7F7] px-1">
-        <ArrowLeft color="gray" variant="Bold" size={20} />
+        <IconArrowLeft />
       </Button>
     </div>
   );

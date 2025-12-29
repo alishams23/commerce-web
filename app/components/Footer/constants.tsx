@@ -1,3 +1,5 @@
+import IconInstagram from "@/components/icons/IconInstagram";
+import IconTelegram from "@/components/icons/IconTelegram";
 import { BagTick2, I24Support, ShieldTick, TruckFast } from "iconsax-reactjs";
 
 export const BADGES = [
@@ -46,12 +48,12 @@ export const FEATURES = [
 
 export const SOCIAL_LINKS = [
   {
-    icon: "/Footer/telegram-icon.svg",
+    icon: <IconTelegram />,
     label: "تلگرام",
     href: "#",
   },
   {
-    icon: "/Footer/instagram-icon.svg",
+    icon: <IconInstagram />,
     label: "اینستاگرام",
     href: "#",
   },
