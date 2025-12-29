@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 
-import IconArrowRight from "@/components/icons/IconArrowRight";
-import IconArrowLeft from "@/components/icons/IconArrowLeft";
+import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 
 import { BADGES } from "../constants";
