@@ -27,7 +27,13 @@ function BannerCategoryCard({
         </Button>
       </div>
 
-      <Image src={imageSrc} alt={title} width={90} height={90} />
+      <Image
+        src={imageSrc}
+        alt={title}
+        width={120}
+        height={120}
+        className="h-22.5 w-22.5 md:h-30 md:w-30"
+      />
     </div>
   );
 }
