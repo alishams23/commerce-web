@@ -67,12 +67,12 @@ function Banner() {
               <div>کالکشن جدید</div>
               <IconArrowLeft color="white" />
             </Button>
-            <Button className="rounded-2xl bg-[#FFFFFF66] px-10">
+            <Button className="rounded-2xl bg-[#FFFFFF66] px-10 shadow-[inset_0.6px_0.3px_0_rgba(255,255,255,0.65),0_0_0_0.4px_rgba(255,255,255,0.45)]">
               درباره ما
             </Button>
           </div>
         </div>
-        <div className="absolute bottom-4 left-4 flex h-26.25 items-center overflow-hidden rounded-3xl bg-[#EFEFEF33] pr-5 text-white">
+        <div className="absolute bottom-4 left-4 flex h-26.25 items-center overflow-hidden rounded-3xl bg-[#EFEFEF33] pr-5 text-white shadow-[inset_0.5px_0.3px_0_rgba(255,255,255,0.65),0_0_0_0.4px_rgba(255,255,255,0.45)]">
           <div className="text-primary text-[40px] font-black [-webkit-text-stroke:1px_white]">
             50%
           </div>
