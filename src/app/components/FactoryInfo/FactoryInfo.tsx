@@ -1,5 +1,5 @@
-import { IconInstagram } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import { IconInstagram } from "@/src/components/icons";
+import { Button } from "@/src/components/ui/button";
 import { ArrowLeft, LikeShapes, Location } from "iconsax-reactjs";
 
 function FactoryInfo() {

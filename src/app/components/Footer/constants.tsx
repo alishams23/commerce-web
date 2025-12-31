@@ -1,4 +1,4 @@
-import { IconInstagram, IconTelegram } from "@/components/icons";
+import { IconInstagram, IconTelegram } from "@/src/components/icons";
 import { BagTick2, I24Support, ShieldTick, TruckFast } from "iconsax-reactjs";
 
 export const BADGES = [

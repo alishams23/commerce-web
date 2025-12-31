@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { ArrowUp } from "iconsax-reactjs";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 
 import {
   ADDRESSES,
