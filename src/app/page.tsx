@@ -3,7 +3,7 @@ import FactoryInfo from "./components/FactoryInfo/FactoryInfo";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-21">
+    <div className="flex flex-col gap-12 md:gap-21">
       <Banner />
       <div className="md:px-36">
         <FactoryInfo />
