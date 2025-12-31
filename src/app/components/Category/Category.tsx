@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 
+import useBadgeSlider from "../../../hooks/useBadgeSlider";
+
 import { Button } from "@/src/components/ui/button";
-import useBadgeSlider from "../Footer/hooks/useBadgeSlider";
 import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
 
 const CATEGORIES: { title: string; src: string }[] = [

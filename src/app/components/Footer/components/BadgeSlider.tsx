@@ -6,7 +6,7 @@ import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
 import { Button } from "@/src/components/ui/button";
 
 import { BADGES } from "../constants";
-import useBadgeSlider from "../hooks/useBadgeSlider";
+import useBadgeSlider from "../../../../hooks/useBadgeSlider";
 
 function BadgeSlider() {
   /* -------------------------------------------------------------------------- */
