@@ -17,7 +17,10 @@ function BadgeSlider() {
 
   return (
     <div className="flex items-center gap-3">
-      <Button onClick={handleNext} className="h-26 shrink-0 bg-[#F7F7F7] px-1">
+      <Button
+        onClick={handleNext}
+        className="hidden h-26 shrink-0 bg-[#F7F7F7] px-1 md:flex"
+      >
         <IconArrowRight />
       </Button>
       <div
@@ -39,7 +42,10 @@ function BadgeSlider() {
           </div>
         ))}
       </div>
-      <Button onClick={handlePrev} className="h-26 shrink-0 bg-[#F7F7F7] px-1">
+      <Button
+        onClick={handlePrev}
+        className="hidden h-26 shrink-0 bg-[#F7F7F7] px-1 md:flex"
+      >
         <IconArrowLeft />
       </Button>
     </div>
