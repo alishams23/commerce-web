@@ -32,7 +32,7 @@ function Footer() {
               width={27}
               height={34.5}
             />
-            <div className="content-end text-2xl leading-2 font-black">
+            <div className="content-end font-[Kalameh] text-2xl leading-2 font-black">
               کیف ابراشیم
             </div>
           </div>
