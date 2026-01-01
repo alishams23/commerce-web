@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 
-import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
+import {
+  IconDiagonalArrowLeft,
+  IconDiagonalArrowRight,
+} from "@/src/components/icons";
 import { Button } from "@/src/components/ui/button";
 
 import { BADGES } from "../constants";
@@ -21,7 +24,7 @@ function BadgeSlider() {
         onClick={handleNext}
         className="hidden h-26 shrink-0 bg-[#F7F7F7] px-1 md:flex"
       >
-        <IconArrowRight />
+        <IconDiagonalArrowRight />
       </Button>
       <div
         ref={scrollContainerRef}
@@ -46,7 +49,7 @@ function BadgeSlider() {
         onClick={handlePrev}
         className="hidden h-26 shrink-0 bg-[#F7F7F7] px-1 md:flex"
       >
-        <IconArrowLeft />
+        <IconDiagonalArrowLeft />
       </Button>
     </div>
   );

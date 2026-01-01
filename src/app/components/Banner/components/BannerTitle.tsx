@@ -1,5 +1,5 @@
+import { IconDiagonalArrowLeft } from "@/src/components/icons";
 import { Button } from "@/src/components/ui/button";
-import { IconArrowLeft } from "@/src/components/icons";
 
 function BannerTitle() {
   return (
@@ -17,7 +17,7 @@ function BannerTitle() {
         <div>
           <Button className="ml-3 gap-1 rounded-2xl">
             کالکشن جدید
-            <IconArrowLeft color="white" />
+            <IconDiagonalArrowLeft color="white" />
           </Button>
 
           <Button className="rounded-2xl bg-[#FFFFFF66] px-10 shadow-[inset_0.6px_0.3px_0_rgba(255,255,255,0.65),0_0_0_0.4px_rgba(255,255,255,0.45)]">

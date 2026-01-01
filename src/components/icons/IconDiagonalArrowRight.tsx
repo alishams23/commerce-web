@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 import { IconProps } from "./IconType";
 
-function IconArrowRight({ color = "#9B9B9B", size = 18 }: IconProps) {
+function IconDiagonalArrowRight({ color = "#9B9B9B", size = 18 }: IconProps) {
   return (
     <Icon size={size}>
       <path
@@ -14,4 +14,4 @@ function IconArrowRight({ color = "#9B9B9B", size = 18 }: IconProps) {
   );
 }
 
-export default IconArrowRight;
+export default IconDiagonalArrowRight;
