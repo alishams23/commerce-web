@@ -1,13 +1,11 @@
 "use client";
 
-import { Button } from "@/src/components/ui/button";
-import {
-  IconDiagonalArrowLeft,
-  IconDiagonalArrowRight,
-} from "@/src/components/icons";
-import CategoryItem from "./CategoryItem";
-import { CATEGORIES } from "../constants";
+import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
 import useBadgeSlider from "@/src/hooks/useBadgeSlider";
+import { Button } from "@/src/components/ui/button";
+
+import { CATEGORIES } from "../constants";
+import CategoryItem from "./CategoryItem";
 
 function CategorySlider() {
   /* -------------------------------------------------------------------------- */
@@ -22,7 +20,7 @@ function CategorySlider() {
         onClick={handleNext}
         className="hidden h-29.5 shrink-0 rounded-xl bg-[#F7F7F759] px-2 md:flex"
       >
-        <IconDiagonalArrowRight color="white" />
+        <IconArrowRight color="white" />
       </Button>
 
       <div
@@ -38,7 +36,7 @@ function CategorySlider() {
         onClick={handlePrev}
         className="hidden h-29.5 shrink-0 rounded-xl bg-[#F7F7F759] px-2 md:flex"
       >
-        <IconDiagonalArrowLeft color="white" />
+        <IconArrowLeft color="white" />
       </Button>
     </div>
   );

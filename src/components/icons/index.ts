@@ -9,3 +9,5 @@ export { default as IconDiagonalArrowLeft } from "./IconDiagonalArrowLeft";
 export { default as IconDiagonalArrowRight } from "./IconDiagonalArrowRight";
 export { default as IconInstagram } from "./IconInstagram";
 export { default as IconTelegram } from "./IconTelegram";
+export { default as IconArrowLeft } from "./IconArrowLeft";
+export { default as IconArrowRight } from "./IconArrowRight";
