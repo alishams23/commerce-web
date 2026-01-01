@@ -5,7 +5,7 @@ import FactoryInfoMedia from "./components/FactoryInfoMedia";
 
 function FactoryInfo() {
   return (
-    <div className="flex flex-col gap-6 md:flex-row md:gap-30">
+    <div className="mx-12 flex flex-col gap-6 md:mx-36 md:flex-row md:gap-30">
       {/* Contents and Actions */}
       <div className="flex flex-col gap-2 md:w-1/2 md:gap-6">
         <FactoryInfoContent />
