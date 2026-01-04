@@ -3,7 +3,7 @@ import { ArrowLeft } from "iconsax-reactjs";
 import IconStart from "@/src/components/icons/IconStart";
 import { Button } from "@/src/components/ui/button";
 
-import NewProductsItemCard from "./NewProductsItemCard/NewProductsItemCard";
+import ProductsItemCard from "../../../components/ProductsItemCard/ProductsItemCard";
 import { NEW_PRODUCTS } from "./constants";
 
 function NewProducts() {
@@ -26,7 +26,7 @@ function NewProducts() {
       {/* Items */}
       <div className="scrollbar-hide flex justify-between gap-3 overflow-x-auto md:mx-0">
         {NEW_PRODUCTS.map(({ colors, title, src, price }, index) => (
-          <NewProductsItemCard
+          <ProductsItemCard
             key={title + index}
             colors={colors}
             price={price}

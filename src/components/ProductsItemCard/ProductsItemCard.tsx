@@ -5,19 +5,19 @@ import { Bag } from "iconsax-reactjs";
 import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
 import { Button } from "@/src/components/ui/button";
 
-type TNewProductsItemCardProps = {
+type TProductsItemCardProps = {
   src: string;
   colors: string[];
   title: string;
   price: number;
 };
 
-function NewProductsItemCard({
+function ProductsItemCard({
   colors,
   title,
   price,
   src,
-}: TNewProductsItemCardProps) {
+}: TProductsItemCardProps) {
   return (
     <div className="relative flex min-w-fit flex-col gap-2 rounded-3xl bg-[#F7F7F7] p-4">
       <div className="flex flex-col rounded-2xl bg-white">
@@ -59,4 +59,4 @@ function NewProductsItemCard({
   );
 }
 
-export default NewProductsItemCard;
+export default ProductsItemCard;
