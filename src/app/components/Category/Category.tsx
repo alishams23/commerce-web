@@ -1,7 +1,7 @@
-import CategoryDots from "./Components/CategoryDots";
+import SquarePattern from "@/src/components/SquarePattern/SquarePattern";
 import CategoryHeader from "./Components/CategoryHeader";
 import CategorySlider from "./Components/CategorySlider";
-import SquarePattern from "./Components/SquarePattern";
+import CategoryDots from "./Components/CategoryDots";
 import { CATEGORIES } from "./constants";
 
 function Category() {
