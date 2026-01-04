@@ -1,4 +1,10 @@
-export const IMAGES: { src: string; title: string; id: number }[] = [
+export type GalleryImage = {
+  id: number;
+  title: string;
+  src: string;
+};
+
+export const IMAGES: GalleryImage[] = [
   {
     id: 0,
     title: "تولیدی کیف های کارتونی",
