@@ -1,4 +1,4 @@
-type TArticle = {
+export type TArticle = {
   id: number;
   src: string;
   title: string;
