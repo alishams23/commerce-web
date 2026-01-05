@@ -1,9 +1,10 @@
-import Banner from "./components/Banner/Banner";
-import Category from "./components/Category/Category";
+import AmazingDiscounts from "./components/AmazingDiscounts/AmazingDiscounts";
 import FactoryInfo from "./components/FactoryInfo/FactoryInfo";
-import Gallery from "./components/Gallery/Gallery";
-import Ideal from "./components/Ideal/Ideal";
 import NewProducts from "./components/NewProducts/NewProducts";
+import Category from "./components/Category/Category";
+import Gallery from "./components/Gallery/Gallery";
+import Banner from "./components/Banner/Banner";
+import Ideal from "./components/Ideal/Ideal";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Ideal />
       <NewProducts />
       <Gallery />
+      <AmazingDiscounts />
     </div>
   );
 }
