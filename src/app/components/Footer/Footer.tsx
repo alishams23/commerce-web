@@ -92,7 +92,7 @@ function Footer() {
       <Button className="absolute bottom-1.5 left-8 hidden gap-0.5 bg-white text-[#4A4A4A] hover:bg-gray-300 md:inline-flex">
         {/* TODO: add function to go up */}
         <div className="font-normal">بریم بالا</div>
-        <ArrowUp />
+        <ArrowUp variant="Broken" />
       </Button>
       <p className="py-3 text-center font-medium text-[#B0B0B0]">
         تمامی حقوق این وبسایت متعلق به آقای ابریشم میباشد

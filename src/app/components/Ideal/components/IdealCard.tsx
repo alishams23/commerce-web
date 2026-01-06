@@ -35,7 +35,7 @@ function IdealCard({
         <Button className="max-w-35 gap-6 rounded-lg border bg-transparent text-[#373254]">
           <div className="text-[16px] font-semibold">بیشتر</div>
           <div className="relative z-0 rounded-full border p-1">
-            <ArrowLeft size={13} />
+            <ArrowLeft size={13} variant="Broken" />
             <div className="absolute top-0 left-2 -z-10 h-full w-full rounded-full bg-[#FFFFFF4D]" />
           </div>
         </Button>

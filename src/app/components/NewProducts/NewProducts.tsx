@@ -17,7 +17,7 @@ function NewProducts() {
         <Button className="hidden w-fit gap-3 rounded-lg bg-[#EBF0FF] p-6 text-[#373254] md:flex">
           <div className="text-[16px] font-semibold">مشاهده همه</div>
           <div className="relative z-0 rounded-full border-2 p-1">
-            <ArrowLeft size={13} />
+            <ArrowLeft size={13} variant="Broken" />
             <div className="absolute top-0 left-2 -z-10 h-full w-full rounded-full bg-[#051F6F30]" />
           </div>
         </Button>
@@ -39,7 +39,7 @@ function NewProducts() {
       <Button className="flex w-fit gap-3 self-center rounded-lg bg-[#EBF0FF] p-6 text-[#373254] md:hidden">
         <div className="text-[16px] font-semibold">مشاهده همه</div>
         <div className="relative z-0 rounded-full border-2 p-1">
-          <ArrowLeft size={13} />
+          <ArrowLeft size={13} variant="Broken" />
           <div className="absolute top-0 left-2 -z-10 h-full w-full rounded-full bg-[#051F6F30]" />
         </div>
       </Button>

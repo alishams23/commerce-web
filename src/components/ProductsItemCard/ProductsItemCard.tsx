@@ -53,7 +53,7 @@ function ProductsItemCard({
       </div>
 
       <Button className="absolute bottom-4 left-4 bg-white p-3">
-        <Bag color="#9F9F9F" />
+        <Bag variant="Broken" color="#9F9F9F" />
       </Button>
     </div>
   );
