@@ -52,7 +52,7 @@ function ProductsItemCard({
         {price} تومان
       </div>
 
-      <Button className="absolute bottom-4 left-4 rounded-2xl bg-white p-3">
+      <Button className="absolute bottom-4 left-4 bg-white p-3">
         <Bag color="#9F9F9F" />
       </Button>
     </div>

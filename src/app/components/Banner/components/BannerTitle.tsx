@@ -15,12 +15,12 @@ function BannerTitle() {
         </p>
 
         <div>
-          <Button className="ml-3 gap-1 rounded-2xl">
+          <Button className="ml-3 gap-1">
             کالکشن جدید
             <IconDiagonalArrowLeft color="white" />
           </Button>
 
-          <Button className="rounded-2xl bg-[#FFFFFF66] px-10 shadow-[inset_0.6px_0.3px_0_rgba(255,255,255,0.65),0_0_0_0.4px_rgba(255,255,255,0.45)]">
+          <Button className="bg-[#FFFFFF66] px-10 shadow-[inset_0.6px_0.3px_0_rgba(255,255,255,0.65),0_0_0_0.4px_rgba(255,255,255,0.45)]">
             درباره ما
           </Button>
         </div>

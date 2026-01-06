@@ -6,7 +6,7 @@ function MenuButton() {
   return (
     <Button
       variant="outline"
-      className="text-primary flex h-12.5 w-12.5 rounded-2xl md:hidden"
+      className="text-primary flex h-12.5 w-12.5 md:hidden"
     >
       <HamburgerMenu />
     </Button>
