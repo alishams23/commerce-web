@@ -7,7 +7,7 @@ import { ArrowLeft, Location } from "iconsax-reactjs";
 function FactoryInfoActions() {
   return (
     <div className="flex gap-6 self-center">
-      <Button className="bg-secondary rounded-full pr-1 pl-2">
+      <Button className="bg-secondary hover:bg-secondary-foreground rounded-full pr-1 pl-2">
         <span className="rounded-full bg-white px-3 py-1 font-light text-black">
           گوگل مپ
         </span>

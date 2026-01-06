@@ -7,7 +7,7 @@ function CategoryHeader() {
         <span className="font-bold md:ml-1">دسته بندی</span> محصولات
       </div>
 
-      <Button className="bg-secondary w-fit border border-white">
+      <Button className="bg-secondary hover:bg-secondary-foreground w-fit border border-white">
         مشاهده همه
       </Button>
     </div>

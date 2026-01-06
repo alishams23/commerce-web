@@ -32,7 +32,10 @@ function IdealCard({
         <div className="max-w-45.5 text-2xl leading-10 font-black text-[#373254] md:max-w-67.5 md:text-4xl">
           {content}
         </div>
-        <Button className="max-w-35 gap-6 rounded-lg border bg-transparent text-[#373254]">
+        <Button
+          variant="outline"
+          className="max-w-35 gap-6 rounded-lg text-[#373254]"
+        >
           <div className="text-[16px] font-semibold">بیشتر</div>
           <div className="relative z-0 rounded-full border p-1">
             <ArrowLeft size={13} variant="Broken" />

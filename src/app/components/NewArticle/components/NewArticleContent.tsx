@@ -18,18 +18,18 @@ function NewArticleContent({
       </div>
 
       {showContent && (
-        <p className="hidden max-w-105.75 text-[14px] font-normal text-[#808080] md:block">
+        <p className="text-subtitle hidden max-w-105.75 text-[14px] font-normal md:block">
           {article.content}
         </p>
       )}
 
       <div className="mt-auto flex justify-between gap-4">
-        <div className="flex items-center gap-1 text-[#8B8B8B]">
+        <div className="text-subtitle flex items-center gap-1">
           <Clock size={18} variant="Broken" />
           <div>{article.readTime} دقیقه</div>
         </div>
 
-        <div className="flex items-center gap-1 text-[#8B8B8B]">
+        <div className="text-subtitle flex items-center gap-1">
           <Calendar size={18} variant="Broken" />
           {toShamsi(article.date)}
         </div>

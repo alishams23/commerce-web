@@ -14,7 +14,7 @@ function NewProducts() {
           <IconStart />
           <span className="font-extrabold">جدید ترین</span> محصولات
         </div>
-        <Button className="hidden w-fit gap-3 rounded-lg bg-[#EBF0FF] p-6 text-[#373254] md:flex">
+        <Button className="hidden w-fit gap-3 rounded-lg bg-[#EBF0FF] p-6 text-[#373254] hover:bg-[#051F6F30] md:flex">
           <div className="text-[16px] font-semibold">مشاهده همه</div>
           <div className="relative z-0 rounded-full border-2 p-1">
             <ArrowLeft size={13} variant="Broken" />

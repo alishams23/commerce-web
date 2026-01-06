@@ -7,7 +7,7 @@ function AmazingDiscountsHeader() {
       <div className="text-primary text-xl font-black">
         تخفیف های شگفت انگیز
       </div>
-      <Button className="text-primary border bg-white">مشاهده همه</Button>
+      <Button variant="outline">مشاهده همه</Button>
     </Fragment>
   );
 }

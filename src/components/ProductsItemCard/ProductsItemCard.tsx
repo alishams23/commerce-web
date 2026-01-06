@@ -48,12 +48,12 @@ function ProductsItemCard({
         </div>
       </div>
       <div className="font-semibold text-[#505050]">{title}</div>
-      <div className="pb-4 text-[14px] font-normal text-[#9F9F9F]">
+      <div className="text-subtitle pb-4 text-[14px] font-normal">
         {price} تومان
       </div>
 
-      <Button className="absolute bottom-4 left-4 bg-white p-3">
-        <Bag variant="Broken" color="#9F9F9F" />
+      <Button className="text-subtitle absolute bottom-4 left-4 bg-white p-3">
+        <Bag variant="Broken" />
       </Button>
     </div>
   );

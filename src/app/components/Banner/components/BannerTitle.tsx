@@ -20,7 +20,7 @@ function BannerTitle() {
             <IconDiagonalArrowLeft color="white" />
           </Button>
 
-          <Button className="bg-[#FFFFFF66] px-10 shadow-[inset_0.6px_0.3px_0_rgba(255,255,255,0.65),0_0_0_0.4px_rgba(255,255,255,0.45)]">
+          <Button variant="glass" className="px-10">
             درباره ما
           </Button>
         </div>

@@ -9,7 +9,7 @@ function NewArticleHeader() {
         <span className="font-extrabold">جدید ترین</span> محصولات
       </div>
 
-      <Button className="rounded-xl border border-[#B0B0B0] bg-transparent font-normal text-[#B0B0B0]">
+      <Button className="border-subtitle text-subtitle hover:bg-subtitle/10 rounded-xl border bg-transparent font-normal">
         مشاهده همه
       </Button>
     </div>

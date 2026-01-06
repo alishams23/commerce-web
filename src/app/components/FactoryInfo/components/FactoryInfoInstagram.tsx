@@ -10,7 +10,10 @@ function FactoryInfoInstagram() {
         <div className="text-lg">ما را در اینستگرام دنبال کنید.</div>
       </div>
 
-      <Button className="text-primary rounded-full bg-white font-semibold">
+      <Button
+        variant="outline"
+        className="rounded-full border-none bg-white font-semibold"
+      >
         <div>صفحه اینستاگرام</div>
         <IconInstagram color="#051F6F" />
       </Button>
