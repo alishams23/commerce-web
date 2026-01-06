@@ -22,7 +22,7 @@ function BadgeSlider() {
     <div className="flex items-center gap-3">
       <Button
         onClick={handleNext}
-        className="hidden h-26 shrink-0 bg-[#F7F7F7] px-1 md:flex"
+        className="bg-muted hidden h-26 shrink-0 px-1 md:flex"
       >
         <IconDiagonalArrowRight />
       </Button>
@@ -33,7 +33,7 @@ function BadgeSlider() {
         {BADGES.map((badge, index) => (
           <div
             key={`${badge.src}-${index}`}
-            className="shrink-0 rounded-2xl bg-[#F7F7F7] p-5"
+            className="bg-muted shrink-0 rounded-2xl p-5"
           >
             <Image
               alt={badge.alt}
@@ -47,7 +47,7 @@ function BadgeSlider() {
       </div>
       <Button
         onClick={handlePrev}
-        className="hidden h-26 shrink-0 bg-[#F7F7F7] px-1 md:flex"
+        className="bg-muted hidden h-26 shrink-0 px-1 md:flex"
       >
         <IconDiagonalArrowLeft />
       </Button>

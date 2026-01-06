@@ -4,7 +4,7 @@ import GallerySlider from "./components/GallerySlider";
 
 function Gallery() {
   return (
-    <div className="relative bg-[#F7F7F7] pt-8 pb-13">
+    <div className="bg-muted relative pt-8 pb-13">
       <SquarePattern
         color="bg-[#051F6F]"
         className="top-13 left-10 md:left-1/5"

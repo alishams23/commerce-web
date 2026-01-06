@@ -1,16 +1,5 @@
 @import "tailwindcss";
 
-/*
-  Font weight mappings:
-  - font-thin (100): Thin
-  - font-light (300): Light
-  - font-normal (400): Regular (default)
-  - font-medium (500): Medium
-  - font-semibold (600): SemiBold
-  - font-bold (700): Bold
-  - font-extrabold (800): ExtraBold
-  - font-black (900): Black
-*/
 @font-face {
   font-family: "Peyda";
   src: url("/fonts/Peyda/Peyda-Thin.woff2") format("woff2");
@@ -80,6 +69,8 @@
   :root {
     --primary: 225 91% 23%; /* #051f6f */
     --darkPrimary: 225 75% 16%; /* #0A1947 */
+    --secondary: 203 39% 57%; /* #679CBC */
+    --muted: 0 0% 97%; /* #F7F7F7 */
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -88,9 +79,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -136,16 +125,17 @@
 }
 
 @theme inline {
+  --color-primary: hsl(var(--primary));
+  --color-primary-dark: hsl(var(--darkPrimary));
+  --color-secondary: hsl(var(--secondary));
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
   --color-popover: hsl(var(--popover));
   --color-popover-foreground: hsl(var(--popover-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-dark: hsl(var(--darkPrimary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
@@ -166,7 +156,6 @@ body {
   color: var(--foreground);
   font-family: "Peyda", Arial, Helvetica, sans-serif;
 
-  /* TODO: Remove unnecessary lines */
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;

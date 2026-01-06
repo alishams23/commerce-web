@@ -19,7 +19,7 @@ function ProductsItemCard({
   src,
 }: TProductsItemCardProps) {
   return (
-    <div className="relative flex min-w-fit flex-col gap-2 rounded-3xl bg-[#F7F7F7] p-4">
+    <div className="bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4">
       <div className="flex flex-col rounded-2xl bg-white">
         <div className="flex justify-between">
           <div className="rounded-tr-2xl rounded-bl-2xl border-2 border-[#E2E2E2] p-2">
