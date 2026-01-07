@@ -28,8 +28,8 @@ function GalleryItem({
     <div
       data-id={image.id}
       ref={(el) => setRef(el, index)}
-      className={`relative h-137.5 w-76.75 shrink-0 snap-center overflow-hidden rounded-3xl md:shrink ${
-        isActive && "md:w-94 md:shrink-0"
+      className={`relative h-137.5 w-76.75 shrink-0 snap-center overflow-hidden rounded-3xl lg:shrink ${
+        isActive && "lg:w-94 lg:shrink-0"
       }`}
     >
       <Image

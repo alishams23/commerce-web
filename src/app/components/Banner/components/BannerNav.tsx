@@ -3,7 +3,7 @@ import { NAV_BUTTON_BASE, NAV_ITEMS } from "./constants";
 
 function BannerNav() {
   return (
-    <div className="z-30 mt-19 hidden flex-col gap-6 md:flex">
+    <div className="z-30 mt-19 hidden flex-col gap-6 lg:flex">
       {NAV_ITEMS.map((item) => (
         <Button
           key={item.titleEn}

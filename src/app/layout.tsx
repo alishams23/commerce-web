@@ -12,7 +12,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl">
       <body>
         <Header />
-        <div className="pb-5 md:pb-21">{children}</div>
+        <div className="pb-5 lg:pb-21">{children}</div>
         <Footer />
       </body>
     </html>

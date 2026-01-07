@@ -16,7 +16,7 @@ function NewArticleContent({
       <div className="text-title max-w-62.5 font-semibold">{article.title}</div>
 
       {showContent && (
-        <p className="text-subtitle hidden max-w-105.75 text-[14px] font-normal md:block">
+        <p className="text-subtitle hidden max-w-105.75 text-[14px] font-normal lg:block">
           {article.content}
         </p>
       )}

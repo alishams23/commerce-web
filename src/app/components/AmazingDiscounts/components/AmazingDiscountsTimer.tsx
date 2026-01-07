@@ -19,7 +19,7 @@ function AmazingDiscountsTimer({
   ];
 
   return (
-    <div className="md:bg-primary flex justify-center gap-2 md:rounded-r-4xl md:p-6">
+    <div className="lg:bg-primary flex justify-center gap-2 lg:rounded-r-4xl lg:p-6">
       {items.map(({ title, value }) => (
         <div
           key={title}

@@ -22,9 +22,9 @@ import SocialButton from "./components/SocialButton";
 function Footer() {
   return (
     <div className="from-primary-dark to-primary relative flex flex-col rounded-t-2xl bg-linear-to-b text-white">
-      <div className="flex flex-col justify-between gap-6 px-12 pt-8 pb-6 md:flex-row md:gap-16 md:px-8">
+      <div className="flex flex-col justify-between gap-6 px-12 pt-8 pb-6 lg:flex-row lg:gap-16 lg:px-8">
         {/* About */}
-        <div className="flex max-w-136.5 flex-col gap-4 md:pr-8">
+        <div className="flex max-w-136.5 flex-col gap-4 lg:pr-8">
           <div className="flex gap-2">
             <Image
               alt="کیف ابراشیم"
@@ -63,7 +63,7 @@ function Footer() {
         </div>
 
         {/* Features, Contact, and Social */}
-        <div className="grid grid-cols-4 gap-4 px-4 md:px-0">
+        <div className="grid grid-cols-4 gap-4 px-4 lg:px-0">
           {FEATURES.map((feature) => (
             <FeatureCard
               key={feature.label}
@@ -89,7 +89,7 @@ function Footer() {
         </div>
       </div>
       <hr className="text-[#B0B0B0]" />
-      <Button className="absolute bottom-1.5 left-8 hidden gap-0.5 bg-white text-[#4A4A4A] hover:bg-gray-300 md:inline-flex">
+      <Button className="absolute bottom-1.5 left-8 hidden gap-0.5 bg-white text-[#4A4A4A] hover:bg-gray-300 lg:inline-flex">
         {/* TODO: add function to go up */}
         <div className="font-normal">بریم بالا</div>
         <ArrowUp variant="Broken" />

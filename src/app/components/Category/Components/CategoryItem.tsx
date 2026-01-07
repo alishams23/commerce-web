@@ -3,7 +3,7 @@ import { TCategoryItem } from "../constants";
 
 function CategoryItem({ title, src }: TCategoryItem) {
   return (
-    <div className="flex h-29.5 w-24 shrink-0 flex-col items-center gap-2 rounded-2xl bg-white md:w-31">
+    <div className="flex h-29.5 w-24 shrink-0 flex-col items-center gap-2 rounded-2xl bg-white lg:w-31">
       <Image
         src={src}
         alt={title}

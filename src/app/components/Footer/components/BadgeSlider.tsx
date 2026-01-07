@@ -23,7 +23,7 @@ function BadgeSlider() {
       <Button
         onClick={handleNext}
         variant="glass"
-        className="hidden h-26 shrink-0 px-1 md:flex"
+        className="hidden h-26 shrink-0 px-1 lg:flex"
       >
         <IconDiagonalArrowRight color="white" />
       </Button>
@@ -49,7 +49,7 @@ function BadgeSlider() {
       <Button
         onClick={handlePrev}
         variant="glass"
-        className="hidden h-26 shrink-0 px-1 md:flex"
+        className="hidden h-26 shrink-0 px-1 lg:flex"
       >
         <IconDiagonalArrowLeft color="white" />
       </Button>

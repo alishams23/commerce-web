@@ -16,13 +16,13 @@ function AmazingDiscounts() {
   );
 
   return (
-    <div className="mx-12 flex flex-col items-center gap-4 md:mx-36">
+    <div className="mx-12 flex flex-col items-center gap-4 lg:mx-36">
       {/* Mobile header */}
-      <div className="flex flex-col items-center gap-4 md:hidden">
+      <div className="flex flex-col items-center gap-4 lg:hidden">
         <AmazingDiscountsHeader />
       </div>
 
-      <div className="bg-primary flex w-full flex-col gap-12 rounded-4xl pt-8 pb-10 md:flex-row md:gap-0 md:bg-transparent md:py-0">
+      <div className="bg-primary flex w-full flex-col gap-12 rounded-4xl pt-8 pb-10 lg:flex-row lg:gap-0 lg:bg-transparent lg:py-0">
         {/* Timer + desktop header */}
         <div className="flex flex-col">
           <AmazingDiscountsTimer
@@ -32,7 +32,7 @@ function AmazingDiscounts() {
             seconds={seconds}
           />
 
-          <div className="mt-6 hidden flex-col items-start gap-4 md:flex">
+          <div className="mt-6 hidden flex-col items-start gap-4 lg:flex">
             <AmazingDiscountsHeader />
           </div>
         </div>

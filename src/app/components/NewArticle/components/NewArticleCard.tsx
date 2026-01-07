@@ -10,8 +10,8 @@ function NewArticleCard({ article }: TNewArticleCardProps) {
     <NewArticleCardBase
       article={article}
       showContent
-      wrapperClassName="relative z-0 flex snap-start flex-col gap-2 rounded-2xl bg-muted p-4 md:col-span-2 md:flex-row"
-      imageClassName="relative h-50 w-62.5 overflow-hidden rounded-2xl md:h-31 md:w-36.5 md:shrink-0"
+      wrapperClassName="relative z-0 flex snap-start flex-col gap-2 rounded-2xl bg-muted p-4 lg:col-span-2 lg:flex-row"
+      imageClassName="relative h-50 w-62.5 overflow-hidden rounded-2xl lg:h-31 lg:w-36.5 lg:shrink-0"
     />
   );
 }

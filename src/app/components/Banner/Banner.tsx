@@ -5,10 +5,10 @@ import BannerNav from "./components/BannerNav";
 
 function Banner() {
   return (
-    <div className="mx-12 grid gap-2 text-white md:mx-0 md:grid-cols-4 md:pl-36 [&>*:not(:first-child)]:rounded-3xl">
-      <div className="from-primary to-secondary relative z-10 row-span-4 flex flex-col gap-12 rounded-3xl bg-linear-to-l px-1.5 pb-3 md:col-span-3 md:flex-row md:gap-16 md:rounded-r-none md:px-0 md:pb-30.5">
+    <div className="mx-12 grid gap-2 text-white lg:mx-0 lg:grid-cols-4 lg:pl-36 [&>*:not(:first-child)]:rounded-3xl">
+      <div className="from-primary to-secondary relative z-10 row-span-4 flex flex-col gap-12 rounded-3xl bg-linear-to-l px-1.5 pb-3 lg:col-span-3 lg:flex-row lg:gap-16 lg:rounded-r-none lg:px-0 lg:pb-30.5">
         {/* Decorative circle (purely visual) */}
-        <div className="bg-primary absolute -right-90 z-20 hidden h-136.5 w-155.25 rounded-full border-60 border-[#1C3779] md:block" />
+        <div className="bg-primary absolute -right-90 z-20 hidden h-136.5 w-155.25 rounded-full border-60 border-[#1C3779] lg:block" />
 
         <BannerNav />
         <BannerTitle />

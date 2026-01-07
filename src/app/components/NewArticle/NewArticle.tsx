@@ -7,10 +7,10 @@ function NewArticle() {
   const [featured, ...others] = ARTICLES;
 
   return (
-    <div className="mx-12 flex flex-col gap-4 md:mx-36">
+    <div className="mx-12 flex flex-col gap-4 lg:mx-36">
       <NewArticleHeader />
 
-      <div className="scrollbar-hide flex snap-x snap-proximity gap-2 overflow-x-scroll scroll-smooth md:grid md:grid-cols-[auto_1fr_1fr] md:grid-rows-2">
+      <div className="scrollbar-hide flex snap-x snap-proximity gap-2 overflow-x-scroll scroll-smooth lg:grid lg:grid-cols-[auto_1fr_1fr] lg:grid-rows-2">
         <NewArticleFeaturedCard article={featured} />
 
         {others.map((article) => (
