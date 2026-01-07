@@ -1,5 +1,8 @@
-import { toShamsi } from "@/src/lib/toShamsi";
 import { Clock, Calendar } from "iconsax-reactjs";
+
+import { toShamsi } from "@/src/lib/toShamsi";
+import { toFaDigits } from "@/src/lib/toFaDigits";
+
 import { TArticle } from "../constants";
 
 type TNewArticleContentProps = {
@@ -24,7 +27,7 @@ function NewArticleContent({
       <div className="mt-auto flex justify-between gap-4">
         <div className="text-subtitle flex items-center gap-1">
           <Clock size={18} variant="Broken" />
-          <div>{article.readTime} دقیقه</div>
+          <div>{toFaDigits(article.readTime.toString())} دقیقه</div>
         </div>
 
         <div className="text-subtitle flex items-center gap-1">

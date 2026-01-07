@@ -57,7 +57,7 @@ function ProductsItemCard({
       </div>
       <div className="text-title font-semibold">{title}</div>
       <div className="text-subtitle pb-4 text-[14px] font-normal">
-        {price} تومان
+        {price.toLocaleString("fa-IR")} تومان
       </div>
 
       <Button className="text-subtitle absolute bottom-4 left-4 bg-white p-3">
