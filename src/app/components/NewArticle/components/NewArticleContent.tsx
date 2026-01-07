@@ -1,4 +1,4 @@
-import { toShamsi } from "@/src/lib/utils";
+import { toShamsi } from "@/src/lib/toShamsi";
 import { Clock, Calendar } from "iconsax-reactjs";
 import { TArticle } from "../constants";
 
