@@ -22,9 +22,10 @@ function BadgeSlider() {
     <div className="flex items-center gap-3">
       <Button
         onClick={handleNext}
-        className="bg-muted hidden h-26 shrink-0 px-1 md:flex"
+        variant="glass"
+        className="hidden h-26 shrink-0 px-1 md:flex"
       >
-        <IconDiagonalArrowRight />
+        <IconDiagonalArrowRight color="white" />
       </Button>
       <div
         ref={scrollContainerRef}
@@ -47,9 +48,10 @@ function BadgeSlider() {
       </div>
       <Button
         onClick={handlePrev}
-        className="bg-muted hidden h-26 shrink-0 px-1 md:flex"
+        variant="glass"
+        className="hidden h-26 shrink-0 px-1 md:flex"
       >
-        <IconDiagonalArrowLeft />
+        <IconDiagonalArrowLeft color="white" />
       </Button>
     </div>
   );

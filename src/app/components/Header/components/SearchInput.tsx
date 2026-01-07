@@ -29,6 +29,7 @@ function SearchInput({ className, onSubmit }: SearchInputProps) {
       />
       <Button
         type="submit"
+        size="icon"
         className="absolute top-1/2 left-2 h-8.5 w-8.5 -translate-y-1/2 bg-white hover:bg-transparent"
       >
         <SearchNormal1 variant="Broken" className="h-5 w-5 text-gray-500" />

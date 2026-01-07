@@ -13,9 +13,7 @@ function NewArticleContent({
 }: TNewArticleContentProps) {
   return (
     <div className="flex w-full flex-col gap-2">
-      <div className="max-w-62.5 font-semibold text-[#494949]">
-        {article.title}
-      </div>
+      <div className="text-title max-w-62.5 font-semibold">{article.title}</div>
 
       {showContent && (
         <p className="text-subtitle hidden max-w-105.75 text-[14px] font-normal md:block">

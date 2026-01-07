@@ -18,7 +18,8 @@ function CategorySlider() {
     <div className="flex w-full overflow-hidden md:pl-6">
       <Button
         onClick={handleNext}
-        className="hidden h-29.5 shrink-0 rounded-xl bg-[#F7F7F759] px-2 md:flex"
+        variant="glass"
+        className="hidden h-29.5 shrink-0 rounded-xl px-2 md:flex"
       >
         <IconArrowRight color="white" />
       </Button>
@@ -34,7 +35,8 @@ function CategorySlider() {
 
       <Button
         onClick={handlePrev}
-        className="hidden h-29.5 shrink-0 rounded-xl bg-[#F7F7F759] px-2 md:flex"
+        variant="glass"
+        className="hidden h-29.5 shrink-0 rounded-xl px-2 md:flex"
       >
         <IconArrowLeft color="white" />
       </Button>

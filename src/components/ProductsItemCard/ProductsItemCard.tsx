@@ -22,12 +22,20 @@ function ProductsItemCard({
     <div className="bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4">
       <div className="flex flex-col rounded-2xl bg-white">
         <div className="flex justify-between">
-          <div className="rounded-tr-2xl rounded-bl-2xl border-2 border-[#E2E2E2] p-2">
+          <Button
+            size="icon"
+            variant="outline"
+            className="rounded-tl-none rounded-br-none border-2 border-[#E2E2E2] hover:bg-[#F5F5F5]"
+          >
             <IconArrowRight color="#E2E2E2" />
-          </div>
-          <div className="rounded-tl-2xl rounded-br-2xl border-2 border-[#E2E2E2] p-2">
+          </Button>
+          <Button
+            size="icon"
+            variant="outline"
+            className="rounded-tr-none rounded-bl-none border-2 border-[#E2E2E2] hover:bg-[#F5F5F5]"
+          >
             <IconArrowLeft color="#E2E2E2" />
-          </div>
+          </Button>
         </div>
         <Image
           alt={title}
@@ -47,7 +55,7 @@ function ProductsItemCard({
           ))}
         </div>
       </div>
-      <div className="font-semibold text-[#505050]">{title}</div>
+      <div className="text-title font-semibold">{title}</div>
       <div className="text-subtitle pb-4 text-[14px] font-normal">
         {price} تومان
       </div>

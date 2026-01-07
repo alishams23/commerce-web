@@ -21,8 +21,8 @@ function GallerySlider() {
         className="scrollbar-hide flex snap-x snap-proximity gap-6 overflow-x-auto scroll-smooth px-12 md:items-center"
       >
         {!isMobile && (
-          <Button className="p-2" onClick={prev}>
-            <IconArrowRight />
+          <Button className="p-2" size="icon" onClick={prev}>
+            <IconArrowRight color="white" />
           </Button>
         )}
 
@@ -40,8 +40,8 @@ function GallerySlider() {
         ))}
 
         {!isMobile && (
-          <Button className="p-2" onClick={next}>
-            <IconArrowLeft />
+          <Button className="p-2" size="icon" onClick={next}>
+            <IconArrowLeft color="white" />
           </Button>
         )}
       </div>

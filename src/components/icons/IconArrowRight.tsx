@@ -3,7 +3,7 @@ import { IconProps } from "./IconType";
 
 function IconArrowLeft({ color = "#9B9B9B", size = 18 }: IconProps) {
   return (
-    <Icon size={size}>
+    <Icon size={size} viewBox="0 0 14 16">
       <path
         fillRule="evenodd"
         fill={color}
