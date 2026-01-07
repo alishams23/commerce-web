@@ -14,8 +14,8 @@ function BannerTitle() {
           استفاده از طراحان گرافیک است.
         </p>
 
-        <div>
-          <Button className="ml-3 gap-1">
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button className="gap-1">
             کالکشن جدید
             <IconDiagonalArrowLeft color="white" />
           </Button>

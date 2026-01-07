@@ -22,7 +22,7 @@ function AmazingDiscounts() {
         <AmazingDiscountsHeader />
       </div>
 
-      <div className="bg-primary flex w-full flex-col gap-12 rounded-4xl pt-8 pb-10 lg:flex-row lg:gap-0 lg:bg-transparent lg:py-0">
+      <div className="bg-primary flex w-full flex-col gap-12 overflow-hidden rounded-4xl pt-8 pb-10 lg:flex-row lg:gap-0 lg:bg-transparent lg:py-0">
         {/* Timer + desktop header */}
         <div className="flex flex-col">
           <AmazingDiscountsTimer

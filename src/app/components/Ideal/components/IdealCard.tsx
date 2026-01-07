@@ -21,7 +21,7 @@ function IdealCard({
 }: TIdealCardProps) {
   return (
     <div
-      className={`flex flex-1 rounded-3xl pt-3.5 pr-4 pb-4 lg:pt-6 lg:pr-5.5 lg:pb-6 ${className}`}
+      className={`flex flex-1 justify-around rounded-3xl pt-3.5 pr-4 pb-4 lg:pt-6 lg:pr-5.5 lg:pb-6 ${className}`}
     >
       <div className="flex flex-col justify-center lg:gap-4">
         <div
@@ -29,7 +29,7 @@ function IdealCard({
         >
           {title}
         </div>
-        <div className="max-w-45.5 text-2xl leading-10 font-black text-[#373254] lg:max-w-67.5 lg:text-4xl">
+        <div className="max-w-45.5 text-2xl leading-10 font-black text-[#373254] md:max-w-fit lg:max-w-67.5 lg:text-4xl">
           {content}
         </div>
         <Button
@@ -48,7 +48,7 @@ function IdealCard({
         src={src}
         width={124}
         height={124}
-        className="h-31 w-31 self-end lg:h-50 lg:w-50"
+        className="h-31 w-31 self-center lg:h-50 lg:w-50"
       />
     </div>
   );
