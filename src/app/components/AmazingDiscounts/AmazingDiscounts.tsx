@@ -12,7 +12,7 @@ function AmazingDiscounts() {
   /* -------------------------------------------------------------------------- */
 
   const { days, hours, minutes, seconds } = useCountdown(
-    new Date("2026-01-10T00:00:00"),
+    new Date("2026-05-10T00:00:00"),
   );
 
   return (
