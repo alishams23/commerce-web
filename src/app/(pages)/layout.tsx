@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Menubar from "./components/Menubar";
 
 export default function PagesLayout({
   children,
@@ -6,8 +6,10 @@ export default function PagesLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col">
-      <Navbar />
+    <div>
+      <div className="hidden md:block">
+        <Menubar />
+      </div>
 
       {children}
     </div>

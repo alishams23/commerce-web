@@ -1,11 +1,11 @@
-import { Home, Call } from "iconsax-reactjs";
+import { Home, Call, Category, Box, BookSaved } from "iconsax-reactjs";
 import { ReactNode } from "react";
 
 type TItem = {
   enTitle: string;
   faTitle: string;
   icon: ReactNode;
-  // href: string;
+  href: string;
 };
 
 type TNavbarItem = TItem & {
@@ -13,20 +13,42 @@ type TNavbarItem = TItem & {
 };
 
 export const NAVBAR_ITEMS: TNavbarItem[] = [
-  { enTitle: "Home", faTitle: "صفحه‌اصلی", icon: <Home variant="Bold" /> },
+  {
+    enTitle: "Home",
+    faTitle: "صفحه‌اصلی",
+    icon: <Home variant="Bold" />,
+    href: "/",
+  },
   {
     enTitle: "Category",
     faTitle: "دسته‌بندی",
-    icon: <Home variant="Bold" />,
+    icon: <Category variant="Bold" />,
+    href: "/category",
     children: [
-      { enTitle: "Home", faTitle: "صفحه‌اصلی", icon: <Home variant="Bold" /> },
+      {
+        enTitle: "Home",
+        faTitle: "صفحه‌اصلی",
+        icon: <Home variant="Bold" />,
+        href: "/",
+      },
     ],
   },
-  { enTitle: "Products", faTitle: "محصولات", icon: <Home variant="Bold" /> },
+  {
+    enTitle: "Products",
+    faTitle: "محصولات",
+    icon: <Box variant="Bold" />,
+    href: "/products",
+  },
   {
     enTitle: "Contact Us",
     faTitle: "تماس‌با‌ما",
     icon: <Call variant="Bold" />,
+    href: "/contact",
   },
-  { enTitle: "About Us", faTitle: "درباره‌ما", icon: <Home variant="Bold" /> },
+  {
+    enTitle: "About Us",
+    faTitle: "درباره‌ما",
+    icon: <BookSaved variant="Bold" />,
+    href: "/about",
+  },
 ];
