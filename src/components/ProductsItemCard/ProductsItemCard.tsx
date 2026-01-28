@@ -10,6 +10,7 @@ type TProductsItemCardProps = {
   colors: string[];
   title: string;
   price: number;
+  size?: "small" | "medium";
 };
 
 function ProductsItemCard({
@@ -17,6 +18,7 @@ function ProductsItemCard({
   title,
   price,
   src,
+  size = "medium",
 }: TProductsItemCardProps) {
   return (
     <div className="bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4">
@@ -42,7 +44,9 @@ function ProductsItemCard({
           src={src}
           width={120}
           height={120}
-          className="mx-8 h-30 w-30"
+          className={
+            size === "medium" ? "mx-8 h-30 w-30" : "mx-4 h-20 w-20 self-center"
+          }
         />
 
         <div className="flex gap-1 self-end p-1">
