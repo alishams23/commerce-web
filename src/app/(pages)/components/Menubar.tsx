@@ -6,8 +6,13 @@ import Link from "next/link";
 import { ArrowDown2 } from "iconsax-reactjs";
 
 import { NAVBAR_ITEMS } from "../constants";
+import { DrawerClose } from "@/src/components/ui/drawer";
 
-function Menubar() {
+type TMenubarProps = {
+  closeOnClick?: boolean;
+};
+
+function Menubar({ closeOnClick = false }: TMenubarProps) {
   /* -------------------------------------------------------------------------- */
   /*                                    Next                                    */
   /* -------------------------------------------------------------------------- */
@@ -20,7 +25,7 @@ function Menubar() {
         const isActive = pathname === href;
         console.log(pathname === href, pathname, href);
 
-        return (
+        const content = (
           <Link
             href={href}
             key={enTitle}
@@ -35,6 +40,12 @@ function Menubar() {
 
             {children && <ArrowDown2 className="mr-auto" />}
           </Link>
+        );
+
+        return closeOnClick ? (
+          <DrawerClose asChild>{content}</DrawerClose>
+        ) : (
+          <div>{content}</div>
         );
       })}
     </div>

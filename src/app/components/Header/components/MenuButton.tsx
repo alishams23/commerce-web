@@ -28,9 +28,11 @@ function MenuButton() {
           </DrawerClose>
         </DrawerHeader>
 
-        <UserButton />
+        <DrawerClose>
+          <UserButton className="w-full" />
+        </DrawerClose>
 
-        <Menubar />
+        <Menubar closeOnClick />
       </DrawerContent>
     </Drawer>
   );
