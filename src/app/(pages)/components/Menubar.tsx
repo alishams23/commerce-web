@@ -23,12 +23,10 @@ function Menubar({ closeOnClick = false }: TMenubarProps) {
     <div className="border-muted flex flex-col gap-4 border-b pb-2 md:mx-12 md:mt-9 md:flex-row md:gap-5 lg:mx-36">
       {NAVBAR_ITEMS.map(({ enTitle, href, faTitle, icon, children }) => {
         const isActive = pathname === href;
-        console.log(pathname === href, pathname, href);
 
         const content = (
           <Link
             href={href}
-            key={enTitle}
             className={`text-title flex items-center gap-2 rounded-2xl px-4 py-2 ${isActive ? "bg-primary text-white" : "bg-white hover:text-black"}`}
           >
             {icon}
@@ -43,9 +41,11 @@ function Menubar({ closeOnClick = false }: TMenubarProps) {
         );
 
         return closeOnClick ? (
-          <DrawerClose asChild>{content}</DrawerClose>
+          <DrawerClose key={enTitle} asChild>
+            {content}
+          </DrawerClose>
         ) : (
-          <div>{content}</div>
+          <div key={enTitle}>{content}</div> // react error for missing key
         );
       })}
     </div>

@@ -3,6 +3,7 @@
 import { cn } from "@/src/lib/utils";
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
+import { DialogDescription } from "@radix-ui/react-dialog";
 
 const Drawer = ({
   shouldScaleBackground = true,
@@ -39,6 +40,19 @@ const DrawerContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DrawerPortal>
     <DrawerOverlay />
+
+    {/* 
+      Call this component to avoid the following error from:
+        installHook.js:1 `DialogContent` requires a `DialogTitle` for the component
+        to be accessible for screen reader users. 
+    */}
+    <DrawerTitle className="hidden" />
+    {/* 
+      Call this component to avoid the following warning from:
+        Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}. 
+    */}
+    <DialogDescription className="hidden" />
+
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
