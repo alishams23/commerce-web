@@ -1,14 +1,18 @@
+import { cn } from "@/src/lib/utils";
+
 import SearchInput from "@/src/app/components/Header/components/SearchInput";
+
 import { Button } from "../ui/button";
+
 import BrandFilter from "./BrandFilter";
 import ColorFilter from "./ColorFilter";
 import PriceFilter from "./PriceFilter";
 import FactoryInfoNotice from "./FactoryInfoNotice";
 import FiltersHeader from "./FiltersHeader";
 
-function FilterBox() {
+function FilterBox({ className }: { className?: string }) {
   return (
-    <div className="flex flex-col gap-5">
+    <div className={cn("flex flex-col gap-5", className)}>
       <FiltersHeader />
       <FactoryInfoNotice />
 

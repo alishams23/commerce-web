@@ -15,15 +15,16 @@ import {
 
 import { PAGE_PRODUCTS } from "./constants";
 import FiltersDrawer from "./components/FiltersDrawer";
+import FilterBox from "@/src/components/FilterBox/FilterBox";
 
 function ProductsPage() {
   return (
     <div className="mx-12 lg:mx-36">
       <Breadcrumbs items={[{ name: "محصولات", href: "products" }]} />
 
-      <div className="flex flex-col gap-6">
-        {/* Button */}
-        <div className="flex justify-between">
+      <div className="flex flex-col gap-6 lg:flex-row">
+        {/* Button for mobile size */}
+        <div className="flex justify-between lg:hidden">
           <FiltersDrawer />
 
           {/* Sort */}
@@ -49,26 +50,41 @@ function ProductsPage() {
           </DropdownMenu>
         </div>
 
-        {/* Products */}
-        <div className="grid grid-cols-2 gap-2">
-          {PAGE_PRODUCTS.map(({ colors, price, src, title }, index) => (
-            <ProductsItemCard
-              key={title + index}
-              colors={colors}
-              price={price}
-              src={src}
-              title={title}
-              size="small"
-            />
-          ))}
-        </div>
+        <FilterBox className="hidden max-w-84 lg:flex" />
 
-        {/* Pagination */}
-        <Pagination
-          totalPages={4}
-          currentPage={1}
-          onPageChange={() => console.log("first")}
-        />
+        {/* Products */}
+        <div className="flex shrink-0 grow flex-col gap-6">
+          <div className="hidden lg:block">
+            <div className="mb-2">مرتب سازی</div>
+            <div className="flex gap-2">
+              <Button variant="outline">جدید ترین</Button>
+              <Button variant="outline">محبوب ترین</Button>
+              <Button variant="outline">ارزان ترین</Button>
+              <Button variant="outline">گران ترین</Button>
+              <Button variant="outline">بیشترین امتیاز</Button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {PAGE_PRODUCTS.map(({ colors, price, src, title }, index) => (
+              <ProductsItemCard
+                key={title + index}
+                colors={colors}
+                price={price}
+                src={src}
+                title={title}
+                size="small"
+              />
+            ))}
+          </div>
+
+          {/* Pagination */}
+          <Pagination
+            totalPages={4}
+            currentPage={1}
+            onPageChange={() => console.log("first")}
+          />
+        </div>
       </div>
     </div>
   );

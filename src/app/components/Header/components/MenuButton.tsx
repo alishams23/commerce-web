@@ -16,7 +16,7 @@ function MenuButton() {
   return (
     <Drawer direction="right">
       <DrawerTrigger asChild>
-        <Button variant="outline" className="flex h-12.5 w-12.5 md:hidden">
+        <Button variant="outline" className="flex h-12.5 w-12.5 lg:hidden">
           <HamburgerMenu variant="Broken" />
         </Button>
       </DrawerTrigger>

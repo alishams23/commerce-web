@@ -16,7 +16,7 @@ function Header() {
 
           {/* Action buttons */}
           <div className="flex gap-3">
-            <UserButton className="hidden md:flex" />
+            <UserButton className="hidden lg:flex" />
             <MenuButton />
             <CartButton />
           </div>

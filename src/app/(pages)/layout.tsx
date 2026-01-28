@@ -7,7 +7,7 @@ export default function PagesLayout({
 }>) {
   return (
     <div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Menubar />
       </div>
 
