@@ -15,7 +15,7 @@ import Menubar from "@/src/app/(pages)/components/Menubar";
 function MenuButton() {
   return (
     <Drawer direction="right">
-      <DrawerTrigger asChild className="">
+      <DrawerTrigger asChild>
         <Button variant="outline" className="flex h-12.5 w-12.5 md:hidden">
           <HamburgerMenu variant="Broken" />
         </Button>
