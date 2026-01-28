@@ -1,9 +1,6 @@
 import { Button } from "@/src/components/ui/button";
 import { ArrowLeft, Location } from "iconsax-reactjs";
 
-/**
- * Action buttons: Google Map & More Info
- */
 function FactoryInfoActions() {
   return (
     <div className="flex flex-wrap justify-center gap-6 lg:justify-start">

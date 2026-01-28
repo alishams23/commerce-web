@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/src/components/ui/button";
+import { cn } from "@/src/lib/utils";
 
 type CategoryCardProps = {
   title: string;
@@ -16,7 +17,10 @@ function BannerCategoryCard({
 }: CategoryCardProps) {
   return (
     <div
-      className={`flex items-center justify-between px-4 py-3 lg:px-6 lg:py-0 ${gradient}`}
+      className={cn(
+        "flex items-center justify-between px-4 py-3 lg:px-6 lg:py-0",
+        gradient,
+      )}
     >
       <div className="flex flex-col justify-center gap-2">
         <div className="text-2xl font-bold lg:text-xl">{title}</div>
