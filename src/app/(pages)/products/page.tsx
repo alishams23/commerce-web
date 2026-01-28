@@ -26,6 +26,7 @@ import {
 } from "@/src/components/ui/drawer";
 import SearchInput from "../../components/Header/components/SearchInput";
 import { Slider } from "@/src/components/ui/slider";
+import { Input } from "@/src/components/ui/input";
 
 function ProductsPage() {
   /* -------------------------------------------------------------------------- */
@@ -49,17 +50,16 @@ function ProductsPage() {
               </Button>
             </DrawerTrigger>
 
-            <DrawerContent className="h-full gap-5 rounded-none px-6">
-              <DrawerHeader className="p-0 pt-4 text-start">
+            <DrawerContent className="h-full gap-5 rounded-none px-6 pt-4 pb-10">
+              <DrawerHeader className="p-0 text-start">
                 <DrawerClose className="text-primary">
                   <CloseSquare size={32} />
                 </DrawerClose>
-
-                <DrawerTitle>فیلترها</DrawerTitle>
-                <DrawerDescription className="text-subtitle">
-                  دسته بندی محصولات
-                </DrawerDescription>
               </DrawerHeader>
+              <div>
+                <div className="text-2xl font-extrabold">فیلترها</div>
+                <div className="text-subtitle">دسته بندی محصولات</div>
+              </div>
 
               <div className="flex flex-col gap-4">
                 <div className="flex gap-2">
@@ -110,6 +110,49 @@ function ProductsPage() {
                 <div className="bg-muted text-title flex flex-col gap-4 rounded-2xl px-4 py-3">
                   <div>فیلتر براساس رنگ :</div>
                   <hr className="text-title" />
+
+                  <div className="flex flex-col text-[14px]">
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="red" className="w-4" />
+                      <div className="h-3 w-3 rounded-full bg-red-400" />
+                      <label htmlFor="red">قرمز</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="black" className="w-4" />
+                      <div className="h-3 w-3 rounded-full bg-black" />
+                      <label htmlFor="black">مشکی</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="white" className="w-4" />
+                      <div className="h-3 w-3 rounded-full bg-white" />
+                      <label htmlFor="white">سفید</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="blue" className="w-4" />
+                      <div className="h-3 w-3 rounded-full bg-blue-500" />
+                      <label htmlFor="blue">آبی</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-muted text-title flex flex-col gap-4 rounded-2xl px-4 py-3">
+                  <div>فیلتر براساس برند :</div>
+                  <hr className="text-title" />
+
+                  <div className="flex flex-col text-[14px]">
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="cat" className="w-4" />
+                      <label htmlFor="cat">CAT</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="nike" className="w-4" />
+                      <label htmlFor="nike">NIKE</label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Input type="checkbox" id="adidas" className="w-4" />
+                      <label htmlFor="adidas">ADIDAS</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </DrawerContent>
