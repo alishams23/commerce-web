@@ -8,16 +8,20 @@ import { SearchNormal1 } from "iconsax-reactjs";
 import { Button } from "@/src/components/ui/button";
 import { Input } from "@/src/components/ui/input";
 
-type SearchInputProps = {
+type TSearchInputProps = {
   className?: string;
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
 };
 
-function SearchInput({ className, onSubmit }: SearchInputProps) {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+function SearchInput({ className, onSubmit }: TSearchInputProps) {
+  /* -------------------------------------------------------------------------- */
+  /*                                  Functions                                 */
+  /* -------------------------------------------------------------------------- */
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     onSubmit?.(e);
-  };
+  }
 
   return (
     <form className={cn("relative", className)} onSubmit={handleSubmit}>

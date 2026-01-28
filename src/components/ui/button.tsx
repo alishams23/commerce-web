@@ -14,6 +14,8 @@ const buttonVariants = cva(
           "bg-primary text-primary-foreground hover:bg-primary-dark active:bg-primary/80",
         outline:
           "border-primary hover:bg-secondary/25 text-primary active:bg-secondary/50 border bg-transparent",
+        secondary:
+          "bg-muted text-title hover:bg-muted-foreground/50 active:bg-muted-foreground",
         glass:
           "border border-white/25 bg-white/33 text-white shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[9.3px] hover:bg-white/58 hover:backdrop-blur-[20px] active:bg-white/15",
       },
