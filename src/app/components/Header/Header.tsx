@@ -1,5 +1,3 @@
-import { HEADER_STYLES } from "./constants";
-
 import SearchInput from "./components/SearchInput";
 import CartButton from "./components/CartButton";
 import MenuButton from "./components/MenuButton";
@@ -8,11 +6,11 @@ import Logo from "./components/Logo";
 
 function Header() {
   return (
-    <header className={HEADER_STYLES.container}>
-      <div className={HEADER_STYLES.topRow}>
+    <header className="flex flex-col gap-3.5 p-3 px-12 pt-10 lg:px-36 lg:pb-3">
+      <div className="flex flex-wrap justify-between">
         <Logo />
         <div className="flex gap-3">
-          <SearchInput className={HEADER_STYLES.searchDesktop} />
+          <SearchInput className="relative hidden lg:block lg:w-85" />
 
           {/* Action buttons */}
           <div className="flex gap-3">
@@ -23,9 +21,9 @@ function Header() {
         </div>
       </div>
 
-      <hr className={HEADER_STYLES.divider} />
-      <SearchInput className={HEADER_STYLES.searchMobile} />
-      <hr className={HEADER_STYLES.divider} />
+      <hr className="block text-[#EFEFEF] lg:hidden" />
+      <SearchInput className="relative lg:hidden lg:w-85" />
+      <hr className="block text-[#EFEFEF] lg:hidden" />
     </header>
   );
 }
