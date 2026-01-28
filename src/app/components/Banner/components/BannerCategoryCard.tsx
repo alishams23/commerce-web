@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "@/src/components/ui/button";
-import { cn } from "@/src/lib/utils";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type CategoryCardProps = {
   title: string;

@@ -2,20 +2,20 @@
 
 import { Sort } from "iconsax-reactjs";
 
-import ProductsItemCard from "@/src/components/ProductsItemCard/ProductsItemCard";
-import Breadcrumbs from "@/src/components/Breadcrumbs/Breadcrumbs";
-import Pagination from "@/src/components/Pagination/Pagination";
-import { Button } from "@/src/components/ui/button";
+import ProductsItemCard from "@/components/ProductsItemCard/ProductsItemCard";
+import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
+import Pagination from "@/components/Pagination/Pagination";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/src/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 import { PAGE_PRODUCTS } from "./constants";
 import FiltersDrawer from "./components/FiltersDrawer";
-import FilterBox from "@/src/components/FilterBox/FilterBox";
+import FilterBox from "@/components/FilterBox/FilterBox";
 
 // TODO: clean this file GPT
 function ProductsPage() {

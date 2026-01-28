@@ -1,6 +1,6 @@
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { LikeShapes } from "iconsax-reactjs";
-import { IconInstagram } from "@/src/components/icons";
+import { IconInstagram } from "@/components/icons";
 
 function FactoryInfoInstagram() {
   return (

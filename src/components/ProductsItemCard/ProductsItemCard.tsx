@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import { Bag } from "iconsax-reactjs";
 
-import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
-import { Button } from "@/src/components/ui/button";
+import { IconArrowLeft, IconArrowRight } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 type TProductsItemCardProps = {
   src: string;

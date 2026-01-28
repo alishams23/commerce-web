@@ -1,4 +1,4 @@
-import ProductsItemCard from "@/src/components/ProductsItemCard/ProductsItemCard";
+import ProductsItemCard from "@/components/ProductsItemCard/ProductsItemCard";
 
 import { PRODUCTS } from "../constants";
 

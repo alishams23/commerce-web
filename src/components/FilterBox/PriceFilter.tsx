@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/src/components/ui/button";
-import { Slider } from "@/src/components/ui/slider";
+import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
 
 function PriceFilter() {

@@ -1,13 +1,13 @@
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTrigger,
-} from "@/src/components/ui/drawer";
+} from "@/components/ui/drawer";
 import { CloseSquare, FilterAdd } from "iconsax-reactjs";
-import FilterBox from "@/src/components/FilterBox/FilterBox";
+import FilterBox from "@/components/FilterBox/FilterBox";
 
 function FiltersDrawer() {
   return (

@@ -1,11 +1,11 @@
 "use client";
 
-import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
-import useBadgeSlider from "@/src/hooks/useBadgeSlider";
-import { Button } from "@/src/components/ui/button";
+import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 
 import { CATEGORIES } from "../constants";
 import CategoryItem from "./CategoryItem";
+import useBadgeSlider from "@/hooks/useBadgeSlider";
+import { Button } from "@/components/ui/button";
 
 function CategorySlider() {
   /* -------------------------------------------------------------------------- */

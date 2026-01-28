@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { toFaDigits } from "@/src/lib/toFaDigits";
+import { toFaDigits } from "@/lib/toFaDigits";
 
 function BannerSaleCard() {
   return (

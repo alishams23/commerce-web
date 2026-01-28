@@ -1,6 +1,6 @@
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 
-import SearchInput from "@/src/app/components/Header/components/SearchInput";
+import SearchInput from "@/app/components/Header/components/SearchInput";
 
 import { Button } from "../ui/button";
 

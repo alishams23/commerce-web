@@ -1,12 +1,12 @@
 "use client";
 
 import { FormEvent } from "react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 
 import { SearchNormal1 } from "iconsax-reactjs";
 
-import { Button } from "@/src/components/ui/button";
-import { Input } from "@/src/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 type TSearchInputProps = {
   className?: string;

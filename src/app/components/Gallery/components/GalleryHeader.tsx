@@ -1,4 +1,4 @@
-import IconStart from "@/src/components/icons/IconStart";
+import IconStart from "@/components/icons/IconStart";
 
 function GalleryHeader() {
   return (

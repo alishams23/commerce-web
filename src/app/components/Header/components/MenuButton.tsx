@@ -1,16 +1,16 @@
 import { CloseSquare, HamburgerMenu } from "iconsax-reactjs";
 
-import { Button } from "@/src/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTrigger,
-} from "@/src/components/ui/drawer";
+} from "@/components/ui/drawer";
 
 import UserButton from "./UserButton";
-import Menubar from "@/src/app/(pages)/components/Menubar";
+import Menubar from "@/app/(pages)/components/Menubar";
 
 function MenuButton() {
   return (

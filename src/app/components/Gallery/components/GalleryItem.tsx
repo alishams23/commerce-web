@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import GalleryThumbnails from "./GalleryThumbnails";
 import { GalleryImage } from "../constants";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/lib/utils";
 
 type TGalleryItemProps = {
   image: GalleryImage;

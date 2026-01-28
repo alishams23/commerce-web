@@ -1,7 +1,7 @@
 import { Clock, Calendar } from "iconsax-reactjs";
 
-import { toShamsi } from "@/src/lib/toShamsi";
-import { toFaDigits } from "@/src/lib/toFaDigits";
+import { toShamsi } from "@/lib/toShamsi";
+import { toFaDigits } from "@/lib/toFaDigits";
 
 import { TArticle } from "../constants";
 

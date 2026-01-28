@@ -1,4 +1,4 @@
-import SquarePattern from "@/src/components/SquarePattern/SquarePattern";
+import SquarePattern from "@/components/SquarePattern/SquarePattern";
 import CategoryHeader from "./Components/CategoryHeader";
 import CategorySlider from "./Components/CategorySlider";
 import CategoryDots from "./Components/CategoryDots";

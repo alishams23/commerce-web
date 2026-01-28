@@ -1,7 +1,7 @@
 import { ArrowLeft } from "iconsax-reactjs";
 
-import IconStart from "@/src/components/icons/IconStart";
-import { Button } from "@/src/components/ui/button";
+import IconStart from "@/components/icons/IconStart";
+import { Button } from "@/components/ui/button";
 
 import ProductsItemCard from "../../../components/ProductsItemCard/ProductsItemCard";
 import { NEW_PRODUCTS } from "./constants";

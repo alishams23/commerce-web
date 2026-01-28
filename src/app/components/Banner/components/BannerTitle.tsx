@@ -1,5 +1,5 @@
-import { IconDiagonalArrowLeft } from "@/src/components/icons";
-import { Button } from "@/src/components/ui/button";
+import { IconDiagonalArrowLeft } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 function BannerTitle() {
   return (

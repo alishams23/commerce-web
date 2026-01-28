@@ -1,7 +1,7 @@
 "use client";
 
-import { IconArrowLeft, IconArrowRight } from "@/src/components/icons";
-import { Button } from "@/src/components/ui/button";
+import { IconArrowLeft, IconArrowRight } from "@/components/icons";
+import { Button } from "@/components/ui/button";
 
 import useGalleryActiveImage from "../hooks/useGalleryActiveImage";
 import GalleryItem from "./GalleryItem";

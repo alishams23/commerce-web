@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import { ArrowLeft } from "iconsax-reactjs";
 
-import { Button } from "@/src/components/ui/button";
-import { cn } from "@/src/lib/utils";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type TIdealCardProps = {
   titleGradient: string;

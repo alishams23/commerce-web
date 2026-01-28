@@ -5,11 +5,11 @@ import Image from "next/image";
 import {
   IconDiagonalArrowLeft,
   IconDiagonalArrowRight,
-} from "@/src/components/icons";
-import { Button } from "@/src/components/ui/button";
+} from "@/components/icons";
 
 import { BADGES } from "../constants";
-import useBadgeSlider from "@/src/hooks/useBadgeSlider";
+import { Button } from "@/components/ui/button";
+import useBadgeSlider from "@/hooks/useBadgeSlider";
 
 function BadgeSlider() {
   /* -------------------------------------------------------------------------- */

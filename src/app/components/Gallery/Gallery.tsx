@@ -1,4 +1,4 @@
-import SquarePattern from "@/src/components/SquarePattern/SquarePattern";
+import SquarePattern from "@/components/SquarePattern/SquarePattern";
 import GalleryHeader from "./components/GalleryHeader";
 import GallerySlider from "./components/GallerySlider";
 

@@ -1,4 +1,4 @@
-import { toFaDigits } from "@/src/lib/toFaDigits";
+import { toFaDigits } from "@/lib/toFaDigits";
 
 type TAmazingDiscountsTimerProps = {
   days: string;

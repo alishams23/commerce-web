@@ -6,8 +6,8 @@ import Link from "next/link";
 import { ArrowDown2 } from "iconsax-reactjs";
 
 import { NAVBAR_ITEMS } from "../constants";
-import { DrawerClose } from "@/src/components/ui/drawer";
-import { cn } from "@/src/lib/utils";
+import { DrawerClose } from "@/components/ui/drawer";
+import { cn } from "@/lib/utils";
 
 type TMenubarProps = {
   closeOnClick?: boolean;
