@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { GalleryImage } from "../constants";
+import { cn } from "@/src/lib/utils";
 
 type TGalleryThumbnailsProps = {
   images: GalleryImage[];
@@ -15,11 +16,12 @@ function GalleryThumbnails({ images, activeId }: TGalleryThumbnailsProps) {
         return (
           <div
             key={image.id}
-            className={`relative overflow-hidden rounded-xl transition-all duration-900 ease-in will-change-transform ${
+            className={cn(
+              "relative overflow-hidden rounded-xl transition-all duration-900 ease-in will-change-transform",
               isActive
                 ? "h-19 w-18 -translate-y-1.5 scale-110 opacity-100"
-                : "h-19 w-15.5 opacity-70"
-            }`}
+                : "h-19 w-15.5 opacity-70",
+            )}
           >
             <Image
               src={image.src}

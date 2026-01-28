@@ -1,3 +1,4 @@
+import { cn } from "@/src/lib/utils";
 import { JSX } from "react";
 
 function SquarePattern({
@@ -14,11 +15,11 @@ function SquarePattern({
   return (
     <div
       style={{ width: size * 2 }}
-      className={`absolute flex flex-col ${className}`}
+      className={cn("absolute flex flex-col", className)}
     >
-      <div style={style} className={`self-end ${color}`} />
+      <div style={style} className={cn("self-end", color)} />
       <div style={style} className={color} />
-      <div style={style} className={`self-end ${color}`} />
+      <div style={style} className={cn("self-end", color)} />
     </div>
   );
 }

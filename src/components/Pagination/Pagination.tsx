@@ -1,3 +1,4 @@
+import { cn } from "@/src/lib/utils";
 import { Button } from "../ui/button";
 
 type TPaginationProps = {
@@ -54,7 +55,10 @@ function Pagination({
         <Button
           key={index}
           onClick={() => page !== "..." && onPageChange(Number(page))}
-          className={`bg-muted text-title ${page === currentPage ? "bg-primary text-white" : ""} `}
+          className={cn(
+            "bg-muted text-title",
+            page === currentPage ? "bg-primary text-white" : "",
+          )}
           disabled={page === "..."}
         >
           {page.toLocaleString("fa")}

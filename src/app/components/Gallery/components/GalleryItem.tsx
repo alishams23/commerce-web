@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import GalleryThumbnails from "./GalleryThumbnails";
 import { GalleryImage } from "../constants";
+import { cn } from "@/src/lib/utils";
 
 type TGalleryItemProps = {
   image: GalleryImage;
@@ -28,9 +29,10 @@ function GalleryItem({
     <div
       data-id={image.id}
       ref={(el) => setRef(el, index)}
-      className={`relative h-137.5 w-76.75 shrink-0 snap-center overflow-hidden rounded-3xl lg:shrink ${
-        isActive && "lg:w-94 lg:shrink-0"
-      }`}
+      className={cn(
+        "relative h-137.5 w-76.75 shrink-0 snap-center overflow-hidden rounded-3xl lg:shrink",
+        isActive && "lg:w-94 lg:shrink-0",
+      )}
     >
       <Image
         src={image.src}

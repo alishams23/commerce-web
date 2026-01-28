@@ -17,6 +17,7 @@ import { PAGE_PRODUCTS } from "./constants";
 import FiltersDrawer from "./components/FiltersDrawer";
 import FilterBox from "@/src/components/FilterBox/FilterBox";
 
+// TODO: clean this file GPT
 function ProductsPage() {
   return (
     <div className="mx-12 lg:mx-36">

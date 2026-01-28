@@ -9,7 +9,7 @@ import {
 import { Button } from "@/src/components/ui/button";
 
 import { BADGES } from "../constants";
-import useBadgeSlider from "../../../../hooks/useBadgeSlider";
+import useBadgeSlider from "@/src/hooks/useBadgeSlider";
 
 function BadgeSlider() {
   /* -------------------------------------------------------------------------- */

@@ -1,4 +1,5 @@
 import { Input } from "@/src/components/ui/input";
+import { cn } from "@/src/lib/utils";
 
 function ColorFilter() {
   return (
@@ -15,7 +16,7 @@ function ColorFilter() {
         ].map(({ id, label, color }) => (
           <div key={id} className="flex items-center gap-2">
             <Input type="checkbox" id={id} className="w-4" />
-            <div className={`h-3 w-3 rounded-full ${color}`} />
+            <div className={cn("h-3 w-3 rounded-full", color)} />
             <label htmlFor={id}>{label}</label>
           </div>
         ))}

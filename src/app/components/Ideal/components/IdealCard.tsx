@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowLeft } from "iconsax-reactjs";
 
 import { Button } from "@/src/components/ui/button";
+import { cn } from "@/src/lib/utils";
 
 type TIdealCardProps = {
   titleGradient: string;
@@ -21,11 +22,17 @@ function IdealCard({
 }: TIdealCardProps) {
   return (
     <div
-      className={`flex flex-1 justify-around rounded-3xl pt-3.5 pr-4 pb-4 lg:pt-6 lg:pr-5.5 lg:pb-6 ${className}`}
+      className={cn(
+        "flex flex-1 justify-around rounded-3xl pt-3.5 pr-4 pb-4 lg:pt-6 lg:pr-5.5 lg:pb-6",
+        className,
+      )}
     >
       <div className="flex flex-col justify-center lg:gap-4">
         <div
-          className={`bg-linear-to-r text-center text-lg text-white ${titleGradient}`}
+          className={cn(
+            "bg-linear-to-r text-center text-lg text-white",
+            titleGradient,
+          )}
         >
           {title}
         </div>

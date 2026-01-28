@@ -7,6 +7,7 @@ import { ArrowDown2 } from "iconsax-reactjs";
 
 import { NAVBAR_ITEMS } from "../constants";
 import { DrawerClose } from "@/src/components/ui/drawer";
+import { cn } from "@/src/lib/utils";
 
 type TMenubarProps = {
   closeOnClick?: boolean;
@@ -20,14 +21,17 @@ function Menubar({ closeOnClick = false }: TMenubarProps) {
   const pathname = usePathname();
 
   return (
-    <div className="border-muted flex flex-col gap-4 border-b pb-2 md:mx-12 md:mt-9 md:flex-row md:gap-5 lg:mx-36">
+    <div className="border-muted flex flex-col gap-4 border-b pb-2 md:gap-5 lg:mx-36 lg:mt-9 lg:flex-row">
       {NAVBAR_ITEMS.map(({ enTitle, href, faTitle, icon, children }) => {
         const isActive = pathname === href;
 
         const content = (
           <Link
             href={href}
-            className={`text-title flex items-center gap-2 rounded-2xl px-4 py-2 ${isActive ? "bg-primary text-white" : "bg-white hover:text-black"}`}
+            className={cn(
+              "text-title flex items-center gap-2 rounded-2xl px-4 py-2",
+              isActive ? "bg-primary text-white" : "bg-white hover:text-black",
+            )}
           >
             {icon}
 
