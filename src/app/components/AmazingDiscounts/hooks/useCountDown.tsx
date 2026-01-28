@@ -1,6 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 
-function useCountdown(targetDate: Date) {
+function useCountdown(targetDate: Date): {
+  days: string;
+  hours: string;
+  minutes: string;
+  seconds: string;
+} {
   /* -------------------------------------------------------------------------- */
   /*                                 React Hook                                 */
   /* -------------------------------------------------------------------------- */
@@ -30,7 +35,7 @@ function useCountdown(targetDate: Date) {
   /* -------------------------------------------------------------------------- */
 
   function twoDigits(num: number) {
-    return num.toString().padStart(2, "0");
+    return num.toLocaleString("fa").padStart(2, "0");
   }
 
   /* -------------------------------------------------------------------------- */
