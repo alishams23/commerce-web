@@ -8,6 +8,12 @@ import Pagination from "@/src/components/Pagination/Pagination";
 import { Button } from "@/src/components/ui/button";
 
 import { PAGE_PRODUCTS } from "./constants";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/src/components/ui/dropdown-menu";
 
 function ProductsPage() {
   return (
@@ -21,10 +27,28 @@ function ProductsPage() {
             <FilterAdd />
             <div>فیلتر ها</div>
           </Button>
-          <Button variant="outline" className="h-11.5">
-            <Sort />
-            <div>مرتب سازی</div>
-          </Button>
+
+          {/* Sort */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="h-11.5">
+                <Sort />
+                <div>مرتب سازی</div>
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent
+              side="left"
+              className="text-subtitle right-2 flex flex-col items-end rounded-2xl"
+              align="start"
+            >
+              <DropdownMenuItem>جدید ترین</DropdownMenuItem>
+              <DropdownMenuItem>محبوب ترین</DropdownMenuItem>
+              <DropdownMenuItem>ارزان ترین</DropdownMenuItem>
+              <DropdownMenuItem>گران ترین</DropdownMenuItem>
+              <DropdownMenuItem>بیشترین امتیاز</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Products */}
