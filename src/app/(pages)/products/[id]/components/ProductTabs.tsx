@@ -3,25 +3,29 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 function ProductTabs() {
   return (
-    <Tabs defaultValue="descriptions">
-      <TabsList>
-        <TabsTrigger value="comments">نظرات</TabsTrigger>
-        <TabsTrigger value="info">اطلاعات</TabsTrigger>
+    <Tabs dir="rtl" defaultValue="descriptions">
+      <TabsList className="lg:max-w-100">
         <TabsTrigger value="descriptions">توضیحات</TabsTrigger>
+        <TabsTrigger value="info">اطلاعات</TabsTrigger>
+        <TabsTrigger value="comments">نظرات</TabsTrigger>
       </TabsList>
 
       <TabsContent value="descriptions">
         <div className="text-title text-lg font-black">توضیحات</div>
         <hr className="text-title my-2" />
-        <p className="text-end text-[14px]">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ...
+        <p className="text-[14px]">
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+          استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+          ستون و سطرآنچنان که لازم است، و برای شرایط فعلی شصت و سه درصد گذشته
+          حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
+          افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی.
         </p>
       </TabsContent>
 
       <TabsContent value="info">
         <div className="text-title text-lg font-black">اطلاعات</div>
         <hr className="text-title my-2" />
-        <div className="text-title flex flex-row-reverse gap-2 text-[14px] *:rounded-xl *:bg-white *:p-2">
+        <div className="text-title flex gap-2 text-[14px] *:rounded-xl *:bg-white *:p-2">
           <div>برند</div>
           <div>آدیداس</div>
         </div>

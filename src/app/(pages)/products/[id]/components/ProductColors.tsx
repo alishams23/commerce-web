@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 function ProductColors({ colors }: { colors: string[] }) {
   return (
-    <div className="scrollbar-hide flex gap-2 overflow-x-auto">
+    <div className="scrollbar-hide flex gap-2 overflow-x-auto lg:flex-col">
       {colors.map((color) => (
         <Button key={color} variant="outline">
           <div

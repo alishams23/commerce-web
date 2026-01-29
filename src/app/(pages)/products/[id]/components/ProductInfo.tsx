@@ -10,7 +10,7 @@ function ProductInfo({
   colors: string[];
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex grow flex-col gap-2 overflow-hidden">
       <div className="text-lg font-black">{title}</div>
       <div className="text-subtitle text-[14px]">کیف اسپرت</div>
 
