@@ -42,8 +42,9 @@ function Pagination({
       {/* Previous Button */}
       {currentPage > 1 && (
         <Button
+          variant="secondary"
           onClick={() => onPageChange(currentPage - 1)}
-          className="bg-muted text-title w-15"
+          className="w-15"
           disabled={currentPage === 1}
         >
           قبلی
@@ -55,10 +56,7 @@ function Pagination({
         <Button
           key={index}
           onClick={() => page !== "..." && onPageChange(Number(page))}
-          className={cn(
-            "bg-muted text-title",
-            page === currentPage ? "bg-primary text-white" : "",
-          )}
+          variant={page === currentPage ? "default" : "secondary"}
           disabled={page === "..."}
         >
           {page.toLocaleString("fa")}
@@ -68,8 +66,9 @@ function Pagination({
       {/* Next Button */}
       {currentPage !== totalPages && (
         <Button
+          variant="secondary"
           onClick={() => onPageChange(currentPage + 1)}
-          className="bg-muted text-title w-15"
+          className="w-15"
           disabled={currentPage === totalPages}
         >
           بعدی
