@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { Bag } from "iconsax-reactjs";
 
@@ -10,6 +13,7 @@ type TProductsItemCardProps = {
   colors: string[];
   title: string;
   price: number;
+  id: number;
   size?: "small" | "medium";
 };
 
@@ -18,8 +22,23 @@ function ProductsItemCard({
   title,
   price,
   src,
+  id,
   size = "medium",
 }: TProductsItemCardProps) {
+  /* -------------------------------------------------------------------------- */
+  /*                                    Next                                    */
+  /* -------------------------------------------------------------------------- */
+
+  const router = useRouter();
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Function                                  */
+  /* -------------------------------------------------------------------------- */
+
+  function onItemClick(itemId: number) {
+    router.push(`/products/${itemId}`);
+  }
+
   return (
     <div className="bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4">
       <div className="flex flex-col rounded-2xl bg-white">
@@ -59,7 +78,9 @@ function ProductsItemCard({
           ))}
         </div>
       </div>
-      <div className="text-title font-semibold">{title}</div>
+      <div className="text-title font-semibold" onClick={() => onItemClick(id)}>
+        {title}
+      </div>
       <div className="text-subtitle pb-4 text-[14px] font-normal">
         {price.toLocaleString("fa-IR")} تومان
       </div>

@@ -36,7 +36,7 @@ function Breadcrumbs({ items }: TBreadcrumbsProps) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink
-                href={href}
+                href={index === lastIndex ? undefined : href}
                 className={
                   index === lastIndex ? "text-primary font-semibold" : ""
                 }

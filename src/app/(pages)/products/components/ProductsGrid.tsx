@@ -4,7 +4,7 @@ import { PAGE_PRODUCTS } from "../constants";
 function ProductsGrid() {
   return (
     <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
-      {PAGE_PRODUCTS.map(({ colors, price, src, title }, index) => (
+      {PAGE_PRODUCTS.map(({ id, colors, price, src, title }, index) => (
         <ProductsItemCard
           key={`${title}-${index}`}
           colors={colors}
@@ -12,6 +12,7 @@ function ProductsGrid() {
           src={src}
           title={title}
           size="small"
+          id={id}
         />
       ))}
     </div>
