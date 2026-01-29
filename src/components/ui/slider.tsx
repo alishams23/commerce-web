@@ -6,17 +6,18 @@ import * as SliderPrimitive from "@radix-ui/react-slider";
 import { cn } from "@/lib/utils";
 
 const Slider = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Root>,
+  React.ComponentRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
 >(({ className, ...props }, ref) => (
   <SliderPrimitive.Root
     ref={ref}
-    defaultValue={[30, 60]}
     className={cn(
       "relative flex w-full touch-none items-center select-none",
       className,
     )}
     {...props}
+    // To Avoid dragging in drawer
+    data-vaul-no-drag
   >
     <SliderPrimitive.Track className="bg-muted-foreground relative h-2 w-full grow overflow-hidden rounded-full">
       <SliderPrimitive.Range className="bg-primary absolute h-full" />

@@ -9,7 +9,6 @@ import MobileSort from "./components/MobileSort";
 import DesktopSort from "./components/DesktopSort";
 import ProductsGrid from "./components/ProductsGrid";
 
-// TODO: clean this file GPT
 function ProductsPage() {
   return (
     <div className="mx-12 lg:mx-36">
@@ -41,5 +40,3 @@ function ProductsPage() {
 }
 
 export default ProductsPage;
-
-
