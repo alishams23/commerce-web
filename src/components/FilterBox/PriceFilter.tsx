@@ -25,10 +25,10 @@ function PriceFilter() {
           فیلتر
         </Button>
         <div className="text-subtitle">
-          {(priceRange[1] * 10000).toLocaleString()} تومان
+          {(priceRange[1] * 10000).toLocaleString("fa-IR")} تومان
         </div>
         <div className="text-subtitle">
-          {(priceRange[0] * 10000).toLocaleString()} تومان
+          {(priceRange[0] * 10000).toLocaleString("fa-IR")} تومان
         </div>
       </div>
     </div>
