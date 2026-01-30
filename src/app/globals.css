@@ -75,6 +75,7 @@
     --muted-foreground: 0 0% 89%; /* #E2E2E2 */
     --subtitle: 0 0% 50%; /* #808080 */
     --title: 0 0% 31%; /* #505050 */
+    --error: 357 95% 58%; /* #fb2c36 */
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -135,6 +136,7 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-subtitle: hsl(var(--subtitle));
   --color-title: hsl(var(--title));
+  --color-error: hsl(var(--error));
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));

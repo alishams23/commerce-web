@@ -43,12 +43,12 @@ export const NAVBAR_ITEMS: TNavbarItem[] = [
     enTitle: "Contact Us",
     faTitle: "تماس‌با‌ما",
     icon: <Call variant="Bold" />,
-    href: "/contact",
+    href: "/contact-us",
   },
   {
     enTitle: "About Us",
     faTitle: "درباره‌ما",
     icon: <BookSaved variant="Bold" />,
-    href: "/about",
+    href: "/about-us",
   },
 ];
