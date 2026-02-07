@@ -47,6 +47,7 @@ function useForm<T extends Record<string, string>>(
         await onSubmit(currentValues);
       } finally {
         setIsSubmitting(false);
+        reset();
       }
     };
   }
@@ -64,7 +65,6 @@ function useForm<T extends Record<string, string>>(
     isSubmitting,
     handleChange,
     handleSubmit,
-    reset,
   };
 }
 

@@ -40,7 +40,7 @@ function ContactUsPage() {
     description: [VALIDATION_RULES.required()],
   };
 
-  const { handleSubmit, handleChange, errors, isSubmitting, reset, formRef } =
+  const { handleSubmit, handleChange, errors, isSubmitting, formRef } =
     useForm<TContactUsFormValues>(contactUsInitialValues, (values) =>
       validateForm<TContactUsFormValues>(contactUsValidationSchema, values),
     );
