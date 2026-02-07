@@ -1,7 +1,7 @@
 import useForm from "./useForm";
-import { validateForm } from "./utils/validateForm";
-import { TValidationSchema } from "./type";
-import VALIDATION_RULES from "./constants";
+import { TValidationSchema } from "./types";
+import { validateForm } from "./validation/validateForm";
+import VALIDATION_RULES from "./validation/rules";
 
 export { useForm, validateForm, VALIDATION_RULES };
 export type { TValidationSchema };
