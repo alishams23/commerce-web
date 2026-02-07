@@ -10,6 +10,7 @@ type TFormInputProps = {
   error?: string;
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
+  dir?: "rtl" | "ltr";
   required?: boolean;
 };
 
@@ -22,6 +23,7 @@ function FormInput({
   placeholder,
   required = false,
   type = "text",
+  dir = "rtl",
 }: TFormInputProps) {
   return (
     <div>
@@ -45,6 +47,7 @@ function FormInput({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        dir={dir}
         className={cn(error && "border-error")}
       />
 

@@ -1,7 +1,11 @@
 "use client";
 
-import useForm from "@/hooks/useForm";
-
+import {
+  useForm,
+  TValidationSchema,
+  validateForm,
+  VALIDATION_RULES,
+} from "@/hooks/useForms";
 import LoadingButton from "@/components/LoadingButton/LoadingButton";
 import FormTextarea from "@/components/FormTextarea/FormTextarea";
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
@@ -12,14 +16,14 @@ function ContactUsPage() {
   /*                                    Form                                    */
   /* -------------------------------------------------------------------------- */
 
-  type TContactUsForm = {
+  type TContactUsFormValues = {
     firstName: string;
     lastName: string;
     email: string;
     phoneNumber: string;
     description: string;
   };
-  const contactUsInitialValues = {
+  const contactUsInitialValues: TContactUsFormValues = {
     email: "",
     firstName: "",
     lastName: "",
@@ -27,33 +31,28 @@ function ContactUsPage() {
     description: "",
   };
 
-  const {
-    handleSubmit,
-    handleChange,
-    errors,
-    isSubmitting,
-    values,
-    // reset
-  } = useForm<TContactUsForm>(contactUsInitialValues, (values) => {
-    const errors: Partial<Record<keyof TContactUsForm, string>> = {};
+  const contactUsValidationSchema: TValidationSchema<TContactUsFormValues> = {
+    firstName: [VALIDATION_RULES.required()],
+    lastName: [VALIDATION_RULES.required()],
+    email: [VALIDATION_RULES.email()],
+    phoneNumber: [VALIDATION_RULES.required(), VALIDATION_RULES.phoneNumber()],
+    description: [VALIDATION_RULES.required()],
+  };
 
-    if (!values.firstName) errors.firstName = "خر";
-    if (!values.lastName) errors.lastName = "ERROR";
-    if (!values.phoneNumber) errors.phoneNumber = "خر";
-    if (!values.description) errors.description = "خر";
-
-    return errors;
-  });
+  const { handleSubmit, handleChange, errors, isSubmitting, values, reset } =
+    useForm<TContactUsFormValues>(contactUsInitialValues, (values) =>
+      validateForm<TContactUsFormValues>(contactUsValidationSchema, values),
+    );
 
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
 
-  async function onSubmit(value: TContactUsForm) {
+  async function onSubmit(value: TContactUsFormValues) {
     await new Promise((res) => setTimeout(res, 2000));
     console.log("Submitting", value);
+    reset();
   }
-  // reset();
 
   return (
     <div className="mx-12 lg:mx-36">
@@ -89,6 +88,7 @@ function ContactUsPage() {
         <FormInput
           label="ایمیل | Email"
           name="email"
+          dir="ltr"
           value={values.email}
           onChange={handleChange}
           error={errors?.email}
