@@ -1,17 +1,19 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 
-type Errors<T> = Partial<Record<keyof T, string>>;
+type TErrors<T> = Partial<Record<keyof T, string>>;
 
 function useForm<T extends Record<string, string>>(
   initialValues: T,
-  validate?: (values: T) => Errors<T>,
+  validate?: (values: T) => TErrors<T>,
 ) {
   /* -------------------------------------------------------------------------- */
   /*                                 React Hooks                                */
   /* -------------------------------------------------------------------------- */
 
-  const [values, setValues] = useState<T>(initialValues);
-  const [errors, setErrors] = useState<Errors<T>>();
+  const valuesRef = useRef<T>({ ...initialValues });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [errors, setErrors] = useState<TErrors<T>>();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   /* -------------------------------------------------------------------------- */
@@ -22,18 +24,17 @@ function useForm<T extends Record<string, string>>(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     const { name, value } = e.target;
-    setValues((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    (valuesRef.current as Record<string, string>)[name] = value;
   }
 
   function handleSubmit(onSubmit: (values: T) => Promise<void> | void) {
     return async (e: FormEvent) => {
       e.preventDefault();
 
+      const currentValues = { ...valuesRef.current };
+
       if (validate) {
-        const validateErrors = validate(values);
+        const validateErrors = validate(currentValues);
 
         if (Object.keys(validateErrors).length > 0) {
           setErrors(validateErrors);
@@ -43,7 +44,7 @@ function useForm<T extends Record<string, string>>(
 
       try {
         setIsSubmitting(true);
-        await onSubmit(values);
+        await onSubmit(currentValues);
       } finally {
         setIsSubmitting(false);
       }
@@ -51,12 +52,14 @@ function useForm<T extends Record<string, string>>(
   }
 
   function reset() {
-    setValues(initialValues);
+    valuesRef.current = { ...initialValues };
     setErrors(undefined);
+    formRef.current?.reset();
   }
 
   return {
-    values,
+    formRef,
+    values: initialValues,
     errors,
     isSubmitting,
     handleChange,

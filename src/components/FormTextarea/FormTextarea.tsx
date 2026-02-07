@@ -4,24 +4,31 @@ import { ChangeEvent } from "react";
 type TFormTextareaProps = {
   label: string;
   name: string;
-  value: string;
+  value?: string;
+  defaultValue?: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   error?: string;
   placeholder?: string;
   rows?: number;
   required?: boolean;
+  disable?: boolean;
 };
 
 function FormTextarea({
   label,
   name,
   value,
+  defaultValue,
   onChange,
   error,
   placeholder,
+  disable = false,
+
   required,
   rows = 4,
 }: TFormTextareaProps) {
+  const isControlled = value !== undefined;
+
   return (
     <div>
       <label
@@ -40,10 +47,11 @@ function FormTextarea({
       <textarea
         id={name}
         name={name}
-        value={value}
+        {...(isControlled ? { value } : { defaultValue })}
         onChange={onChange}
         placeholder={placeholder}
         rows={rows}
+        disabled={disable}
         className={cn(
           "border-input bg-background block w-full rounded-2xl border px-3 py-2",
           error && "border-error",

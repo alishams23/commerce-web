@@ -39,7 +39,7 @@ function ContactUsPage() {
     description: [VALIDATION_RULES.required()],
   };
 
-  const { handleSubmit, handleChange, errors, isSubmitting, values, reset } =
+  const { handleSubmit, handleChange, errors, isSubmitting, reset, formRef } =
     useForm<TContactUsFormValues>(contactUsInitialValues, (values) =>
       validateForm<TContactUsFormValues>(contactUsValidationSchema, values),
     );
@@ -66,49 +66,50 @@ function ContactUsPage() {
       </div>
 
       <form
+        ref={formRef}
         className="mt-6 flex flex-col gap-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <FormInput
           label="نام | FirstName"
           name="firstName"
-          value={values.firstName}
           required
           onChange={handleChange}
           error={errors?.firstName}
+          disable={isSubmitting}
         />
         <FormInput
           label="نام خانوادگی | LastName"
           name="lastName"
-          value={values.lastName}
           required
           onChange={handleChange}
           error={errors?.lastName}
+          disable={isSubmitting}
         />
         <FormInput
           label="ایمیل | Email"
           name="email"
           dir="ltr"
-          value={values.email}
           onChange={handleChange}
           error={errors?.email}
+          disable={isSubmitting}
         />
         <FormInput
           label="شماره تماس | PhoneNumber"
           name="phoneNumber"
           type="tel"
-          value={values.phoneNumber}
           required
           onChange={handleChange}
           error={errors?.phoneNumber}
+          disable={isSubmitting}
         />
         <FormTextarea
           label="توضیحات | Description"
           name="description"
-          value={values.description}
           required
           onChange={handleChange}
           error={errors?.description}
+          disable={isSubmitting}
         />
 
         <LoadingButton loading={isSubmitting}>ارسال</LoadingButton>
