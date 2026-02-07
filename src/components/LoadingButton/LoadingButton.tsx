@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 type LoadingButtonProps = ComponentProps<typeof Button> & {
-  loading: boolean;
+  isLoading: boolean;
 };
 
 function LoadingButton({
-  loading,
+  isLoading,
   children,
   className,
   disabled,
@@ -20,10 +20,10 @@ function LoadingButton({
     <Button
       type="submit"
       className={cn("relative", className)}
-      disabled={loading || disabled}
+      disabled={isLoading || disabled}
       {...props}
     >
-      {loading ? (
+      {isLoading ? (
         <span className="flex items-center justify-center gap-2">
           <Level className="h-4 w-4 animate-spin" />
         </span>

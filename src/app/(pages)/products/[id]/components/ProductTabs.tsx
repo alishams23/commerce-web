@@ -1,7 +1,49 @@
-import { Input } from "@/components/ui/input";
+"use client";
+
+import FormInput from "@/components/FormInput/FormInput";
+import FormTextarea from "@/components/FormTextarea/FormTextarea";
+import LoadingButton from "@/components/LoadingButton/LoadingButton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  TValidationSchema,
+  useForm,
+  validateForm,
+  VALIDATION_RULES as VR,
+} from "@/hooks/useForms";
+
+type TCommentForm = {
+  name: string;
+  email: string;
+  comment: string;
+};
 
 function ProductTabs() {
+  /* -------------------------------------------------------------------------- */
+  /*                                    Form                                    */
+  /* -------------------------------------------------------------------------- */
+
+  const commentInitialValues: TCommentForm = {
+    comment: "",
+    email: "",
+    name: "",
+  };
+
+  const commentValidationSchema: TValidationSchema<TCommentForm> = {
+    comment: [VR.required()],
+    email: [VR.required(), VR.email()],
+    name: [VR.required()],
+  };
+
+  const { handleSubmit, handleChange, errors, isSubmitting, formRef } =
+    useForm<TCommentForm>(commentInitialValues, (value) =>
+      validateForm<TCommentForm>(commentValidationSchema, value),
+    );
+
+  async function onSubmit(value: TCommentForm) {
+    await new Promise((res) => setTimeout(res, 2000));
+    console.log("Submitting", value);
+  }
+
   return (
     <Tabs dir="rtl" defaultValue="descriptions">
       <TabsList className="lg:max-w-100">
@@ -37,28 +79,39 @@ function ProductTabs() {
         <div className="text-title text-lg font-black">دیدگاه شما</div>
         <hr className="text-title my-2" />
 
-        <div className="flex flex-col gap-2">
-          <div>
-            <label className="text-subtitle text-[14px]">نام | Name</label>
-            <Input />
-          </div>
-          <div>
-            <label className="text-subtitle text-[14px]">ایمیل | Email</label>
-            <Input />
-          </div>
-          <div>
-            <label className="text-subtitle text-[14px]">
-              دیدگاه | Comment
-            </label>
-            <Input />
-          </div>
-
-          <Input
-            type="submit"
-            className="text-title bg-muted-foreground"
-            value="ثبت دیدگاه"
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-2"
+        >
+          <FormInput
+            label="نام | Name"
+            name="name"
+            required
+            onChange={handleChange}
+            error={errors?.name}
+            disable={isSubmitting}
           />
-        </div>
+          <FormInput
+            label="ایمیل | Email"
+            name="email"
+            dir="ltr"
+            required
+            onChange={handleChange}
+            error={errors?.email}
+            disable={isSubmitting}
+          />
+          <FormTextarea
+            label="نظر | Comment"
+            name="comment"
+            required
+            onChange={handleChange}
+            error={errors?.comment}
+            disable={isSubmitting}
+          />
+
+          <LoadingButton isLoading={isSubmitting}>ارسال پیام</LoadingButton>
+        </form>
       </TabsContent>
     </Tabs>
   );

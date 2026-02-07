@@ -52,7 +52,6 @@ function ContactUsPage() {
   async function onSubmit(value: TContactUsFormValues) {
     await new Promise((res) => setTimeout(res, 2000));
     console.log("Submitting", value);
-    reset();
   }
 
   return (
@@ -113,7 +112,7 @@ function ContactUsPage() {
               disable={isSubmitting}
             />
 
-            <LoadingButton loading={isSubmitting}>ارسال</LoadingButton>
+            <LoadingButton isLoading={isSubmitting}>ارسال</LoadingButton>
           </form>
         </div>
       </div>
