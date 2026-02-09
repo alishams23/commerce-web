@@ -1,0 +1,24 @@
+import { Button } from "@/components/ui/button";
+import { LikeShapes } from "iconsax-reactjs";
+import { IconInstagram } from "@/components/icons";
+
+function FactoryInfoInstagram() {
+  return (
+    <div className="bg-secondary flex flex-col items-center justify-between gap-2 rounded-full px-6 py-3 text-white lg:flex-row lg:py-5">
+      <div className="flex items-center gap-1 lg:gap-2">
+        <LikeShapes variant="Bold" className="size-6 lg:size-12" />
+        <div className="text-lg">ما را در اینستگرام دنبال کنید.</div>
+      </div>
+
+      <Button
+        variant="outline"
+        className="rounded-full border-none bg-white font-semibold"
+      >
+        <div>صفحه اینستاگرام</div>
+        <IconInstagram color="#051F6F" />
+      </Button>
+    </div>
+  );
+}
+
+export default FactoryInfoInstagram;

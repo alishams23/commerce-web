@@ -1,0 +1,15 @@
+import { Button } from "@/components/ui/button";
+import { Fragment } from "react/jsx-runtime";
+
+function AmazingDiscountsHeader() {
+  return (
+    <Fragment>
+      <div className="text-primary text-xl font-black">
+        تخفیف های شگفت انگیز
+      </div>
+      <Button variant="outline">مشاهده همه</Button>
+    </Fragment>
+  );
+}
+
+export default AmazingDiscountsHeader;
