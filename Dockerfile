@@ -14,7 +14,8 @@ RUN npm run build
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-EXPOSE 3000
+ENV PORT=6000
+EXPOSE 6000
 
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
