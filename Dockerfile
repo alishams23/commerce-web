@@ -14,8 +14,7 @@ RUN npm run build
 FROM public.ecr.aws/docker/library/node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT=6000
-EXPOSE 6000
+EXPOSE 3000
 
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public

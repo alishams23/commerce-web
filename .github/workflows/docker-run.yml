@@ -16,7 +16,7 @@ jobs:
 
       - name: Run container on port 6000
         run: |
-          docker run -d --name commerce-web -p 6000:6000 commerce-web:ci
+          docker run -d --name commerce-web -p 6000:3000 commerce-web:ci
           for i in {1..20}; do
             if curl -fsS http://localhost:6000 >/dev/null; then
               echo "App is up"
