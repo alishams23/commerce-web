@@ -24,6 +24,7 @@ jobs:
       - name: Save image to tar
         run: |
           docker save commerce-web:ci -o ./commerce-web-ci.tar
+          chmod 644 ./commerce-web-ci.tar
 
       - name: Copy image to server
         uses: appleboy/scp-action@v0.1.7
