@@ -4,7 +4,7 @@ import {
   useForm,
   TValidationSchema,
   validateForm,
-  VALIDATION_RULES,
+  VALIDATION_RULES as VR,
 } from "@/hooks/useForms";
 import LoadingButton from "@/components/LoadingButton/LoadingButton";
 import FormTextarea from "@/components/FormTextarea/FormTextarea";
@@ -33,11 +33,11 @@ function ContactUsPage() {
   };
 
   const contactUsValidationSchema: TValidationSchema<TContactUsFormValues> = {
-    firstName: [VALIDATION_RULES.required()],
-    lastName: [VALIDATION_RULES.required()],
-    email: [VALIDATION_RULES.email()],
-    phoneNumber: [VALIDATION_RULES.required(), VALIDATION_RULES.phoneNumber()],
-    description: [VALIDATION_RULES.required()],
+    firstName: [VR.required()],
+    lastName: [VR.required()],
+    email: [VR.email()],
+    phoneNumber: [VR.required(), VR.phoneNumber()],
+    description: [VR.required()],
   };
 
   const { handleSubmit, handleChange, errors, isSubmitting, formRef } =
