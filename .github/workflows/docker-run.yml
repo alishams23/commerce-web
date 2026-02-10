@@ -43,6 +43,7 @@ jobs:
           username: ${{ env.DEPLOY_USER }}
           password: ${{ env.DEPLOY_PASSWORD }}
           port: ${{ env.DEPLOY_PORT }}
+          envs: APP_NAME,APP_PORT
           script: |
             set -euo pipefail
             docker load -i /tmp/commerce-web-ci.tar
