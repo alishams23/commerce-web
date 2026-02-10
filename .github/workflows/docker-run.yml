@@ -1,0 +1,29 @@
+name: Build and Run Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-run:
+    runs-on: [self-hosted, linux, x64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker build -t commerce-web:ci .
+
+      - name: Run container on port 6000
+        run: |
+          docker run -d --restart unless-stopped --name commerce-web -p 6000:3000 commerce-web:ci
+          for i in {1..20}; do
+            if curl -fsS http://localhost:6000 >/dev/null; then
+              echo "App is up"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "App did not become ready" >&2
+          docker logs commerce-web
+          exit 1
