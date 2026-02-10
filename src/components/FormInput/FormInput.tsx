@@ -1,19 +1,16 @@
-import { ChangeEvent, HTMLInputTypeAttribute } from "react";
-import { Input } from "../ui/input";
+import { HTMLInputTypeAttribute, ReactElement } from "react";
+
 import { cn } from "@/lib/utils";
 
-type TFormInputProps = {
-  label: string;
-  name: string;
-  value?: string;
-  defaultValue?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
+import { Input } from "../ui/input";
+import { TFormProps } from "../Form/FormType";
+
+type TFormInputProps = TFormProps & {
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
+  inputClassName?: string;
   dir?: "rtl" | "ltr";
-  required?: boolean;
-  disable?: boolean;
+  innerInputEl?: ReactElement;
 };
 
 function FormInput({
@@ -24,16 +21,18 @@ function FormInput({
   onChange,
   error,
   placeholder,
+  inputClassName,
   disable = false,
   required = false,
   type = "text",
   dir = "rtl",
+  innerInputEl,
 }: TFormInputProps) {
   // TODO: change this if needed
   const isControlled = value !== undefined;
 
   return (
-    <div>
+    <div className="relative">
       <label
         htmlFor={name}
         className={cn("text-[14px]", error ? "text-error" : "text-subtitle")}
@@ -54,9 +53,11 @@ function FormInput({
         onChange={onChange}
         placeholder={placeholder}
         dir={dir}
-        className={cn(error && "border-error")}
+        className={cn(error && "border-error", inputClassName)}
         disabled={disable}
       />
+
+      {innerInputEl}
 
       {error && <span className="text-error mr-4 text-[12px]">{error}</span>}
     </div>

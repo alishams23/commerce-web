@@ -1,17 +1,10 @@
 import { cn } from "@/lib/utils";
-import { ChangeEvent } from "react";
 
-type TFormTextareaProps = {
-  label: string;
-  name: string;
-  value?: string;
-  defaultValue?: string;
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  error?: string;
+import { TFormProps } from "../Form/FormType";
+
+type TFormTextareaProps = TFormProps & {
   placeholder?: string;
   rows?: number;
-  required?: boolean;
-  disable?: boolean;
 };
 
 function FormTextarea({
