@@ -6,7 +6,14 @@ on:
 
 jobs:
   build-and-run:
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || 22 }}
+      DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+      APP_NAME: commerce-web
+      APP_PORT: 6000
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -14,16 +21,30 @@ jobs:
       - name: Build image
         run: docker build -t commerce-web:ci .
 
-      - name: Run container on port 6000
+      - name: Save image to tar
         run: |
-          docker run -d --restart unless-stopped --name commerce-web -p 6000:3000 commerce-web:ci
-          for i in {1..20}; do
-            if curl -fsS http://localhost:6000 >/dev/null; then
-              echo "App is up"
-              exit 0
-            fi
-            sleep 3
-          done
-          echo "App did not become ready" >&2
-          docker logs commerce-web
-          exit 1
+          docker save commerce-web:ci -o /tmp/commerce-web-ci.tar
+
+      - name: Copy image to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ env.DEPLOY_HOST }}
+          username: ${{ env.DEPLOY_USER }}
+          password: ${{ env.DEPLOY_PASSWORD }}
+          port: ${{ env.DEPLOY_PORT }}
+          source: /tmp/commerce-web-ci.tar
+          target: /tmp
+
+      - name: Load and run on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ env.DEPLOY_HOST }}
+          username: ${{ env.DEPLOY_USER }}
+          password: ${{ env.DEPLOY_PASSWORD }}
+          port: ${{ env.DEPLOY_PORT }}
+          script: |
+            set -euo pipefail
+            docker load -i /tmp/commerce-web-ci.tar
+            docker rm -f $APP_NAME || true
+            docker run -d --restart unless-stopped --name $APP_NAME -p ${APP_PORT}:3000 commerce-web:ci
+            rm -f /tmp/commerce-web-ci.tar
