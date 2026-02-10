@@ -1,12 +1,22 @@
+"use client";
+
 import { ArrowLeft } from "iconsax-reactjs";
 
+import { useNewProducts } from "@/lib/queries/products";
+
+import ProductsItemCard from "@/components/ProductsItemCard/ProductsItemCard";
 import IconStart from "@/components/icons/IconStart";
 import { Button } from "@/components/ui/button";
 
-import ProductsItemCard from "../../../components/ProductsItemCard/ProductsItemCard";
 import { NEW_PRODUCTS } from "./constants";
 
 function NewProducts() {
+  /* -------------------------------------------------------------------------- */
+  /*                                 React Query                                */
+  /* -------------------------------------------------------------------------- */
+
+  const { data: products, isLoading, isError } = useNewProducts();
+
   return (
     <div className="mx-12 flex flex-col gap-3 lg:mx-36">
       <div className="flex justify-between">
@@ -25,6 +35,18 @@ function NewProducts() {
 
       {/* Items */}
       <div className="scrollbar-hide flex justify-between gap-3 overflow-x-auto lg:mx-0">
+        {isLoading && (
+          <div className="text-muted-foreground py-6 text-sm">
+            در حال بارگذاری محصولات جدید...
+          </div>
+        )}
+
+        {isError && !isLoading && (
+          <div className="py-6 text-sm text-red-500">
+            خطا در بارگذاری محصولات جدید.
+          </div>
+        )}
+
         {NEW_PRODUCTS.map(({ id, colors, title, src, price }, index) => (
           <ProductsItemCard
             id={id}
@@ -35,6 +57,19 @@ function NewProducts() {
             title={title}
           />
         ))}
+
+        {!isLoading &&
+          !isError &&
+          products?.map(({ id, colors, title, src, price }, index) => (
+            <ProductsItemCard
+              id={id}
+              key={title + index}
+              colors={colors}
+              price={price}
+              src={src}
+              title={title}
+            />
+          ))}
       </div>
 
       <Button className="flex w-fit gap-3 self-center rounded-lg bg-[#EBF0FF] p-6 text-[#373254] lg:hidden">
