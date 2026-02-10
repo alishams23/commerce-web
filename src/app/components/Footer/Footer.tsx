@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 import { ArrowUp } from "iconsax-reactjs";
@@ -20,6 +22,14 @@ import LinkColumn from "./components/LinkColumn";
 import SocialButton from "./components/SocialButton";
 
 function Footer() {
+  /* -------------------------------------------------------------------------- */
+  /*                                  Function                                  */
+  /* -------------------------------------------------------------------------- */
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <div className="from-primary-dark to-primary relative flex flex-col rounded-t-2xl bg-linear-to-b text-white">
       <div className="flex flex-col justify-between gap-6 px-12 pt-8 pb-6 lg:flex-row lg:gap-16 lg:px-8">
@@ -89,9 +99,11 @@ function Footer() {
         </div>
       </div>
       <hr className="text-[#B0B0B0]" />
-      <Button className="absolute bottom-1.5 left-8 hidden gap-0.5 bg-white text-[#4A4A4A] hover:bg-gray-300 lg:inline-flex">
-        {/* TODO: add function to go up */}
-        <div className="font-normal">بریم بالا</div>
+      <Button
+        onClick={scrollToTop}
+        className="absolute bottom-1.5 left-8 hidden gap-0.5 bg-white font-normal text-[#4A4A4A] hover:bg-gray-300 lg:inline-flex"
+      >
+        <span>بریم بالا</span>
         <ArrowUp variant="Broken" />
       </Button>
       <p className="py-3 text-center font-medium text-[#B0B0B0]">

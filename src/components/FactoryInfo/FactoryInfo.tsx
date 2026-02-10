@@ -1,11 +1,13 @@
+import { cn } from "@/lib/utils";
+
 import FactoryInfoInstagram from "./components/FactoryInfoInstagram";
 import FactoryInfoActions from "./components/FactoryInfoActions";
 import FactoryInfoContent from "./components/FactoryInfoContent";
 import FactoryInfoMedia from "./components/FactoryInfoMedia";
 
-function FactoryInfo() {
+function FactoryInfo({ className }: { className?: string }) {
   return (
-    <div className="mx-12 flex flex-col gap-6 lg:mx-36 lg:flex-row lg:gap-30">
+    <div className={cn("flex flex-col gap-6 lg:flex-row lg:gap-30", className)}>
       {/* Contents and Actions */}
       <div className="flex flex-col gap-2 lg:w-1/2 lg:gap-6">
         <FactoryInfoContent />
