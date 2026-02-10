@@ -63,7 +63,7 @@ function LoginPage() {
   return (
     <form
       ref={formRef}
-      className="bg-muted flex min-w-80 flex-col gap-4 rounded-2xl p-4"
+      className="bg-muted flex flex-col gap-4 rounded-2xl p-4"
       onSubmit={handleSubmit(onSubmit)}
     >
       <FormInput

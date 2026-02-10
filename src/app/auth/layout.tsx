@@ -41,7 +41,7 @@ function LoginLayout({ children }: { children: ReactNode }) {
           ثبت نام
         </Link>
       </div>
-      <div>{children}</div>
+      <div className="min-w-80 lg:min-w-100">{children}</div>
     </div>
   );
 }
