@@ -23,7 +23,7 @@ jobs:
 
       - name: Save image to tar
         run: |
-          docker save commerce-web:ci -o /tmp/commerce-web-ci.tar
+          docker save commerce-web:ci -o ./commerce-web-ci.tar
 
       - name: Copy image to server
         uses: appleboy/scp-action@v0.1.7
@@ -32,7 +32,7 @@ jobs:
           username: ${{ env.DEPLOY_USER }}
           password: ${{ env.DEPLOY_PASSWORD }}
           port: ${{ env.DEPLOY_PORT }}
-          source: /tmp/commerce-web-ci.tar
+          source: commerce-web-ci.tar
           target: /tmp
 
       - name: Load and run on server
