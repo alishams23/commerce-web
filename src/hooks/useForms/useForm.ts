@@ -36,10 +36,9 @@ function useForm<T extends Record<string, string>>(
       if (validate) {
         const validateErrors = validate(currentValues);
 
-        if (Object.keys(validateErrors).length > 0) {
-          setErrors(validateErrors);
-          return;
-        }
+        setErrors(validateErrors);
+
+        if (Object.keys(validateErrors).length > 0) return;
       }
 
       try {

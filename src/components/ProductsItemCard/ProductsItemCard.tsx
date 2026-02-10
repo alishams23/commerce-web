@@ -78,7 +78,10 @@ function ProductsItemCard({
           ))}
         </div>
       </div>
-      <div className="text-title font-semibold" onClick={() => onItemClick(id)}>
+      <div
+        className="text-title cursor-pointer font-semibold"
+        onClick={() => onItemClick(id)}
+      >
         {title}
       </div>
       <div className="text-subtitle pb-4 text-[14px] font-normal">

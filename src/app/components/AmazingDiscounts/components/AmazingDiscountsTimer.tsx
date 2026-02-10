@@ -1,16 +1,20 @@
-type TAmazingDiscountsTimerProps = {
-  days: string;
-  hours: string;
-  minutes: string;
-  seconds: string;
-};
+"use client";
 
-function AmazingDiscountsTimer({
-  days,
-  hours,
-  minutes,
-  seconds,
-}: TAmazingDiscountsTimerProps) {
+import useCountdown from "../hooks/useCountDown";
+
+function AmazingDiscountsTimer() {
+  /* -------------------------------------------------------------------------- */
+  /*                                  Countdown                                 */
+  /* -------------------------------------------------------------------------- */
+
+  const { days, hours, minutes, seconds } = useCountdown(
+    new Date("2026-05-10T00:00:00"),
+  );
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Constant                                  */
+  /* -------------------------------------------------------------------------- */
+
   const items = [
     { title: "روز", value: days },
     { title: "ساعت", value: hours },

@@ -4,7 +4,7 @@ import {
   useForm,
   TValidationSchema,
   validateForm,
-  VALIDATION_RULES,
+  VALIDATION_RULES as VR,
 } from "@/hooks/useForms";
 import LoadingButton from "@/components/LoadingButton/LoadingButton";
 import FormTextarea from "@/components/FormTextarea/FormTextarea";
@@ -33,11 +33,11 @@ function ContactUsPage() {
   };
 
   const contactUsValidationSchema: TValidationSchema<TContactUsFormValues> = {
-    firstName: [VALIDATION_RULES.required()],
-    lastName: [VALIDATION_RULES.required()],
-    email: [VALIDATION_RULES.email()],
-    phoneNumber: [VALIDATION_RULES.required(), VALIDATION_RULES.phoneNumber()],
-    description: [VALIDATION_RULES.required()],
+    firstName: [VR.required()],
+    lastName: [VR.required()],
+    email: [VR.email()],
+    phoneNumber: [VR.required(), VR.phoneNumber()],
+    description: [VR.required()],
   };
 
   const { handleSubmit, handleChange, errors, isSubmitting, formRef } =
@@ -58,63 +58,61 @@ function ContactUsPage() {
     <div className="mx-12 lg:mx-36">
       <Breadcrumbs items={[{ href: "", name: "تماس‌با‌ما" }]} />
 
-      <div className="flex flex-col gap-6">
-        <div>
-          <div className="font-extrabold">تماس با ما</div>
-          <div className="text-subtitle mt-2 text-[14px]">
-            جهت ارتباط گیری با ما می توانید فرم زیر ارتباط بگیرید .
-          </div>
-
-          <form
-            ref={formRef}
-            className="mt-4 flex flex-col gap-4 lg:max-w-1/2"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <FormInput
-              label="نام | FirstName"
-              name="firstName"
-              required
-              onChange={handleChange}
-              error={errors?.firstName}
-              disable={isSubmitting}
-            />
-            <FormInput
-              label="نام خانوادگی | LastName"
-              name="lastName"
-              required
-              onChange={handleChange}
-              error={errors?.lastName}
-              disable={isSubmitting}
-            />
-            <FormInput
-              label="ایمیل | Email"
-              name="email"
-              dir="ltr"
-              onChange={handleChange}
-              error={errors?.email}
-              disable={isSubmitting}
-            />
-            <FormInput
-              label="شماره تماس | PhoneNumber"
-              name="phoneNumber"
-              type="tel"
-              required
-              onChange={handleChange}
-              error={errors?.phoneNumber}
-              disable={isSubmitting}
-            />
-            <FormTextarea
-              label="توضیحات | Description"
-              name="description"
-              required
-              onChange={handleChange}
-              error={errors?.description}
-              disable={isSubmitting}
-            />
-
-            <LoadingButton isLoading={isSubmitting}>ارسال</LoadingButton>
-          </form>
+      <div>
+        <div className="font-extrabold">تماس با ما</div>
+        <div className="text-subtitle mt-2 text-[14px]">
+          جهت ارتباط گیری با ما می توانید فرم زیر ارتباط بگیرید .
         </div>
+
+        <form
+          ref={formRef}
+          className="mt-4 flex flex-col gap-4 lg:max-w-1/2"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <FormInput
+            label="نام | FirstName"
+            name="firstName"
+            required
+            onChange={handleChange}
+            error={errors?.firstName}
+            disable={isSubmitting}
+          />
+          <FormInput
+            label="نام خانوادگی | LastName"
+            name="lastName"
+            required
+            onChange={handleChange}
+            error={errors?.lastName}
+            disable={isSubmitting}
+          />
+          <FormInput
+            label="ایمیل | Email"
+            name="email"
+            dir="ltr"
+            onChange={handleChange}
+            error={errors?.email}
+            disable={isSubmitting}
+          />
+          <FormInput
+            label="شماره تماس | PhoneNumber"
+            name="phoneNumber"
+            type="tel"
+            required
+            onChange={handleChange}
+            error={errors?.phoneNumber}
+            disable={isSubmitting}
+          />
+          <FormTextarea
+            label="توضیحات | Description"
+            name="description"
+            required
+            onChange={handleChange}
+            error={errors?.description}
+            disable={isSubmitting}
+          />
+
+          <LoadingButton isLoading={isSubmitting}>ارسال</LoadingButton>
+        </form>
       </div>
     </div>
   );
