@@ -1,11 +1,11 @@
-import IconStart from "@/components/icons/IconStart";
+import IconStar from "@/components/icons/IconStar";
 import { Button } from "@/components/ui/button";
 
 function NewArticleHeader() {
   return (
     <div className="flex justify-between">
       <div className="flex items-center gap-1 text-xl">
-        <IconStart />
+        <IconStar />
         <span className="font-extrabold">جدید ترین</span> محصولات
       </div>
 

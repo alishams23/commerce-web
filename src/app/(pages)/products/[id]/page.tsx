@@ -2,6 +2,7 @@ import { use } from "react";
 import { notFound } from "next/navigation";
 
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
+import ProductsListRow from "@/components/ProductsListRow/ProductsListRow";
 
 import { PAGE_PRODUCTS } from "../constants";
 
@@ -9,6 +10,8 @@ import ProductImages from "./components/ProductImages";
 import ProductInfo from "./components/ProductInfo";
 import ProductPurchaseBox from "./components/ProductPurchaseBox";
 import ProductTabs from "./components/ProductTabs";
+
+import { NEW_PRODUCTS } from "@/app/components/NewProducts/constants";
 
 function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -39,6 +42,12 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
         <ProductPurchaseBox price={product.price} discountPercent={27} />
       </div>
       <ProductTabs />
+
+      <ProductsListRow
+        products={NEW_PRODUCTS}
+        title="محبوب‌ترین"
+        shwMoreBtn={false}
+      />
     </div>
   );
 }

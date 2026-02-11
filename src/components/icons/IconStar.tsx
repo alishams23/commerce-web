@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 import { IconProps } from "./IconType";
 
-function IconStart({ color = "#051F6F", size = 18 }: IconProps) {
+function IconStar({ color = "#051F6F", size = 18 }: IconProps) {
   return (
     <Icon size={size}>
       <path
@@ -12,4 +12,4 @@ function IconStart({ color = "#051F6F", size = 18 }: IconProps) {
   );
 }
 
-export default IconStart;
+export default IconStar;
