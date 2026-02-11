@@ -7,6 +7,7 @@ import { Bag } from "iconsax-reactjs";
 
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type TProductsItemCardProps = {
   src: string;
@@ -15,6 +16,7 @@ type TProductsItemCardProps = {
   price: number;
   id: number;
   size?: "small" | "medium";
+  className?: string;
 };
 
 function ProductsItemCard({
@@ -24,6 +26,7 @@ function ProductsItemCard({
   src,
   id,
   size = "medium",
+  className,
 }: TProductsItemCardProps) {
   /* -------------------------------------------------------------------------- */
   /*                                    Next                                    */
@@ -40,9 +43,14 @@ function ProductsItemCard({
   }
 
   return (
-    <div className="bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4">
-      <div className="flex flex-col rounded-2xl bg-white">
-        <div className="flex justify-between">
+    <div
+      className={cn(
+        "bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4",
+        className,
+      )}
+    >
+      <div className="flex flex-col items-center rounded-2xl bg-white">
+        <div className="flex w-full justify-between">
           <Button
             size="icon"
             variant="outline"

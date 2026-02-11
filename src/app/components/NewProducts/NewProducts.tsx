@@ -24,7 +24,7 @@ function NewProducts() {
       </div>
 
       {/* Items */}
-      <div className="scrollbar-hide flex justify-between gap-3 overflow-x-auto lg:mx-0">
+      <div className="scrollbar-hide flex gap-3 overflow-x-auto lg:mx-0 lg:gap-6">
         {NEW_PRODUCTS.map(({ id, colors, title, src, price }, index) => (
           <ProductsItemCard
             id={id}
@@ -33,6 +33,7 @@ function NewProducts() {
             price={price}
             src={src}
             title={title}
+            className="grow"
           />
         ))}
       </div>
