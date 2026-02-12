@@ -46,6 +46,12 @@ jobs:
           envs: APP_NAME,APP_PORT
           script: |
             set -euo pipefail
+            
+            echo "Cleaning up Docker space..."
+            docker image prune -af
+            docker builder prune -af
+            
+            echo "Loading new image..."
             docker load -i /tmp/commerce-web-ci.tar
             docker rm -f $APP_NAME || true
             docker run -d --restart unless-stopped --name $APP_NAME -p ${APP_PORT}:3000 commerce-web:ci
