@@ -12,6 +12,7 @@ jobs:
       DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
       DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || 22 }}
       DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
+      NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
       APP_NAME: commerce-web
       APP_PORT: 3003
     steps:
@@ -19,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build image
-        run: docker build -t commerce-web:ci .
+        run: docker build --build-arg NEXT_PUBLIC_API_BASE_URL=${{ env.NEXT_PUBLIC_API_BASE_URL }} -t commerce-web:ci .
 
       - name: Save image to tar
         run: |
@@ -43,7 +44,7 @@ jobs:
           username: ${{ env.DEPLOY_USER }}
           password: ${{ env.DEPLOY_PASSWORD }}
           port: ${{ env.DEPLOY_PORT }}
-          envs: APP_NAME,APP_PORT
+          envs: APP_NAME,APP_PORT,NEXT_PUBLIC_API_BASE_URL
           script: |
             set -euo pipefail
             
@@ -54,5 +55,5 @@ jobs:
             echo "Loading new image..."
             docker load -i /tmp/commerce-web-ci.tar
             docker rm -f $APP_NAME || true
-            docker run -d --restart unless-stopped --name $APP_NAME -p ${APP_PORT}:3000 commerce-web:ci
+            docker run -d --restart unless-stopped --name $APP_NAME -p ${APP_PORT}:3000 -e NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL commerce-web:ci
             rm -f /tmp/commerce-web-ci.tar
