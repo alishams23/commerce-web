@@ -1,4 +1,4 @@
-import { APIRequest } from "./APIRequest";
+import { APIRequest } from "../APIRequest";
 
 export type TGalleryResponse = {
   id: number;

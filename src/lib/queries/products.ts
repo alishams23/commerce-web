@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getNewProducts } from "../API/products";
+import { getNewProducts } from "../API/Home/products";
 
 const NEW_PRODUCTS_QUERY_KEY = ["products", "new"];
 

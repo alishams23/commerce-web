@@ -1,4 +1,4 @@
-import { APIRequest } from "./APIRequest";
+import { APIRequest } from "../APIRequest";
 
 // TODO: change the types
 export type TProduct = {
