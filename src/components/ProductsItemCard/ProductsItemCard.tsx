@@ -8,10 +8,11 @@ import { Bag } from "iconsax-reactjs";
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { TProductColor } from "@/lib/API/Home/productsNew";
 
 type TProductsItemCardProps = {
   src: string;
-  colors: string[];
+  colors: TProductColor[];
   title: string;
   price: number;
   id: number;
@@ -77,12 +78,16 @@ function ProductsItemCard({
         />
 
         <div className="flex gap-1 self-end p-1">
-          {colors.map((color) => (
+          {colors.map(({ color, id, images, price, stock }) => (
             <div
+              key={id}
               className="h-6 w-6 rounded-lg"
-              key={color}
-              style={{ backgroundColor: color }}
-            ></div>
+              // TODO: remove "?" and change style
+              style={{
+                backgroundColor: color?.code,
+                boxShadow: "1px 1px 1px black",
+              }}
+            />
           ))}
         </div>
       </div>

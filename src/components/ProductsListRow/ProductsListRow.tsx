@@ -2,27 +2,25 @@ import { ArrowLeft } from "iconsax-reactjs";
 
 import { cn } from "@/lib/utils";
 
+import { TProductResponse } from "@/lib/API/Home/productsNew";
+
 import { Button } from "../ui/button";
 import IconStar from "../icons/IconStar";
 import ProductsItemCard from "../ProductsItemCard/ProductsItemCard";
+
+type TProductsListRowProps = {
+  title: string;
+  products: TProductResponse[];
+  className?: string;
+  shwMoreBtn?: boolean;
+};
 
 function ProductsListRow({
   title,
   products,
   className,
   shwMoreBtn = true,
-}: {
-  title: string;
-  products: {
-    id: number;
-    colors: string[];
-    title: string;
-    src: string;
-    price: number;
-  }[];
-  className?: string;
-  shwMoreBtn?: boolean;
-}) {
+}: TProductsListRowProps) {
   return (
     <div className={cn("flex flex-col gap-3", className)}>
       <div className="flex justify-between">
@@ -44,14 +42,14 @@ function ProductsListRow({
 
       {/* Items */}
       <div className="scrollbar-hide flex gap-3 overflow-x-auto lg:mx-0 lg:gap-6">
-        {products.map(({ id, colors, title, src, price }, index) => (
+        {products.map(({ id, colors, fixed_price, cover_image, name }) => (
           <ProductsItemCard
             id={id}
-            key={title + index}
+            key={id}
             colors={colors}
-            price={price}
-            src={src}
-            title={title}
+            price={fixed_price}
+            src={cover_image}
+            title={name}
             className="grow"
           />
         ))}
