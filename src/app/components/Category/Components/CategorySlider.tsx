@@ -6,8 +6,20 @@ import { CATEGORIES } from "../constants";
 import CategoryItem from "./CategoryItem";
 import useBadgeSlider from "@/hooks/useBadgeSlider";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { getCategories } from "@/lib/API/Home/categories";
 
 function CategorySlider() {
+  /* -------------------------------------------------------------------------- */
+  /*                                 React Query                                */
+  /* -------------------------------------------------------------------------- */
+
+  const CATEGORIES_QUERY_KEY = ["categories"];
+  const { data, isLoading, isError } = useQuery({
+    queryKey: CATEGORIES_QUERY_KEY,
+    queryFn: getCategories,
+  });
+
   /* -------------------------------------------------------------------------- */
   /*                                Badge Slider                                */
   /* -------------------------------------------------------------------------- */
@@ -28,9 +40,15 @@ function CategorySlider() {
         ref={scrollContainerRef}
         className="scrollbar-hide flex w-full gap-2 overflow-x-auto px-4 text-[#3D3B3B] lg:px-2"
       >
-        {CATEGORIES.map((item) => (
-          <CategoryItem key={item.title} {...item} />
-        ))}
+        {!isLoading &&
+          !isError &&
+          data?.map((cat, index) => (
+            <CategoryItem
+              key={`${cat.name}-${index}`}
+              src={CATEGORIES[index % CATEGORIES.length].src}
+              name={cat.name}
+            />
+          ))}
       </div>
 
       <Button
