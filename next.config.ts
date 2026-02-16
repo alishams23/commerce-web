@@ -2,9 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // images: {
-  //   unoptimized: true,
-  // },
+  images: {
+    remotePatterns: [
+      new URL(`${process.env.NEXT_PUBLIC_API_BASE_URL}/media/**`),
+    ],
+  },
 };
 
 export default nextConfig;
