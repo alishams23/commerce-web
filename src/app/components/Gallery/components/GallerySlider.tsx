@@ -18,7 +18,7 @@ function GallerySlider() {
     <div className="relative">
       <div
         ref={containerRef}
-        className="scrollbar-hide flex snap-x snap-proximity gap-6 overflow-x-auto scroll-smooth px-12 lg:items-center"
+        className="scrollbar-hide flex snap-x snap-proximity gap-6 overflow-x-auto scroll-smooth px-12 lg:items-center lg:justify-center"
       >
         {!isMobile && (
           <Button className="p-2" size="icon" onClick={prev}>
