@@ -1,18 +1,32 @@
 "use client";
 
+import { useQuery } from "@tanstack/react-query";
+
+import { getGalleryImages } from "@/lib/API/gallery";
+
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 
 import useGalleryActiveImage from "../hooks/useGalleryActiveImage";
 import GalleryItem from "./GalleryItem";
-import { IMAGES } from "../constants";
 
 function GallerySlider() {
   /* -------------------------------------------------------------------------- */
+  /*                                 React Query                                */
+  /* -------------------------------------------------------------------------- */
+
+  const NEW_PRODUCTS_QUERY_KEY = ["gallery"];
+  const { data, isLoading, isError } = useQuery({
+    queryKey: NEW_PRODUCTS_QUERY_KEY,
+    queryFn: getGalleryImages,
+  });
+
+  /* -------------------------------------------------------------------------- */
   /*                             Gallery Active Imag                            */
   /* -------------------------------------------------------------------------- */
+
   const { isMobile, activeImageId, containerRef, itemsRef, next, prev } =
-    useGalleryActiveImage(IMAGES.length);
+    useGalleryActiveImage(data);
 
   return (
     <div className="relative">
@@ -26,18 +40,20 @@ function GallerySlider() {
           </Button>
         )}
 
-        {IMAGES.map((image, index) => (
-          <GalleryItem
-            key={image.id}
-            image={image}
-            index={index}
-            activeIndex={activeImageId}
-            images={IMAGES}
-            setRef={(el, i) => {
-              if (el) itemsRef.current[i] = el;
-            }}
-          />
-        ))}
+        {!isLoading &&
+          !isError &&
+          data!.map((image, index) => (
+            <GalleryItem
+              key={image.id}
+              image={image}
+              index={index}
+              activeIndex={activeImageId}
+              images={data!}
+              setRef={(el, i) => {
+                if (el) itemsRef.current[i] = el;
+              }}
+            />
+          ))}
 
         {!isMobile && (
           <Button className="p-2" size="icon" onClick={next}>

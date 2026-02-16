@@ -1,17 +1,28 @@
+import { TGalleryResponse } from "@/lib/API/gallery";
 import { useEffect, useRef, useState } from "react";
 
-function useGalleryActiveImage(imageCount: number) {
+function useGalleryActiveImage(data: TGalleryResponse[] | undefined) {
+  /* -------------------------------------------------------------------------- */
+  /*                                  constants                                 */
+  /* -------------------------------------------------------------------------- */
+
+  const imageCount = data?.length ?? 4;
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 768px)").matches;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    React                                   */
+  /* -------------------------------------------------------------------------- */
+
   const [activeImageId, setActiveImageId] = useState(0);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const itemsRef = useRef<HTMLDivElement[]>([]);
 
-  const isMobile =
-    typeof window !== "undefined" &&
-    window.matchMedia("(max-width: 768px)").matches;
-
   useEffect(() => {
-    if (!isMobile || !containerRef.current) return;
+    // Only run on mobile and when we have DOM + items
+    if (!isMobile || !containerRef.current || !itemsRef.current.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -22,7 +33,6 @@ function useGalleryActiveImage(imageCount: number) {
         if (!visible) return;
 
         const id = Number((visible.target as HTMLElement).dataset.id);
-
         setActiveImageId(id);
       },
       {
@@ -31,10 +41,17 @@ function useGalleryActiveImage(imageCount: number) {
       },
     );
 
-    itemsRef.current.forEach((el) => observer.observe(el));
+    itemsRef.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
 
+    // Cleanup on unmount / when data changes
     return () => observer.disconnect();
-  }, [isMobile]);
+  }, [isMobile, data]);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Functions                                 */
+  /* -------------------------------------------------------------------------- */
 
   function next() {
     setActiveImageId((prev) => (prev + 1) % imageCount);

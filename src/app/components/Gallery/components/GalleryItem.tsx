@@ -1,15 +1,16 @@
 import Image from "next/image";
 
-import GalleryThumbnails from "./GalleryThumbnails";
-import { GalleryImage } from "../constants";
 import { cn } from "@/lib/utils";
+import { TGalleryResponse } from "@/lib/API/gallery";
+
+import GalleryThumbnails from "./GalleryThumbnails";
 
 type TGalleryItemProps = {
-  image: GalleryImage;
+  image: TGalleryResponse;
   index: number;
   activeIndex: number;
   setRef: (el: HTMLDivElement | null, index: number) => void;
-  images: GalleryImage[];
+  images: TGalleryResponse[];
 };
 
 function GalleryItem({
@@ -27,7 +28,7 @@ function GalleryItem({
 
   return (
     <div
-      data-id={image.id}
+      data-id={index}
       ref={(el) => setRef(el, index)}
       className={cn(
         "relative h-137.5 w-76.75 shrink-0 snap-center overflow-hidden rounded-3xl lg:shrink",
@@ -35,8 +36,9 @@ function GalleryItem({
       )}
     >
       <Image
-        src={image.src}
-        alt={image.title}
+        src={image.image}
+        // TODO: Change the alt
+        alt={`Gallery image ${image.id}`}
         fill
         sizes="307px"
         className="object-cover"
@@ -47,7 +49,7 @@ function GalleryItem({
 
       {isActive && (
         <div className="absolute right-1/2 bottom-3 flex translate-x-1/2 flex-col gap-4">
-          <div className="text-white">{image.title}</div>
+          <div className="text-white">تولیدی کیف های کارتونی</div>
           <GalleryThumbnails images={images} activeId={activeIndex} />
         </div>
       )}

@@ -1,17 +1,17 @@
 import Image from "next/image";
-import { GalleryImage } from "../constants";
 import { cn } from "@/lib/utils";
+import { TGalleryResponse } from "@/lib/API/gallery";
 
 type TGalleryThumbnailsProps = {
-  images: GalleryImage[];
+  images: TGalleryResponse[];
   activeId: number;
 };
 
 function GalleryThumbnails({ images, activeId }: TGalleryThumbnailsProps) {
   return (
     <div className="flex gap-2">
-      {images.map((image) => {
-        const isActive = activeId === image.id;
+      {images.map((image, index) => {
+        const isActive = activeId === index;
 
         return (
           <div
@@ -24,10 +24,11 @@ function GalleryThumbnails({ images, activeId }: TGalleryThumbnailsProps) {
             )}
           >
             <Image
-              src={image.src}
+              src={image.image}
               fill
               sizes="62px"
-              alt={image.title}
+              // TODO: Change the alt
+              alt={`تولیدی کیف های کارتونی-${image.id}`}
               className="object-cover"
             />
           </div>

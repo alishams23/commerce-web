@@ -11,7 +11,6 @@ function NewProducts() {
   /* -------------------------------------------------------------------------- */
 
   const { data: products, isLoading, isError } = useNewProducts();
-  console.log(products, isLoading, isError);
 
   return (
     <ProductsListRow
