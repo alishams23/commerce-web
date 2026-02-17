@@ -1,4 +1,4 @@
-export type TCategoryItem = { title: string; src: string };
+type TCategoryItem = { title: string; src: string };
 
 export const CATEGORIES: TCategoryItem[] = [
   {

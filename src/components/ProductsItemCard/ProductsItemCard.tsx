@@ -12,7 +12,8 @@ import { TProductColor } from "@/lib/API/Home/productsNew";
 
 type TProductsItemCardProps = {
   src: string;
-  colors: TProductColor[];
+  // TODO: remove the string[]
+  colors: TProductColor[] | string[];
   title: string;
   price: number;
   id: number;
@@ -67,6 +68,7 @@ function ProductsItemCard({
             <IconArrowLeft color="#E2E2E2" />
           </Button>
         </div>
+
         <Image
           alt={title}
           src={src}
@@ -78,17 +80,28 @@ function ProductsItemCard({
         />
 
         <div className="flex gap-1 self-end p-1">
-          {colors.map(({ color, id, images, price, stock }) => (
-            <div
-              key={id}
-              className="h-6 w-6 rounded-lg"
-              // TODO: remove "?" and change style
-              style={{
-                backgroundColor: color?.code,
-                boxShadow: "1px 1px 1px black",
-              }}
-            />
-          ))}
+          {/* TODO: remove this condition */}
+          {typeof colors[0] !== "string" &&
+            (colors as TProductColor[]).map(
+              (
+                {
+                  color,
+                  id,
+                  // images, price, stock
+                },
+                index,
+              ) => (
+                <div
+                  key={`${id}-${index}`}
+                  className="h-6 w-6 rounded-lg"
+                  // TODO: remove "?" and change style
+                  style={{
+                    backgroundColor: color?.code,
+                    boxShadow: "1px 1px 1px black",
+                  }}
+                />
+              ),
+            )}
         </div>
       </div>
       <div

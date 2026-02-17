@@ -24,7 +24,7 @@ export type TProductResponse = {
   id: number;
   name: string;
   fixed_price: number;
-  cover_image: string;
+  cover_image: string | null;
   colors: TProductColor[];
 };
 

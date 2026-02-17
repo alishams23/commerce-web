@@ -48,7 +48,7 @@ function ProductsListRow({
             key={id}
             colors={colors}
             price={fixed_price}
-            src={cover_image}
+            src={cover_image || ""}
             title={name}
             className="grow"
           />
