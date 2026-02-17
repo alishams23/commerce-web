@@ -1,4 +1,4 @@
-import { TProductColor } from "@/lib/API/Home/ProductsNew";
+import { TProductColor } from "@/lib/API/Products/Products";
 import ProductColors from "./ProductColors";
 
 type TProductInfoProps = {

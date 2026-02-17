@@ -1,16 +1,16 @@
 import ProductsItemCard from "@/components/ProductsItemCard/ProductsItemCard";
-import { PAGE_PRODUCTS } from "../constants";
+import { TProductResponse } from "@/lib/API/Products/Products";
 
-function ProductsGrid() {
+function ProductsGrid({ products }: { products: TProductResponse[] }) {
   return (
     <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
-      {PAGE_PRODUCTS.map(({ id, colors, price, src, title }, index) => (
+      {products.map(({ id, colors, cover_image, fixed_price, name }) => (
         <ProductsItemCard
-          key={`${title}-${index}`}
+          key={id}
           colors={colors}
-          price={price}
-          src={src}
-          title={title}
+          price={fixed_price}
+          src={cover_image || ""}
+          title={name}
           size="small"
           id={id}
         />

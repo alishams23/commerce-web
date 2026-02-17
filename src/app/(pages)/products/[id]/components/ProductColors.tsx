@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { TProductColor } from "@/lib/API/Home/ProductsNew";
+import { TProductColor } from "@/lib/API/Products/Products";
 
 function ProductColors({ colors }: { colors: TProductColor[] }) {
   return (

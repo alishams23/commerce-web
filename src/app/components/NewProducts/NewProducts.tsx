@@ -3,7 +3,7 @@
 import ProductsListRow from "@/components/ProductsListRow/ProductsListRow";
 
 import { useQuery } from "@tanstack/react-query";
-import { getNewProducts } from "@/lib/API/Home/ProductsNew";
+import { getProducts } from "@/lib/API/Products/Products";
 
 function NewProducts() {
   /* -------------------------------------------------------------------------- */
@@ -13,7 +13,7 @@ function NewProducts() {
   const NEW_PRODUCTS_QUERY_KEY = ["products", "new", "home"];
   const { data, isLoading, isError } = useQuery({
     queryKey: NEW_PRODUCTS_QUERY_KEY,
-    queryFn: getNewProducts,
+    queryFn: () => getProducts(),
   });
 
   return (

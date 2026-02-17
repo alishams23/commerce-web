@@ -1,5 +1,5 @@
 import { APIRequest } from "../APIRequest";
-import { TProductColor } from "../Home/ProductsNew";
+import { TProductColor } from "./Products";
 
 type TProductComment = {
   id: number;

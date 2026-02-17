@@ -1,3 +1,7 @@
+import {
+  GetProductsParams,
+  queryParamGenerator,
+} from "@/lib/queryParamGenerator";
 import { APIRequest } from "../APIRequest";
 import { PaginatedResponse } from "../APITypes";
 
@@ -28,10 +32,10 @@ export type TProductResponse = {
   colors: TProductColor[];
 };
 
-export async function getNewProducts(): Promise<
-  PaginatedResponse<TProductResponse[]>
-> {
+export async function getProducts(
+  params?: GetProductsParams,
+): Promise<PaginatedResponse<TProductResponse[]>> {
   return APIRequest<PaginatedResponse<TProductResponse[]>>(
-    "/api/product/list/",
+    `/api/product/list/${queryParamGenerator(params)}`,
   );
 }
