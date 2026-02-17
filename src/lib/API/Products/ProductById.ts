@@ -12,7 +12,7 @@ type TProductComment = {
   replies: string;
 };
 
-export type TProductById = {
+export type TProductByIdResponse = {
   id: number;
   name: string;
   brand: {
@@ -29,6 +29,10 @@ export type TProductById = {
   comments: TProductComment[];
 };
 
-export async function getProductById(productId: string): Promise<TProductById> {
-  return APIRequest<TProductById>(`/api/product/product-detail/${productId}/`);
+export async function getProductById(
+  productId: string,
+): Promise<TProductByIdResponse> {
+  return APIRequest<TProductByIdResponse>(
+    `/api/product/product-detail/${productId}/`,
+  );
 }

@@ -35,7 +35,11 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
       {!isError && !isLoading && data && (
         <div className="flex flex-col gap-6 lg:flex-row">
           <ProductImages
-            src={data.colors[0].images[0].image}
+            src={
+              data.colors[0].images.length > 0
+                ? data.colors[0].images[0].image
+                : ""
+            }
             name={data.name}
           />
           <ProductInfo
