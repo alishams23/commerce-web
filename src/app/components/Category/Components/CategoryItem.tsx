@@ -1,4 +1,4 @@
-import { TCategoryChild } from "@/lib/API/Home/categories";
+import { TCategoryChild } from "@/lib/API/Home/Categories";
 import Image from "next/image";
 
 function CategoryItem({

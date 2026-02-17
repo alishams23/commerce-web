@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { TGalleryResponse } from "@/lib/API/Home/gallery";
+import { TGalleryResponse } from "@/lib/API/Home/Gallery";
 
 import GalleryThumbnails from "./GalleryThumbnails";
 

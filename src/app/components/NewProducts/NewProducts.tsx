@@ -3,7 +3,7 @@
 import ProductsListRow from "@/components/ProductsListRow/ProductsListRow";
 
 import { useQuery } from "@tanstack/react-query";
-import { getNewProducts } from "@/lib/API/Home/productsNew";
+import { getNewProducts } from "@/lib/API/Home/ProductsNew";
 
 function NewProducts() {
   /* -------------------------------------------------------------------------- */

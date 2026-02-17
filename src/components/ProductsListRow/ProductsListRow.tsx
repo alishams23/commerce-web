@@ -2,7 +2,7 @@ import { ArrowLeft } from "iconsax-reactjs";
 
 import { cn } from "@/lib/utils";
 
-import { TProductResponse } from "@/lib/API/Home/productsNew";
+import { TProductResponse } from "@/lib/API/Home/ProductsNew";
 
 import { Button } from "../ui/button";
 import IconStar from "../icons/IconStar";

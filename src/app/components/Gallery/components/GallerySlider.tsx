@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { getGalleryImages } from "@/lib/API/Home/gallery";
+import { getGalleryImages } from "@/lib/API/Home/Gallery";
 
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";

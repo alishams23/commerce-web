@@ -8,7 +8,7 @@ import { Bag } from "iconsax-reactjs";
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { TProductColor } from "@/lib/API/Home/productsNew";
+import { TProductColor } from "@/lib/API/Home/ProductsNew";
 
 type TProductsItemCardProps = {
   src: string;

@@ -7,7 +7,7 @@ import CategoryItem from "./CategoryItem";
 import useBadgeSlider from "@/hooks/useBadgeSlider";
 import { Button } from "@/components/ui/button";
 import { useQuery } from "@tanstack/react-query";
-import { getCategories } from "@/lib/API/Home/categories";
+import { getCategories } from "@/lib/API/Home/Categories";
 
 function CategorySlider() {
   /* -------------------------------------------------------------------------- */

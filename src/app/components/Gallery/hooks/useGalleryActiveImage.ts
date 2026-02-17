@@ -1,4 +1,4 @@
-import { TGalleryResponse } from "@/lib/API/Home/gallery";
+import { TGalleryResponse } from "@/lib/API/Home/Gallery";
 import { useEffect, useRef, useState } from "react";
 
 function useGalleryActiveImage(data: TGalleryResponse[] | undefined) {
