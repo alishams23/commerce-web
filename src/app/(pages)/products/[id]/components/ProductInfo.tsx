@@ -1,21 +1,21 @@
+import { TProductColor } from "@/lib/API/Home/ProductsNew";
 import ProductColors from "./ProductColors";
 
-function ProductInfo({
-  title,
-  id,
-  colors,
-}: {
+type TProductInfoProps = {
   title: string;
   id: number;
-  colors: string[];
-}) {
+  colors: TProductColor[];
+  brand: { id: number; name: string } | null;
+};
+
+function ProductInfo({ id, title, colors, brand }: TProductInfoProps) {
   return (
     <div className="flex grow flex-col gap-2 overflow-hidden">
       <div className="text-lg font-black">{title}</div>
       <div className="text-subtitle text-[14px]">کیف اسپرت</div>
 
       <ul className="text-subtitle list-disc pr-4 text-[14px]">
-        <li>برند: آدیداس</li>
+        {brand && <li>برند: {brand.name}</li>}
         <li>شناسه محصول: {id}</li>
         <li>رنگ:</li>
       </ul>

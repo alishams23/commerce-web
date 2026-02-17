@@ -1,47 +1,59 @@
+"use client";
+
 import { use } from "react";
-import { notFound } from "next/navigation";
 
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
-// import ProductsListRow from "@/components/ProductsListRow/ProductsListRow";
-
-import { PAGE_PRODUCTS } from "../constants";
-
 import ProductImages from "./components/ProductImages";
 import ProductInfo from "./components/ProductInfo";
 import ProductPurchaseBox from "./components/ProductPurchaseBox";
 import ProductTabs from "./components/ProductTabs";
-
-// import { NEW_PRODUCTS } from "@/app/components/NewProducts/constants";
+import { getProductById } from "@/lib/API/Products/ProductById";
+import { useQuery } from "@tanstack/react-query";
 
 function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
 
-  // TODO: Get item from API
-  const product = PAGE_PRODUCTS.find((item) => item.id === Number(id));
+  /* -------------------------------------------------------------------------- */
+  /*                                 React Query                                */
+  /* -------------------------------------------------------------------------- */
 
-  if (!product) {
-    notFound();
-  }
+  const PRODUCT_QUERY_KEY = ["product-by-id"];
+  const { data, isLoading, isError } = useQuery({
+    queryKey: PRODUCT_QUERY_KEY,
+    queryFn: () => getProductById(id),
+  });
 
   return (
     <div className="mx-12 flex flex-col gap-6 lg:mx-36">
       <Breadcrumbs
         items={[
           { href: "/products", name: "محصولات" },
-          { href: `/products/${id}`, name: product.title },
+          { href: `/products/${id}`, name: data?.name || "" },
         ]}
       />
 
-      <div className="flex flex-col gap-6 lg:flex-row">
-        <ProductImages src={product.src} title={product.title} />
-        <ProductInfo
-          title={product.title}
-          id={product.id}
-          colors={product.colors}
-        />
-        <ProductPurchaseBox price={product.price} discountPercent={27} />
-      </div>
-      <ProductTabs />
+      {!isError && !isLoading && data && (
+        <div className="flex flex-col gap-6 lg:flex-row">
+          <ProductImages
+            src={data.colors[0].images[0].image}
+            name={data.name}
+          />
+          <ProductInfo
+            title={data.name}
+            id={data.id}
+            colors={data.colors}
+            brand={data.brand}
+          />
+          <ProductPurchaseBox
+            price={data.fixed_price}
+            discountPercent={data.percentage}
+          />
+        </div>
+      )}
+
+      {!isError && !isLoading && data && (
+        <ProductTabs description={data.description} brand={data.brand} />
+      )}
 
       {/* <ProductsListRow
         products={NEW_PRODUCTS}
