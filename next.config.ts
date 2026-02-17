@@ -1,19 +1,20 @@
 import type { NextConfig } from "next";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+if (!apiUrl) {
+  throw new Error("NEXT_PUBLIC_API_BASE_URL is not defined");
+}
+
+const parsedUrl = new URL(apiUrl);
+
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
-      // new URL(`${process.env.NEXT_PUBLIC_API_BASE_URL}/media/**`),
       {
-        protocol: process.env.NEXT_PUBLIC_API_BASE_URL?.startsWith("https")
-          ? "https"
-          : "http",
-        hostname:
-          process.env.NEXT_PUBLIC_API_BASE_URL?.replace(
-            /https?:\/\//,
-            "",
-          ).replace(/:\d{4}/, "") || "",
+        protocol: parsedUrl.protocol.replace(":", "") as "http" | "https",
+        hostname: parsedUrl.hostname,
+        port: parsedUrl.port,
         pathname: "/media/**",
       },
     ],
