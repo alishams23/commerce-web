@@ -44,6 +44,10 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
     queryFn: () => getProductById(id),
   });
 
+  /* -------------------------------------------------------------------------- */
+  /*                                    React                                   */
+  /* -------------------------------------------------------------------------- */
+
   useEffect(() => {
     if (error && error.status === 404) {
       router.replace("/not-found");
