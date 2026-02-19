@@ -6,9 +6,18 @@ type TProductInfoProps = {
   id: number;
   colors: TProductColor[];
   brand: { id: number; name: string } | null;
+  activeColor: number;
+  activeColorChange: (index: number) => void;
 };
 
-function ProductInfo({ id, title, colors, brand }: TProductInfoProps) {
+function ProductInfo({
+  id,
+  title,
+  colors,
+  brand,
+  activeColor,
+  activeColorChange,
+}: TProductInfoProps) {
   return (
     <div className="flex grow flex-col gap-2 overflow-hidden">
       <div className="text-lg font-black">{title}</div>
@@ -20,7 +29,11 @@ function ProductInfo({ id, title, colors, brand }: TProductInfoProps) {
         <li>رنگ:</li>
       </ul>
 
-      <ProductColors colors={colors} />
+      <ProductColors
+        colors={colors}
+        activeColor={activeColor}
+        activeColorChange={activeColorChange}
+      />
     </div>
   );
 }

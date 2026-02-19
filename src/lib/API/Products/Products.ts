@@ -5,20 +5,22 @@ import {
 import { APIRequest } from "../APIRequest";
 import { PaginatedResponse } from "../APITypes";
 
-type TProductColorImage = {
+export type TProductColorImage = {
   id: number;
   image: string;
   order: number;
   is_cover: boolean;
 };
 
+type TProductColorCode = {
+  id: number;
+  name: string;
+  code: string;
+};
+
 export type TProductColor = {
   id: number;
-  color: {
-    id: number;
-    name: string;
-    code: string;
-  };
+  color: TProductColorCode;
   price: number;
   stock: number;
   images: TProductColorImage[];

@@ -4,13 +4,24 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 
+type TProductPurchaseBoxProps = {
+  price: number;
+  discountPercentage: number;
+  stock: number;
+};
+
 function ProductPurchaseBox({
   price,
-  discountPercent,
-}: {
-  price: number;
-  discountPercent: number;
-}) {
+  discountPercentage,
+  stock,
+}: TProductPurchaseBoxProps) {
+  /* -------------------------------------------------------------------------- */
+  /*                                  Constants                                 */
+  /* -------------------------------------------------------------------------- */
+
+  const discountAmount = (price * discountPercentage) / 100;
+  const finalPrice = price - discountAmount;
+
   /* -------------------------------------------------------------------------- */
   /*                                    React                                   */
   /* -------------------------------------------------------------------------- */
@@ -18,11 +29,13 @@ function ProductPurchaseBox({
   const [prodCount, setProdCount] = useState<number>(1);
 
   /* -------------------------------------------------------------------------- */
-  /*                                  Function                                  */
+  /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
 
   function handleIncrease() {
-    setProdCount((prev) => prev + 1);
+    if (prodCount < stock) {
+      setProdCount((prev) => prev + 1);
+    }
   }
 
   function handleDecrease() {
@@ -55,19 +68,19 @@ function ProductPurchaseBox({
         </div>
 
         <div>
-          {discountPercent !== 0 && (
+          {discountPercentage !== 0 && (
             <div className="mb-2 flex gap-2">
               <div className="text-subtitle text-[14px] font-semibold line-through">
                 {price.toLocaleString("fa-IR")} تومان
               </div>
               <div className="bg-primary mr-2 rounded-full px-2 text-[12px] text-white">
-                {discountPercent.toLocaleString("fa")}%
+                {discountPercentage.toLocaleString("fa")}%
               </div>
             </div>
           )}
 
           <div className="text-primary text-center text-[20px] font-semibold">
-            {price.toLocaleString("fa-IR")} تومان
+            {finalPrice.toLocaleString("fa-IR")} تومان
           </div>
         </div>
       </div>

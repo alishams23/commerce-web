@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import { use, useState } from "react";
 
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import ProductImages from "./components/ProductImages";
@@ -11,7 +11,12 @@ import { getProductById } from "@/lib/API/Products/ProductById";
 import { useQuery } from "@tanstack/react-query";
 
 function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
+  /* -------------------------------------------------------------------------- */
+  /*                                    React                                   */
+  /* -------------------------------------------------------------------------- */
+
   const { id } = use(params);
+  const [activeColor, setActiveColor] = useState<number>(0);
 
   /* -------------------------------------------------------------------------- */
   /*                                 React Query                                */
@@ -35,22 +40,23 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
       {!isError && !isLoading && data && (
         <div className="flex flex-col gap-6 lg:flex-row">
           <ProductImages
-            src={
-              data.colors[0].images.length > 0
-                ? data.colors[0].images[0].image
-                : ""
-            }
             name={data.name}
+            images={data.colors[activeColor].images}
           />
+
           <ProductInfo
-            title={data.name}
             id={data.id}
+            title={data.name}
             colors={data.colors}
             brand={data.brand}
+            activeColor={activeColor}
+            activeColorChange={(index) => setActiveColor(index)}
           />
+
           <ProductPurchaseBox
-            price={data.fixed_price}
-            discountPercent={data.percentage}
+            price={data.colors[activeColor].price}
+            discountPercentage={data.percentage}
+            stock={data.colors[activeColor].stock}
           />
         </div>
       )}
