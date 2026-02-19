@@ -1,16 +1,27 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import ProductImages from "./components/ProductImages";
 import ProductInfo from "./components/ProductInfo";
 import ProductPurchaseBox from "./components/ProductPurchaseBox";
 import ProductTabs from "./components/ProductTabs";
-import { getProductById } from "@/lib/API/Products/ProductById";
+import {
+  getProductById,
+  TProductByIdResponse,
+} from "@/lib/API/Products/ProductById";
+import { APIError } from "@/lib/API/APIRequest";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 
 function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
+  /* -------------------------------------------------------------------------- */
+  /*                                    Next                                    */
+  /* -------------------------------------------------------------------------- */
+
+  const router = useRouter();
+
   /* -------------------------------------------------------------------------- */
   /*                                    React                                   */
   /* -------------------------------------------------------------------------- */
@@ -26,13 +37,22 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
     data: product,
     isLoading,
     isError,
-  } = useQuery({
+    error,
+    // <TProductByIdResponse, Error, TProductByIdResponse, string[]>
+  } = useQuery<TProductByIdResponse, APIError, TProductByIdResponse, string[]>({
     queryKey: ["product-by-id", id],
     queryFn: () => getProductById(id),
   });
 
+  useEffect(() => {
+    if (error && error.status === 404) {
+      router.replace("/not-found");
+    }
+  }, [error, router]);
+
   if (isLoading) return <div>Loading...</div>;
-  if (isError || !product) return <div>Something went wrong.</div>;
+  if ((isError && (!error || error.status !== 404)) || !product)
+    return <div>Something went wrong.</div>;
 
   const selectedColor = product.colors[selectedColorIndex];
 
