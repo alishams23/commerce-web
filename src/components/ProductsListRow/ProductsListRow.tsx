@@ -42,17 +42,27 @@ function ProductsListRow({
 
       {/* Items */}
       <div className="scrollbar-hide flex gap-3 overflow-x-auto lg:mx-0 lg:gap-6">
-        {products.map(({ id, colors, fixed_price, cover_image, name }) => (
-          <ProductsItemCard
-            id={id}
-            key={id}
-            colors={colors}
-            price={fixed_price}
-            src={cover_image || ""}
-            title={name}
-            className="grow"
-          />
-        ))}
+        {products.map(({ id, colors, fixed_price, name }) => {
+          // TODO: Change this logic and add all images to component
+          let t = "";
+          colors.some((c) =>
+            c.images.some((img) => {
+              if (img.is_cover) t = img.image;
+            }),
+          );
+
+          return (
+            <ProductsItemCard
+              key={id}
+              colors={colors}
+              price={fixed_price}
+              src={t || ""}
+              title={name}
+              size="small"
+              id={id}
+            />
+          );
+        })}
       </div>
 
       <Button className="flex w-fit gap-3 self-center rounded-lg bg-[#EBF0FF] p-6 text-[#373254] lg:hidden">
