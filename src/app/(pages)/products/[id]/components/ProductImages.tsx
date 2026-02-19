@@ -6,6 +6,7 @@ import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { TProductColorImage } from "@/lib/API/Products/Products";
 import { useState } from "react";
+import { NO_IMAGE } from "@/app/constants";
 
 type TProductImagesProps = {
   name: string;
@@ -53,7 +54,7 @@ function ProductImages({ name, images }: TProductImagesProps) {
 
         <Image
           alt={`${currentImage.id}-${name}`}
-          src={currentImage.image}
+          src={currentImage.image || NO_IMAGE}
           width={500}
           height={500}
         />
@@ -76,7 +77,7 @@ function ProductImages({ name, images }: TProductImagesProps) {
             <Image
               key={img.id}
               alt={`${img.id}-${name}`}
-              src={img.image}
+              src={img.image || NO_IMAGE}
               width={70}
               height={70}
             />

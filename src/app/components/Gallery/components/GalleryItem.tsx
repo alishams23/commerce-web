@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { TGalleryResponse } from "@/lib/API/Home/Gallery";
 
 import GalleryThumbnails from "./GalleryThumbnails";
+import { NO_IMAGE } from "@/app/constants";
 
 type TGalleryItemProps = {
   image: TGalleryResponse;
@@ -36,7 +37,7 @@ function GalleryItem({
       )}
     >
       <Image
-        src={image.image}
+        src={image.image || NO_IMAGE}
         // TODO: Change the alt
         alt={`Gallery image ${image.id}`}
         fill

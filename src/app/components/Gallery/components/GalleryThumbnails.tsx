@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { TGalleryResponse } from "@/lib/API/Home/Gallery";
+import { NO_IMAGE } from "@/app/constants";
 
 type TGalleryThumbnailsProps = {
   images: TGalleryResponse[];
@@ -24,7 +25,7 @@ function GalleryThumbnails({ images, activeId }: TGalleryThumbnailsProps) {
             )}
           >
             <Image
-              src={image.image}
+              src={image.image || NO_IMAGE}
               fill
               sizes="62px"
               // TODO: Change the alt

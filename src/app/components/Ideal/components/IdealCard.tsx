@@ -4,6 +4,7 @@ import { ArrowLeft } from "iconsax-reactjs";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { NO_IMAGE } from "@/app/constants";
 
 type TIdealCardProps = {
   titleGradient: string;
@@ -52,7 +53,7 @@ function IdealCard({
       </div>
       <Image
         alt={title}
-        src={src}
+        src={src || NO_IMAGE}
         width={124}
         height={124}
         className="h-31 w-31 self-center lg:h-50 lg:w-50"

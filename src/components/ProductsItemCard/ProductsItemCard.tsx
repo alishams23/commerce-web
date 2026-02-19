@@ -9,6 +9,7 @@ import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { TProductColor } from "@/lib/API/Products/Products";
+import { NO_IMAGE } from "@/app/constants";
 
 type TProductsItemCardProps = {
   src: string;
@@ -71,7 +72,7 @@ function ProductsItemCard({
 
         <Image
           alt={title}
-          src={src}
+          src={src || NO_IMAGE}
           width={120}
           height={120}
           className={
