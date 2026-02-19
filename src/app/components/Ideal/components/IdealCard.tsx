@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowLeft } from "iconsax-reactjs";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { NO_IMAGE } from "@/app/constants";
 
 type TIdealCardProps = {

@@ -7,7 +7,7 @@ import { Bag } from "iconsax-reactjs";
 
 import { IconArrowLeft, IconArrowRight } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { TProductColor } from "@/lib/API/Products/Products";
 import { NO_IMAGE } from "@/app/constants";
 

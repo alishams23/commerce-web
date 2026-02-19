@@ -35,7 +35,7 @@ function useCountdown(targetDate: Date): {
   /* -------------------------------------------------------------------------- */
 
   function twoDigits(num: number) {
-    return num.toLocaleString("fa").padStart(2, "0");
+    return num.toLocaleString("fa").padStart(2, "۰");
   }
 
   /* -------------------------------------------------------------------------- */

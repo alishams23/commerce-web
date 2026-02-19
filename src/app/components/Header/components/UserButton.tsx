@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { User } from "iconsax-reactjs";
 
 function UserButton({ className }: { className?: string }) {

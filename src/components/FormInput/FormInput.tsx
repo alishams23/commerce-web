@@ -1,6 +1,6 @@
 import { HTMLInputTypeAttribute, ReactElement } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 import { Input } from "../ui/input";
 import { TFormProps } from "../Form/FormType";

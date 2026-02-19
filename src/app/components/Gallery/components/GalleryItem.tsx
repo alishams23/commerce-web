@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { TGalleryResponse } from "@/lib/API/Home/Gallery";
 
 import GalleryThumbnails from "./GalleryThumbnails";

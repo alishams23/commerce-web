@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { TProductColor } from "@/lib/API/Products/Products";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 function ProductColors({
   colors,

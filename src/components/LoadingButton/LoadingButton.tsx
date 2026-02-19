@@ -2,7 +2,7 @@ import { ComponentProps } from "react";
 
 import { Level } from "iconsax-reactjs";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/button";
 
 type LoadingButtonProps = ComponentProps<typeof Button> & {

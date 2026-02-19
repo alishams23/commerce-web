@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 import FactoryInfoInstagram from "./components/FactoryInfoInstagram";
 import FactoryInfoActions from "./components/FactoryInfoActions";

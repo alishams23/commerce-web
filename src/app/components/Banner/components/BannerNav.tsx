@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { NAV_BUTTON_BASE, NAV_ITEMS } from "./constants";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import Link from "next/link";
 
 function BannerNav() {

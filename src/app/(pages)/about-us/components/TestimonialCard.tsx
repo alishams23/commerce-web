@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { QuoteDown } from "iconsax-reactjs";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 type TTestimonialCardProps = {
   isActive: boolean;

@@ -1,6 +1,6 @@
 import { ArrowLeft } from "iconsax-reactjs";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 import { TProductResponse } from "@/lib/API/Products/Products";
 

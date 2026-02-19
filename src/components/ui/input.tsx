@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 const inputVariants = cva(
   "placeholder:text-title/70 flex h-10 w-full rounded-2xl px-3 py-2 text-base disabled:cursor-not-allowed disabled:opacity-50 lg:text-sm",
