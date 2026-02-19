@@ -10,10 +10,9 @@ function NewProducts() {
   /*                                 React Query                                */
   /* -------------------------------------------------------------------------- */
 
-  const NEW_PRODUCTS_QUERY_KEY = ["products", "new", "home"];
   const { data, isLoading, isError } = useQuery({
-    queryKey: NEW_PRODUCTS_QUERY_KEY,
-    queryFn: () => getProducts(),
+    queryKey: ["new-products-home"],
+    queryFn: () => getProducts({ pageSize: 10 }),
   });
 
   return (

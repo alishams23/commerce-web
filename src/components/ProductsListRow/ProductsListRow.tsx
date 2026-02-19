@@ -60,6 +60,7 @@ function ProductsListRow({
               title={name}
               size="small"
               id={id}
+              className="lg:min-w-55"
             />
           );
         })}
