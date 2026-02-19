@@ -59,7 +59,7 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
 
         <ProductPurchaseBox
           price={selectedColor.price}
-          discountPercentage={product.percentage}
+          discountPercentage={product.discount_percentage}
           stock={selectedColor.stock}
         />
       </div>

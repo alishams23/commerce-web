@@ -20,7 +20,7 @@ export type TProductByIdResponse = {
     name: string;
   } | null;
   fixed_price: number;
-  percentage: number;
+  discount_percentage: number;
   is_published: boolean;
   is_favorite: boolean;
   specifications: string;

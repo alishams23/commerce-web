@@ -20,6 +20,7 @@ type TProductColorCode = {
 
 export type TProductColor = {
   id: number;
+  discounted_price: number;
   color: TProductColorCode;
   price: number;
   stock: number;
@@ -30,8 +31,8 @@ export type TProductResponse = {
   id: number;
   name: string;
   fixed_price: number;
-  cover_image: string | null;
   colors: TProductColor[];
+  discount_percentage: number;
 };
 
 export async function getProducts(
