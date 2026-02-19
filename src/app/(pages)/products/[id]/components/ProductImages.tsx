@@ -17,19 +17,27 @@ function ProductImages({ name, images }: TProductImagesProps) {
   /*                                    React                                   */
   /* -------------------------------------------------------------------------- */
 
-  const [activeImage, setActiveImage] = useState<number>(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Constant                                  */
+  /* -------------------------------------------------------------------------- */
+
+  const currentImage = images[currentImageIndex];
 
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
 
-  function handleNextImage() {
-    setActiveImage((prev) => (prev + 1) % images.length);
+  function goToNextImage() {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
   }
 
-  function handlePrevImage() {
-    setActiveImage((prev) => (prev - 1 + images.length) % images.length);
+  function goToPreviousImage() {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
   }
+
+  if (!images.length) return null;
 
   return (
     <div className="flex flex-col">
@@ -38,14 +46,14 @@ function ProductImages({ name, images }: TProductImagesProps) {
           size="icon"
           variant="outline"
           className="hidden border-none lg:flex"
-          onClick={handleNextImage}
+          onClick={goToNextImage}
         >
           <IconArrowRight />
         </Button>
 
         <Image
-          alt={`${images[activeImage].id}-${name}`}
-          src={images[activeImage].image}
+          alt={`${currentImage.id}-${name}`}
+          src={currentImage.image}
           width={500}
           height={500}
         />
@@ -54,7 +62,7 @@ function ProductImages({ name, images }: TProductImagesProps) {
           size="icon"
           variant="outline"
           className="hidden border-none lg:flex"
-          onClick={handlePrevImage}
+          onClick={goToPreviousImage}
         >
           <IconArrowLeft />
         </Button>
@@ -62,7 +70,7 @@ function ProductImages({ name, images }: TProductImagesProps) {
 
       <div className="flex justify-center gap-4">
         {images.map((img, index) => {
-          if (index === activeImage) return;
+          if (index === currentImageIndex) return;
 
           return (
             <Image

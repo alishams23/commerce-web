@@ -16,54 +16,55 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
   /* -------------------------------------------------------------------------- */
 
   const { id } = use(params);
-  const [activeColor, setActiveColor] = useState<number>(0);
+  const [selectedColorIndex, setSelectedColorIndex] = useState<number>(0);
 
   /* -------------------------------------------------------------------------- */
   /*                                 React Query                                */
   /* -------------------------------------------------------------------------- */
 
-  const PRODUCT_QUERY_KEY = ["product-by-id"];
-  const { data, isLoading, isError } = useQuery({
-    queryKey: PRODUCT_QUERY_KEY,
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["product-by-id", id],
     queryFn: () => getProductById(id),
   });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError || !product) return <div>Something went wrong.</div>;
+
+  const selectedColor = product.colors[selectedColorIndex];
 
   return (
     <div className="mx-12 flex flex-col gap-6 lg:mx-36">
       <Breadcrumbs
         items={[
           { href: "/products", name: "محصولات" },
-          { href: `/products/${id}`, name: data?.name || "" },
+          { href: `/products/${id}`, name: product.name },
         ]}
       />
 
-      {!isError && !isLoading && data && (
-        <div className="flex flex-col gap-6 lg:flex-row">
-          <ProductImages
-            name={data.name}
-            images={data.colors[activeColor].images}
-          />
+      <div className="flex flex-col gap-6 lg:flex-row">
+        <ProductImages name={product.name} images={selectedColor.images} />
 
-          <ProductInfo
-            id={data.id}
-            title={data.name}
-            colors={data.colors}
-            brand={data.brand}
-            activeColor={activeColor}
-            activeColorChange={(index) => setActiveColor(index)}
-          />
+        <ProductInfo
+          id={product.id}
+          title={product.name}
+          colors={product.colors}
+          brand={product.brand}
+          activeColor={selectedColorIndex}
+          activeColorChange={(index) => setSelectedColorIndex(index)}
+        />
 
-          <ProductPurchaseBox
-            price={data.colors[activeColor].price}
-            discountPercentage={data.percentage}
-            stock={data.colors[activeColor].stock}
-          />
-        </div>
-      )}
+        <ProductPurchaseBox
+          price={selectedColor.price}
+          discountPercentage={product.percentage}
+          stock={selectedColor.stock}
+        />
+      </div>
 
-      {!isError && !isLoading && data && (
-        <ProductTabs description={data.description} brand={data.brand} />
-      )}
+      <ProductTabs description={product.description} brand={product.brand} />
 
       {/* <ProductsListRow
         products={NEW_PRODUCTS}

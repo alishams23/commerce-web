@@ -26,22 +26,18 @@ function ProductPurchaseBox({
   /*                                    React                                   */
   /* -------------------------------------------------------------------------- */
 
-  const [prodCount, setProdCount] = useState<number>(1);
+  const [quantity, setQuantity] = useState<number>(1);
 
   /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
 
-  function handleIncrease() {
-    if (prodCount < stock) {
-      setProdCount((prev) => prev + 1);
-    }
+  function increaseQuantity() {
+    setQuantity((prev) => Math.min(prev + 1, stock));
   }
 
-  function handleDecrease() {
-    if (prodCount > 1) {
-      setProdCount((prev) => prev - 1);
-    }
+  function decreaseQuantity() {
+    setQuantity((prev) => Math.max(prev - 1, 1));
   }
 
   return (
@@ -52,23 +48,23 @@ function ProductPurchaseBox({
             size="icon"
             variant="secondary"
             className="text-[30px]"
-            onClick={handleIncrease}
+            onClick={increaseQuantity}
           >
             +
           </Button>
-          {prodCount.toLocaleString("fa")}
+          {quantity.toLocaleString("fa")}
           <Button
             size="icon"
             variant="secondary"
             className="text-[30px]"
-            onClick={handleDecrease}
+            onClick={decreaseQuantity}
           >
             -
           </Button>
         </div>
 
         <div>
-          {discountPercentage !== 0 && (
+          {discountPercentage > 0 && (
             <div className="mb-2 flex gap-2">
               <div className="text-subtitle text-[14px] font-semibold line-through">
                 {price.toLocaleString("fa-IR")} تومان
