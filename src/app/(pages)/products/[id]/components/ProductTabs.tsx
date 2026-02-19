@@ -60,7 +60,13 @@ function ProductTabs({ description, brand }: TProductTabsProps) {
       <TabsContent value="descriptions">
         <div className="text-title text-lg font-black">توضیحات</div>
         <hr className="text-title my-2" />
-        <p className="text-[14px]">{description}</p>
+        {description ? (
+          <p className="text-[14px]">{description}</p>
+        ) : (
+          <div className="text-subtitle text-lg font-semibold">
+            توضیحات یافت نشد.
+          </div>
+        )}
       </TabsContent>
 
       <TabsContent value="info">
@@ -75,7 +81,11 @@ function ProductTabs({ description, brand }: TProductTabsProps) {
       <TabsContent value="comments">
         <div className="text-title text-lg font-black">نظرات</div>
         <hr className="text-title my-2" />
-        <div className="text-title text-lg font-black">دیدگاه شما</div>
+        <div className="text-subtitle text-lg font-semibold">
+          نظری یافت نشد.
+        </div>
+
+        <div className="text-title mt-6 text-lg font-black">دیدگاه شما</div>
         <hr className="text-title my-2" />
 
         <form
