@@ -48,7 +48,7 @@ function ProductsItemCard({
   return (
     <div
       className={cn(
-        "bg-muted relative flex min-w-fit flex-col gap-2 rounded-3xl p-4",
+        "bg-muted relative flex min-w-50 flex-col gap-2 rounded-3xl p-4",
         className,
       )}
     >
