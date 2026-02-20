@@ -42,7 +42,7 @@ function ProductImages({ name, images }: TProductImagesProps) {
 
   return (
     <div className="flex flex-col">
-      <div className="flex items-center">
+      <div className="flex h-120 items-center">
         <Button
           size="icon"
           variant="outline"
