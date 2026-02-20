@@ -41,8 +41,8 @@ function ProductPurchaseBox({
   }
 
   return (
-    <div className="bg-muted rounded-2xl px-6 py-8 lg:h-fit lg:min-w-85">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="bg-muted rounded-2xl px-6 py-8 lg:h-fit">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
         <div className="bg-muted-foreground flex items-center gap-2 rounded-2xl p-1">
           <Button
             size="icon"

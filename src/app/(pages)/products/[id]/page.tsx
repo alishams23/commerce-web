@@ -14,6 +14,7 @@ import {
 import { APIError } from "@/lib/API/APIRequest";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import ProductActions from "./components/ProductActions";
 
 function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
   /* -------------------------------------------------------------------------- */
@@ -80,6 +81,8 @@ function ProductIdPage({ params }: { params: Promise<{ id: string }> }) {
           activeColor={selectedColorIndex}
           activeColorChange={(index) => setSelectedColorIndex(index)}
         />
+
+        <ProductActions />
 
         <ProductPurchaseBox
           price={selectedColor.price}
