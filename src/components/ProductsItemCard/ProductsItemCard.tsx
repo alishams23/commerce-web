@@ -10,11 +10,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 import { TProductColor } from "@/lib/API/Products/Products";
 import { NO_IMAGE } from "@/app/constants";
+import { useState } from "react";
 
 type TProductsItemCardProps = {
-  src: string;
-  // TODO: remove the string[]
-  colors: TProductColor[] | string[];
+  colors: TProductColor[];
   title: string;
   price: number;
   id: number;
@@ -26,7 +25,6 @@ function ProductsItemCard({
   colors,
   title,
   price,
-  src,
   id,
   size = "medium",
   className,
@@ -38,11 +36,40 @@ function ProductsItemCard({
   const router = useRouter();
 
   /* -------------------------------------------------------------------------- */
-  /*                                  Function                                  */
+  /*                                    React                                   */
+  /* -------------------------------------------------------------------------- */
+
+  const [selectedColor, setSelectedColor] = useState<number>(0);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Constant                                  */
+  /* -------------------------------------------------------------------------- */
+
+  const colorThumbnails: { id: number; colorCode: string; src: string }[] =
+    colors.length > 0
+      ? colors.map(({ color, id, images }) => ({
+          id: id,
+          colorCode: color.code,
+          src: images[0]?.image || NO_IMAGE,
+        }))
+      : [{ id: 1, colorCode: "", src: NO_IMAGE }];
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
 
   function onItemClick(itemId: number) {
     router.push(`/products/${itemId}`);
+  }
+
+  function onNextImage() {
+    setSelectedColor((prev) => (prev + 1) % colorThumbnails.length);
+  }
+
+  function onPrevImage() {
+    setSelectedColor(
+      (prev) => (prev - 1 + colorThumbnails.length) % colorThumbnails.length,
+    );
   }
 
   return (
@@ -58,6 +85,7 @@ function ProductsItemCard({
             size="icon"
             variant="outline"
             className="rounded-tl-none rounded-br-none border-2 border-[#E2E2E2] hover:bg-[#F5F5F5]"
+            onClick={onPrevImage}
           >
             <IconArrowRight color="#E2E2E2" />
           </Button>
@@ -65,6 +93,7 @@ function ProductsItemCard({
             size="icon"
             variant="outline"
             className="rounded-tr-none rounded-bl-none border-2 border-[#E2E2E2] hover:bg-[#F5F5F5]"
+            onClick={onNextImage}
           >
             <IconArrowLeft color="#E2E2E2" />
           </Button>
@@ -72,7 +101,7 @@ function ProductsItemCard({
 
         <Image
           alt={title}
-          src={src || NO_IMAGE}
+          src={colorThumbnails[selectedColor].src}
           width={120}
           height={120}
           className={
@@ -81,30 +110,23 @@ function ProductsItemCard({
         />
 
         <div className="flex gap-1 self-end p-1">
-          {/* TODO: remove this condition */}
-          {typeof colors[0] !== "string" &&
-            (colors as TProductColor[]).map(
-              (
-                {
-                  color,
-                  id,
-                  // images, price, stock
-                },
-                index,
-              ) => (
-                <div
-                  key={`${id}-${index}`}
-                  className="h-6 w-6 rounded-lg"
-                  // TODO: remove "?" and change style
-                  style={{
-                    backgroundColor: color?.code,
-                    boxShadow: "1px 1px 1px black",
-                  }}
-                />
-              ),
-            )}
+          {colorThumbnails.map(({ id, colorCode }, index) => (
+            <div
+              key={`${id}-${index}`}
+              className={cn(
+                "h-6 w-6 rounded-lg border",
+                selectedColor === index
+                  ? "border-primary border-2"
+                  : "border-subtitle border",
+              )}
+              style={{
+                backgroundColor: colorCode,
+              }}
+            />
+          ))}
         </div>
       </div>
+
       <div
         className="text-title cursor-pointer font-semibold"
         onClick={() => onItemClick(id)}
