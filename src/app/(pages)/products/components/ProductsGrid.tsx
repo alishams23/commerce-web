@@ -10,7 +10,6 @@ function ProductsGrid({ products }: { products: TProductResponse[] }) {
           colors={colors}
           price={fixed_price}
           title={name}
-          size="small"
           id={id}
         />
       ))}
