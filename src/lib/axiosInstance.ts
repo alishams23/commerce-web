@@ -2,8 +2,6 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 
 const defaultAxiosHeaders = { "Content-Type": "application/json" };
 
-// -----------------------------------
-
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "";
 
 const AXIOS = axios.create({
