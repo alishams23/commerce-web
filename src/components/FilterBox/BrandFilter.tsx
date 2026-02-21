@@ -22,7 +22,7 @@ function BrandFilter({ isInDrawer }: { isInDrawer: boolean }) {
   /*                              Filter Query Sync                             */
   /* -------------------------------------------------------------------------- */
 
-  const handleSubmit = useFilterQuerySync("brands");
+  const { handleSubmit, defaultValues } = useFilterQuerySync("brand");
 
   return (
     <div className="bg-muted text-title flex flex-col gap-4 rounded-2xl px-4 py-3">
@@ -40,6 +40,9 @@ function BrandFilter({ isInDrawer }: { isInDrawer: boolean }) {
                 id={name}
                 value={id}
                 className="w-4"
+                defaultChecked={defaultValues?.some(
+                  (val) => val === id.toString(),
+                )}
               />
               <label htmlFor={name}>{name}</label>
             </div>

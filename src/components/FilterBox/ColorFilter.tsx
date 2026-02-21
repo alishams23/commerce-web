@@ -22,7 +22,7 @@ function ColorFilter({ isInDrawer }: { isInDrawer: boolean }) {
   /*                              Filter Query Sync                             */
   /* -------------------------------------------------------------------------- */
 
-  const handleSubmit = useFilterQuerySync("colors");
+  const { handleSubmit, defaultValues } = useFilterQuerySync("colors");
 
   return (
     <div className="bg-muted text-title flex flex-col gap-4 rounded-2xl px-4 py-3">
@@ -40,6 +40,9 @@ function ColorFilter({ isInDrawer }: { isInDrawer: boolean }) {
                 type="checkbox"
                 value={id}
                 className="w-4"
+                defaultChecked={defaultValues?.some(
+                  (val) => val === id.toString(),
+                )}
               />
               <div
                 style={{ backgroundColor: code }}

@@ -10,6 +10,12 @@ export function useFilterQuerySync(paramKey: string) {
   const searchParams = useSearchParams();
 
   /* -------------------------------------------------------------------------- */
+  /*                                  Constants                                 */
+  /* -------------------------------------------------------------------------- */
+
+  const defaultValues = searchParams.get(paramKey)?.split(",");
+
+  /* -------------------------------------------------------------------------- */
   /*                                  Functions                                 */
   /* -------------------------------------------------------------------------- */
 
@@ -30,5 +36,5 @@ export function useFilterQuerySync(paramKey: string) {
     router.push(`?${params.toString()}`, { scroll: false });
   }
 
-  return handleSubmit;
+  return { handleSubmit, defaultValues };
 }

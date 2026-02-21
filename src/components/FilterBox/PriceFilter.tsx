@@ -16,11 +16,17 @@ function PriceFilter({ isInDrawer }: { isInDrawer: boolean }) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const minPrice = Number(searchParams.get("min_price")) || 500000;
+  const maxPrice = Number(searchParams.get("max_price")) || 25000000;
+
   /* -------------------------------------------------------------------------- */
   /*                                    React                                   */
   /* -------------------------------------------------------------------------- */
 
-  const [priceRange, setPriceRange] = useState([50, 2500]);
+  const [priceRange, setPriceRange] = useState<number[]>([
+    minPrice / 10000,
+    maxPrice / 10000,
+  ]);
 
   /* -------------------------------------------------------------------------- */
   /*                                  Function                                  */
