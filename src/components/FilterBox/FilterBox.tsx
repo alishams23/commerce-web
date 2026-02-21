@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 
-import SearchInput from "@/app/components/Header/components/SearchInput";
+// import SearchInput from "@/app/components/Header/components/SearchInput";
 
 import { Button } from "../ui/button";
 
@@ -10,7 +10,12 @@ import PriceFilter from "./PriceFilter";
 import FactoryInfoNotice from "./FactoryInfoNotice";
 import FiltersHeader from "./FiltersHeader";
 
-function FilterBox({ className }: { className?: string }) {
+type TFilterBoxProps = {
+  isInDrawer: boolean;
+  className?: string;
+};
+
+function FilterBox({ isInDrawer, className }: TFilterBoxProps) {
   return (
     <div className={cn("flex flex-col gap-5", className)}>
       <FiltersHeader />
@@ -24,11 +29,11 @@ function FilterBox({ className }: { className?: string }) {
           <Button className="grow">محصولات کارخانه</Button>
         </div>
 
-        <SearchInput />
+        {/* <SearchInput /> */}
 
-        <PriceFilter />
-        <ColorFilter />
-        <BrandFilter />
+        <PriceFilter isInDrawer={isInDrawer} />
+        <ColorFilter isInDrawer={isInDrawer} />
+        <BrandFilter isInDrawer={isInDrawer} />
       </div>
     </div>
   );

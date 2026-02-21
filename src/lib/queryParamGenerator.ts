@@ -3,6 +3,10 @@ export type GetProductsParams = {
   pageSize?: number;
   search?: string;
   ordering?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  colors?: string;
+  brands?: string;
 };
 
 export function queryParamGenerator(params?: GetProductsParams) {
@@ -24,6 +28,22 @@ export function queryParamGenerator(params?: GetProductsParams) {
 
   if (params.ordering) {
     query.append("ordering", params.ordering);
+  }
+
+  if (params.maxPrice) {
+    query.append("max_price", params.maxPrice);
+  }
+
+  if (params.minPrice) {
+    query.append("min_price", params.minPrice);
+  }
+
+  if (params.colors) {
+    query.append("color", params.colors);
+  }
+
+  if (params.brands) {
+    query.append("brand", params.brands);
   }
 
   const queryString = query.toString();

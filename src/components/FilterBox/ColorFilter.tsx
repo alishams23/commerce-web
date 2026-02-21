@@ -4,8 +4,11 @@ import { cn } from "@/lib/cn";
 import { Input } from "@/components/ui/input";
 import { useQuery } from "@tanstack/react-query";
 import { getColors } from "@/lib/API/Products/Colors";
+import { Button } from "../ui/button";
+import { useFilterQuerySync } from "./hooks/useFilterQuerySync";
+import OptionalDrawerWrapper from "./OptionalDrawerWrapper";
 
-function ColorFilter() {
+function ColorFilter({ isInDrawer }: { isInDrawer: boolean }) {
   /* -------------------------------------------------------------------------- */
   /*                                 React Query                                */
   /* -------------------------------------------------------------------------- */
@@ -15,19 +18,26 @@ function ColorFilter() {
     queryFn: getColors,
   });
 
+  /* -------------------------------------------------------------------------- */
+  /*                              Filter Query Sync                             */
+  /* -------------------------------------------------------------------------- */
+
+  const handleSubmit = useFilterQuerySync("colors");
+
   return (
     <div className="bg-muted text-title flex flex-col gap-4 rounded-2xl px-4 py-3">
       <div>فیلتر براساس رنگ :</div>
       <hr className="text-title" />
 
-      <div className="flex flex-col text-[14px]">
+      <form onSubmit={handleSubmit} className="flex flex-col text-[14px]">
         {!isLoading &&
           data &&
           data.map(({ id, code, name }) => (
             <div key={id} className="flex items-center gap-2">
               <Input
-                type="checkbox"
                 id={id.toString()}
+                name="colors"
+                type="checkbox"
                 value={id}
                 className="w-4"
               />
@@ -38,7 +48,17 @@ function ColorFilter() {
               <label htmlFor={id.toString()}>{name}</label>
             </div>
           ))}
-      </div>
+
+        <OptionalDrawerWrapper isInDrawer={isInDrawer}>
+          <Button
+            type="submit"
+            variant="secondary"
+            className="bg-muted-foreground w-fit self-end"
+          >
+            فیلتر
+          </Button>
+        </OptionalDrawerWrapper>
+      </form>
     </div>
   );
 }

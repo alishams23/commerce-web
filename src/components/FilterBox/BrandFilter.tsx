@@ -3,8 +3,11 @@
 import { Input } from "@/components/ui/input";
 import { getBrands } from "@/lib/API/Products/Brands";
 import { useQuery } from "@tanstack/react-query";
+import { Button } from "../ui/button";
+import { useFilterQuerySync } from "./hooks/useFilterQuerySync";
+import OptionalDrawerWrapper from "./OptionalDrawerWrapper";
 
-function BrandFilter() {
+function BrandFilter({ isInDrawer }: { isInDrawer: boolean }) {
   /* -------------------------------------------------------------------------- */
   /*                                 React Query                                */
   /* -------------------------------------------------------------------------- */
@@ -15,21 +18,43 @@ function BrandFilter() {
     queryFn: getBrands,
   });
 
+  /* -------------------------------------------------------------------------- */
+  /*                              Filter Query Sync                             */
+  /* -------------------------------------------------------------------------- */
+
+  const handleSubmit = useFilterQuerySync("brands");
+
   return (
     <div className="bg-muted text-title flex flex-col gap-4 rounded-2xl px-4 py-3">
       <div>فیلتر براساس برند :</div>
       <hr className="text-title" />
 
-      <div className="flex flex-col text-[14px]">
+      <form onSubmit={handleSubmit} className="flex flex-col text-[14px]">
         {!isError &&
           !isLoading &&
           data?.map(({ id, name }) => (
             <div key={id} className="flex items-center gap-2">
-              <Input type="checkbox" id={name} value={id} className="w-4" />
+              <Input
+                name="brand"
+                type="checkbox"
+                id={name}
+                value={id}
+                className="w-4"
+              />
               <label htmlFor={name}>{name}</label>
             </div>
           ))}
-      </div>
+
+        <OptionalDrawerWrapper isInDrawer={isInDrawer}>
+          <Button
+            type="submit"
+            variant="secondary"
+            className="bg-muted-foreground w-fit self-end"
+          >
+            فیلتر
+          </Button>
+        </OptionalDrawerWrapper>
+      </form>
     </div>
   );
 }

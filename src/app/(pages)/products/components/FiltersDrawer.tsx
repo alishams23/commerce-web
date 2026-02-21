@@ -26,7 +26,7 @@ function FiltersDrawer() {
           </DrawerClose>
         </DrawerHeader>
 
-        <FilterBox />
+        <FilterBox isInDrawer />
       </DrawerContent>
     </Drawer>
   );

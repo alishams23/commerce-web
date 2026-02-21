@@ -21,7 +21,16 @@ function ProductsPage() {
 
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Constant                                  */
+  /* -------------------------------------------------------------------------- */
+
   const ordering = searchParams.get("ordering") ?? "";
+  const maxPrice = searchParams.get("max_price") ?? "";
+  const minPrice = searchParams.get("min_price") ?? "";
+  const colors = searchParams.get("colors") ?? "";
+  const brands = searchParams.get("brand") ?? "";
 
   /* -------------------------------------------------------------------------- */
   /*                                    React                                   */
@@ -34,12 +43,24 @@ function ProductsPage() {
   /* -------------------------------------------------------------------------- */
 
   const { data, isLoading } = useQuery({
-    queryKey: ["products", currentPage, ordering],
+    queryKey: [
+      "products",
+      currentPage,
+      ordering,
+      maxPrice,
+      minPrice,
+      colors,
+      brands,
+    ],
     queryFn: () =>
       getProducts({
         pageSize: 9,
         page: currentPage,
-        ordering: ordering,
+        ordering,
+        maxPrice,
+        minPrice,
+        colors,
+        brands,
       }),
   });
 
@@ -75,7 +96,7 @@ function ProductsPage() {
           />
         </div>
 
-        <FilterBox className="hidden max-w-84 lg:flex" />
+        <FilterBox isInDrawer={false} className="hidden max-w-84 lg:flex" />
 
         {/* Products section */}
         <div className="flex shrink-0 grow flex-col gap-6">
