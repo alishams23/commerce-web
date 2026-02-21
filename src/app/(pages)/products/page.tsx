@@ -1,6 +1,8 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import Pagination from "@/components/Pagination/Pagination";
@@ -10,15 +12,21 @@ import FilterBox from "@/components/FilterBox/FilterBox";
 import MobileSort from "./components/MobileSort";
 import DesktopSort from "./components/DesktopSort";
 import ProductsGrid from "./components/ProductsGrid";
-import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/lib/API/Products/Products";
 
 function ProductsPage() {
   /* -------------------------------------------------------------------------- */
+  /*                                    Next                                    */
+  /* -------------------------------------------------------------------------- */
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const ordering = searchParams.get("ordering") ?? "";
+
+  /* -------------------------------------------------------------------------- */
   /*                                    React                                   */
   /* -------------------------------------------------------------------------- */
 
-  const [totalPages, setTotalPages] = useState<number>(4);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   /* -------------------------------------------------------------------------- */
@@ -26,15 +34,32 @@ function ProductsPage() {
   /* -------------------------------------------------------------------------- */
 
   const { data, isLoading } = useQuery({
-    queryKey: ["paginatedProduct", currentPage],
-    queryFn: async () => {
-      const res = await getProducts({ pageSize: 9, page: currentPage });
-
-      setTotalPages(res.total_pages);
-
-      return res;
-    },
+    queryKey: ["products", currentPage, ordering],
+    queryFn: () =>
+      getProducts({
+        pageSize: 9,
+        page: currentPage,
+        ordering: ordering,
+      }),
   });
+
+  const totalPages = data?.total_pages ?? 1;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  Functions                                 */
+  /* -------------------------------------------------------------------------- */
+
+  function handleSortChange(newSort: string) {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (newSort === params.get("ordering")) {
+      params.delete("ordering");
+    } else {
+      params.set("ordering", newSort);
+    }
+
+    router.push(`?${params.toString()}`);
+  }
 
   return (
     <div className="mx-12 lg:mx-36">
@@ -44,14 +69,20 @@ function ProductsPage() {
         {/* Mobile header */}
         <div className="flex justify-between lg:hidden">
           <FiltersDrawer />
-          <MobileSort />
+          <MobileSort
+            handleSortChange={handleSortChange}
+            activeSort={ordering}
+          />
         </div>
 
         <FilterBox className="hidden max-w-84 lg:flex" />
 
         {/* Products section */}
         <div className="flex shrink-0 grow flex-col gap-6">
-          <DesktopSort />
+          <DesktopSort
+            handleSortChange={handleSortChange}
+            activeSort={ordering}
+          />
 
           {!isLoading && data && <ProductsGrid products={data.results} />}
 
