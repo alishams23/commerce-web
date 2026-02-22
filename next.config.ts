@@ -10,20 +10,22 @@ const parsedUrl = new URL(apiUrl);
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "156.236.31.140",
-        port: "8002",
-        pathname: "/media/**",
-      },
-      {
-        protocol: parsedUrl.protocol.replace(":", "") as "http" | "https",
-        hostname: parsedUrl.hostname,
-        port: parsedUrl.port,
-        pathname: "/media/**",
-      },
-    ],
+    // TODO: this is temp
+    unoptimized: true,
+    // remotePatterns: [
+    //   {
+    //     protocol: "http",
+    //     hostname: "156.236.31.140",
+    //     port: "8002",
+    //     pathname: "/media/**",
+    //   },
+    //   {
+    //     protocol: parsedUrl.protocol.replace(":", "") as "http" | "https",
+    //     hostname: parsedUrl.hostname,
+    //     port: parsedUrl.port,
+    //     pathname: "/media/**",
+    //   },
+    // ],
   },
 };
 
