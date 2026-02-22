@@ -1,8 +1,21 @@
+"use client";
+
 import AmazingDiscountsProducts from "./components/AmazingDiscountsProducts";
 import AmazingDiscountsHeader from "./components/AmazingDiscountsHeader";
 import AmazingDiscountsTimer from "./components/AmazingDiscountsTimer";
+import { useQuery } from "@tanstack/react-query";
+import { getProducts } from "@/lib/API/Products/Products";
 
 function AmazingDiscounts() {
+  /* -------------------------------------------------------------------------- */
+  /*                                 React Query                                */
+  /* -------------------------------------------------------------------------- */
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["amazing-discount-products-home"],
+    queryFn: () => getProducts({ pageSize: 3 }),
+  });
+
   return (
     <div className="mx-12 flex flex-col items-center gap-4 lg:mx-36">
       {/* Mobile header */}
@@ -19,8 +32,9 @@ function AmazingDiscounts() {
             <AmazingDiscountsHeader />
           </div>
         </div>
-
-        <AmazingDiscountsProducts />
+        {!isLoading && !isError && data && (
+          <AmazingDiscountsProducts products={data.results} />
+        )}
       </div>
     </div>
   );
